@@ -9,9 +9,11 @@
     "license": "MIT",
     "require": {
         "php": "^7.2.5",
+        "encore/laravel-admin": "^1.7",
         "fideloper/proxy": "^4.2",
         "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
+        "jxlwqq/material-ui": "^1.0",
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0"
     },
@@ -59,5 +61,11 @@
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ]
+    },
+    "repositories": {
+        "packagist": {
+            "type": "composer",
+            "url": "https://mirrors.aliyun.com/composer/"
+        }
     }
 }
