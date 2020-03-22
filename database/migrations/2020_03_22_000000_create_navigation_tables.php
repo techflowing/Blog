@@ -20,6 +20,7 @@ class CreateNavigationTables extends Migration
 
         Schema::create('navigation_sites', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('order')->default(10000);
             $table->integer('category_id');
             $table->string('title', 50);
             $table->string('thumb', 200)->nullable();

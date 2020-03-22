@@ -85,6 +85,7 @@ class SiteController extends Controller
         $show = new Show(Site::findOrFail($id));
 
         $show->id('ID');
+        $show->order('顺序');
         $show->category_id('分类');
         $show->title('标题');
         $show->thumb('图标');
@@ -105,6 +106,7 @@ class SiteController extends Controller
         $grid = new Grid(new Site);
 
         // $grid->id('ID');
+        $grid->order('顺序');
         $grid->category()->title('分类');
         $grid->title('标题');
         $grid->thumb('图标')->gallery(['width' => 25, 'height' => 25]);
@@ -140,6 +142,9 @@ class SiteController extends Controller
         $form->text('title', '标题')
             ->attribute('autocomplete', 'off')
             ->rules('required|max:50');
+        $form->text('order', '顺序')
+            ->attribute('min', 1)
+            ->attribute('max', 10000);
         $form->image('thumb', '图标')
             ->crop(120, 120)
             ->uniqueName();
