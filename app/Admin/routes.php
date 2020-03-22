@@ -11,4 +11,5 @@ Route::group([
 ], function (Router $router) {
 
     $router->get('/', 'DashboardController@index')->name('admin:dashboard');
+    $router->resource('navigation/categories', 'navigation\CategoryController');
 });
