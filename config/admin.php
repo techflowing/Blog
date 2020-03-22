@@ -373,8 +373,9 @@ return [
     |--------------------------------------------------------------------------
     | The global Grid action display class.
     |--------------------------------------------------------------------------
+    | 设置操作列按钮样式
     */
-    'grid_action_class' => \Encore\Admin\Grid\Displayers\DropdownActions::class,
+    'grid_action_class' => \Encore\Admin\Grid\Displayers\Actions::class,
 
     /*
     |--------------------------------------------------------------------------
@@ -399,6 +400,10 @@ return [
         // Laravel-admin UI 改变
         'material-ui' => [
             'enable' => true
-        ]
+        ],
+        // 图片展示
+        'grid-lightbox' => [
+            'enable' => true,
+        ],
     ],
 ];
