@@ -60,7 +60,7 @@ class CategoryController extends Controller
      * 参见：https://laravel-admin.org/docs/zh/model-form
      * @return Form
      */
-    public function form()
+    private function form()
     {
         $form = new Form(new Category);
 

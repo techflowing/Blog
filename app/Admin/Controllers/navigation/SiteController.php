@@ -101,7 +101,7 @@ class SiteController extends Controller
      * 网站列表展示
      * @return Grid
      */
-    protected function grid()
+    private function grid()
     {
         $grid = new Grid(new Site);
 
@@ -132,7 +132,7 @@ class SiteController extends Controller
      *
      * @return Form
      */
-    protected function form()
+    private function form()
     {
         $form = new Form(new Site);
 
