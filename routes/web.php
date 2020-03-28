@@ -38,11 +38,18 @@ Route::group([
     // 文章管理
     Route::resource('article', 'Article\ArticleController');
     // Wiki管理
-    Route::resource('wiki', 'Wiki\WikiProjectController');
+    Route::resource('/wiki', 'Wiki\WikiProjectController');
 
-    // Wiki 文档编辑页
-    Route::get('wiki/edit/{id}', 'Wiki\WikiDocumentController@edit')
-        ->name('wiki.document.edit')
-        ->where('id', '[0-9]+');
+    // Wiki 相关
+    Route::group([
+        'prefix' => 'wiki',
+        'namespace' => 'Wiki'
+    ], function () {
+        Route::get('edit/{id}', 'WikiDocumentController@edit')
+            ->name('wiki.document.edit')
+            ->where('id', '[0-9]+');
+        Route::post('save', 'WikiDocumentController@save')
+            ->name('wiki.document.save');
+    });
 });
 

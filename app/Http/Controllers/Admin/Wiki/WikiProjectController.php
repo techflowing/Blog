@@ -47,10 +47,11 @@ class WikiProjectController extends Controller
     /**
      * 编辑项目
      * @param $id
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function edit($id)
     {
-        route('admin.wiki.document.edit', ['id' => $id]);
+        return redirect("/admin/wiki/edit/$id");
     }
 
     /**

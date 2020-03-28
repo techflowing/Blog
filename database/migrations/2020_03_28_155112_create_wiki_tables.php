@@ -27,9 +27,11 @@ class CreateWikiTables extends Migration
         });
         Schema::create('wiki_document', function (Blueprint $table) {
             $table->increments('id')->comment('文档ID');
+            $table->integer('project_id')->comment('所属项目ID');
             $table->string('name')->comment('文档名称');
             $table->integer('type')->comment('类型，1-文件夹/ 0-文档');
             $table->integer('parent_id')->comment('父级ID');
+            $table->integer('doc_sort')->comment('排序');
             $table->longText('content')->comment('文档内容');
             $table->timestamps();
         });

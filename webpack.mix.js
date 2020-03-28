@@ -10,7 +10,7 @@ const mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
-
+// 导航站
 mix.styles([
     'resources/assets/web-stack/css/fonts/linecons/css/linecons.css',
     'resources/assets/web-stack/css/fonts/fontawesome/css/font-awesome.min.css',
@@ -34,6 +34,16 @@ mix.scripts([
     'resources/assets/web-stack/js/xenon-toggles.js',
     'resources/assets/web-stack/js/xenon-custom.js',
 ], 'public/static-navigation/js/app.js');
+
+// Wiki 系统
+mix.styles([
+    'resources/assets/wiki/bootstrap/css/bootstrap.min.css',
+    'resources/assets/wiki/editormd/css/editormd.min.css'
+], 'public/static-wiki/css/app.css');
+
+mix.scripts([
+    'resources/assets/wiki/scripts/wiki.js'
+], 'public/static-wiki/js/app.js');
 
 mix.version();
 
