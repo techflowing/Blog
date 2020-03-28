@@ -14,3 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/', 'HomeController@index');
 Route::resource('/navigation', 'NavigationController');
+
+// Wiki 项目导航
+Route::group(['prefix' => 'wiki', 'namespace' => 'wiki'], function () {
+
+
+
+});

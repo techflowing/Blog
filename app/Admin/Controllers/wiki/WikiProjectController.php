@@ -11,10 +11,10 @@ use Encore\Admin\Layout\Content;
 
 /***
  * Wiki 管理控制器
- * Class WikiController
+ * Class WikiProjectController
  * @package App\Admin\Controllers\wiki
  */
-class WikiController extends Controller
+class WikiProjectController extends Controller
 {
     /**
      * 表单对象，包含新增、删除等操作
@@ -42,6 +42,15 @@ class WikiController extends Controller
     {
         return $content->title("新建项目")
             ->body($this->form());
+    }
+
+    /**
+     * 编辑项目
+     * @param $id
+     */
+    public function edit($id)
+    {
+        route('wiki.document.edit', ['id' => $id]);
     }
 
     /**
