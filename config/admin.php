@@ -44,7 +44,7 @@ return [
     | This value is the path of laravel-admin bootstrap file.
     |
     */
-    'bootstrap' => app_path('Admin/bootstrap.php'),
+    'bootstrap' => config_path('bootstrap.php'),
 
     /*
     |--------------------------------------------------------------------------
@@ -60,7 +60,7 @@ return [
 
         'prefix' => env('ADMIN_ROUTE_PREFIX', 'admin'),
 
-        'namespace' => 'App\\Admin\\Controllers',
+        'namespace' => 'Admin',
 
         'middleware' => ['web', 'admin'],
     ],
@@ -110,7 +110,7 @@ return [
     */
     'auth' => [
 
-        'controller' => App\Admin\Controllers\AuthController::class,
+        'controller' => Admin\AuthController::class,
 
         'guard' => 'admin',
 

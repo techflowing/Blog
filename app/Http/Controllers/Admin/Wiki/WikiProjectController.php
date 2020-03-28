@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Admin\Controllers\wiki;
+namespace App\Http\Controllers\Admin\Wiki;
 
 use App\Http\Controllers\Controller;
 use App\Model\wiki\WikiProject;
@@ -50,7 +50,7 @@ class WikiProjectController extends Controller
      */
     public function edit($id)
     {
-        route('wiki.document.edit', ['id' => $id]);
+        route('admin.wiki.document.edit', ['id' => $id]);
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Admin\Controllers\navigation;
+namespace App\Http\Controllers\Admin\Navigation;
 
 use App\Http\Controllers\Controller;
 use App\Model\navigation\Category;
