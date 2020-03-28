@@ -27,17 +27,20 @@ class CreateBlogTables extends Migration
         Schema::create('blog_categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique();
+            $table->timestamps();
         });
         // 创建文章标签表
         Schema::create('blog_tags', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name')->unique();
+            $table->timestamps();
         });
         // 创建文章和标签的关系表
         Schema::create('blog_r_article_tag', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('article_id');
             $table->integer('tag_id');
+            $table->timestamps();
         });
         // 创建文章标识和真实路径的映射关系表
         Schema::create('blog_r_identify_path', function (Blueprint $table) {
@@ -45,6 +48,7 @@ class CreateBlogTables extends Migration
             // 此字段存于文件内，文件夹结构变动后需要重建此表
             $table->string('identity')->unique();
             $table->string('path');
+            $table->timestamps();
         });
     }
 
