@@ -18,7 +18,8 @@
         "jxlwqq/material-ui": "^1.0",
         "laravel-admin-ext/grid-lightbox": "^1.0",
         "laravel/framework": "^7.0",
-        "laravel/tinker": "^2.0"
+        "laravel/tinker": "^2.0",
+        "sharemant/laravel-admin-ext-editormd": "^1.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.2",

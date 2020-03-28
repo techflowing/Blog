@@ -4,6 +4,8 @@ namespace App\Admin\Controllers\article;
 
 use App\Http\Controllers\Controller;
 use App\Model\blog\Article;
+use App\Model\blog\ArticleCategory;
+use App\Model\blog\ArticleTag;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Layout\Content;
@@ -70,8 +72,18 @@ class ArticleController extends Controller
     private function createArticle()
     {
         $form = new Form(new Article());
-        $form->text('title', '文章标题')->required();
-        $form->textarea('description', '文章描述')->required();
+
+        $form->tab('文章信息', function ($form) {
+            $form->text('title', '文章标题')->required();
+
+            $form->checkbox('tags', "文章标签")->options(ArticleTag::all()->pluck('name', 'id'));
+
+            $form->select('cate', '文章分类')->options(ArticleCategory::all()->pluck('name', 'id'))->required();
+
+            $form->textarea('description', '文章描述')->required();
+        })->tab("文章内容", function ($form) {
+            $form->editormd('文章内容');
+        });
 
         $form->footer(function ($footer) {
             // 去掉`查看`checkbox

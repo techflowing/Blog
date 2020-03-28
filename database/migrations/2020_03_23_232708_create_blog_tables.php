@@ -26,12 +26,12 @@ class CreateBlogTables extends Migration
         // 创建文章分类表
         Schema::create('blog_categories', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('name')->unique();
         });
         // 创建文章标签表
         Schema::create('blog_tags', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('name')->unique();
         });
         // 创建文章和标签的关系表
         Schema::create('blog_r_article_tag', function (Blueprint $table) {
@@ -59,7 +59,6 @@ class CreateBlogTables extends Migration
         Schema::dropIfExists('blog_categories');
         Schema::dropIfExists('blog_tags');
         Schema::dropIfExists('blog_r_article_tag');
-        Schema::dropIfExists('blog_r_article_category');
         Schema::dropIfExists('blog_r_identify_path');
     }
 }
