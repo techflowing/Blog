@@ -3,17 +3,10 @@
 
 namespace App\Http\Controllers\Admin\Wiki;
 
-
-use App\Http\Controllers\Controller;
 use App\Model\wiki\WikiProject;
-use Encore\Admin\Facades\Admin;
 
-class WikiDocumentController extends Controller
+class WikiDocumentController extends WikiBaseController
 {
-    /**
-     * @var array 输出的数据
-     */
-    protected $data = array();
 
     /**
      * 编辑文档
@@ -40,5 +33,16 @@ class WikiDocumentController extends Controller
         $this->data['json'] = json_encode($jsonArray, JSON_UNESCAPED_UNICODE);
 
         return view('wiki.document', $this->data);
+    }
+
+    public function save()
+    {
+
+        error_log('yuasdasdasdasd');
+        error_log($this->request->input('project_id'));
+        error_log($this->request->input('parent_id'));
+        error_log($this->request->input('doc_id'));
+
+        return $this->jsonResult(405);
     }
 }

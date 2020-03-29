@@ -50,6 +50,8 @@ Route::group([
             ->where('id', '[0-9]+');
         Route::post('save', 'WikiDocumentController@save')
             ->name('wiki.document.save');
+        Route::post('sort/{id}', 'WikiDocumentController@sort')
+            ->name('wiki.document.sort');
     });
 });
 

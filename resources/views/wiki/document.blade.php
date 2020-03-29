@@ -7,23 +7,23 @@
     <meta name="renderer" content="webkit" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="SmartWiki" />
-    <title>编辑文档 - {{wiki_config('SITE_NAME','SmartWiki')}}</title>
-    <link href="{{asset('static/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{asset('static/editormd/css/editormd.min.css')}}" rel="stylesheet">
-    <link href="{{asset('static/jstree/themes/default/style.css')}}" rel="stylesheet">
+    <title>编辑文档</title>
+    <link href="{{asset('static-wiki/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('static-wiki/editormd/css/editormd.min.css')}}" rel="stylesheet">
+    <link href="{{asset('static-wiki/jstree/themes/default/style.css')}}" rel="stylesheet">
 
-    <link href="{{asset('static/styles/wiki.css')}}" rel="stylesheet">
-    <link href="{{asset('static/styles/wikiedit.css')}}" rel="stylesheet">
-    <link href="{{asset('static/styles/markdown.css')}}" rel="stylesheet">
+    <link href="{{asset('static-wiki/styles/wiki.css')}}" rel="stylesheet">
+    <link href="{{asset('static-wiki/styles/wikiedit.css')}}" rel="stylesheet">
+    <link href="{{asset('static-wiki/styles/markdown.css')}}" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
-    <script src="{{asset('static/bootstrap/js/html5shiv.min.js')}}"></script>
-    <script src="{{asset('static/bootstrap/js/respond.min.js')}}"></script>
+    <script src="{{asset('static-wiki/bootstrap/js/html5shiv.min.js')}}"></script>
+    <script src="{{asset('static-wiki/bootstrap/js/respond.min.js')}}"></script>
     <![endif]-->
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="{{asset('static/scripts/jquery.min.js')}}"></script>
+    <script src="{{asset('static-wiki/scripts/jquery.min.js')}}"></script>
     <script type="text/javascript">
         window.CONFIG = {
             "project_id" : "{{$project_id}}"
@@ -47,7 +47,7 @@
         </div>
 
     </div>
-    <form method="post" action="{{route('document.save')}}" id="form-editormd">
+    <form method="post" action="{{route('wiki.document.save')}}" id="form-editormd">
         <div class="editormd-body">
             <div id="editormd">
                 <input type="hidden" name="doc_id" id="documentId">
@@ -60,10 +60,10 @@
 <div class="modal fade" id="create-wiki" tabindex="-1" role="dialog" aria-labelledby="添加文件" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form class="form-horizontal" role="form" method="post" action="{{route('document.save')}}" id="form-document">
-                <input type="hidden" name="project_id" value="{{$project_id or ''}}">
-                <input type="hidden" name="id" value="{{$doc_id or ''}}">
-                <input type="hidden" name="parentId" value="{{$parent_id or 0}}">
+            <form class="form-horizontal" role="form" method="post" action="{{route('wiki.document.save')}}" id="form-document">
+                <input type="hidden" name="project_id" value="{{$project_id ?? ''}}">
+                <input type="hidden" name="id" value="{{$doc_id ?? ''}}">
+                <input type="hidden" name="parentId" value="{{$parent_id ?? 0}}">
                 <div class="modal-header">
                     <h4 class="modal-title" id="modal-title">添加文档</h4>
                 </div>
@@ -129,21 +129,22 @@
     </div>
 </div>
 <script type="text/plain" id="template-normal">
-    @include("template.text")
+    @include("wiki.template.text")
 </script>
 <script type="text/plain" id="template-api">
-    @include("template.api")
+    @include("wiki.template.api")
 </script>
 <script type="text/plain" id="template-code">
-    @include("template.dictionary")
+    @include("wiki.template.dictionary")
 </script>
-<script type="text/javascript" src="{{asset('static/bootstrap/js/bootstrap.min.js')}}"></script>
-<script type="text/javascript" src="{{asset('static/jstree/jstree.js')}}"></script>
-<script type="text/javascript" src="{{asset('static/scripts/jquery.form.js')}}"></script>
-<script type="text/javascript" src="{{asset('static/layer/layer.js')}}"></script>
-<script type="text/javascript" src="{{asset('static/scripts/json2.js')}}"></script>
-<script type="text/javascript" src="{{asset('static/editormd/editormd.js')}}"></script>
+<script type="text/javascript" src="{{asset('static-wiki/bootstrap/js/bootstrap.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('static-wiki/jstree/jstree.js')}}"></script>
+<script type="text/javascript" src="{{asset('static-wiki/scripts/jquery.form.js')}}"></script>
+<script type="text/javascript" src="{{asset('static-wiki/layer/layer.js')}}"></script>
+<script type="text/javascript" src="{{asset('static-wiki/scripts/json2.js')}}"></script>
+<script type="text/javascript" src="{{asset('static-wiki/editormd/editormd.js')}}"></script>
 
+<script type="text/javascript" src="{{asset('static-wiki/scripts/wiki.js')}}"></script>
 <script type="text/javascript">
     /**
      * 初始化jstree
@@ -246,7 +247,7 @@
                 shade: [0.1, '#fff'] //0.1透明度的白色背景
             });
 
-            $.post("{{route('document.sort',["id" => $project_id])}}", JSON.stringify(nodeData)).done(function (res) {
+            $.post("{{route('wiki.document.sort',["id" => $project_id])}}", JSON.stringify(nodeData)).done(function (res) {
                 layer.close(index);
                 if (res.errcode != 0) {
                     layer.msg(res.message);
@@ -271,6 +272,5 @@
         });
     });
 </script>
-<script type="text/javascript" src="{{asset('static/scripts/wiki.js')}}"></script>
 </body>
 </html>

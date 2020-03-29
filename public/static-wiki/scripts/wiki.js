@@ -51,7 +51,7 @@ $(document).ready(function () {
 
     //初始化编辑器
     win.editor = editormd("editormd", {
-        path : "/static/editormd/lib/",
+        path : "/static-wiki/editormd/lib/",
         placeholder: "本编辑器支持Markdown编辑，左边编写，右边预览",
         imageUpload: true,
         imageFormats: ["jpg", "jpeg", "gif", "png", "JPG", "JPEG", "GIF", "PNG"],

@@ -35,7 +35,7 @@ class WikiProject extends Model
         $jsonArray = [];
         if (empty($tree) === false) {
             foreach ($tree as &$item) {
-                $tmp['id'] = $item->id . '';
+                $tmp['id'] = $item->id. '';
                 $tmp['text'] = $item->name;
                 $tmp['parent'] = ($item->parent_id == 0 ? '#' : $item->parent_id) . '';
 

@@ -35,15 +35,5 @@ mix.scripts([
     'resources/assets/web-stack/js/xenon-custom.js',
 ], 'public/static-navigation/js/app.js');
 
-// Wiki 系统
-mix.styles([
-    'resources/assets/wiki/bootstrap/css/bootstrap.min.css',
-    'resources/assets/wiki/editormd/css/editormd.min.css'
-], 'public/static-wiki/css/app.css');
-
-mix.scripts([
-    'resources/assets/wiki/scripts/wiki.js'
-], 'public/static-wiki/js/app.js');
-
 mix.version();
 
