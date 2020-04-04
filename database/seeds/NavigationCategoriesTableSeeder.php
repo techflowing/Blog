@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class CategoriesTableSeeder extends Seeder
+class NavigationCategoriesTableSeeder extends Seeder
 {
 
     /**

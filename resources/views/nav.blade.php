@@ -11,23 +11,23 @@
 
         <!-- main menu -->
         <ul class="navbar-nav">
-            <li class="opened active">
+            <li>
                 <a href="/navigation">
                     <span class="title">导航站</span>
                 </a>
             </li>
-            <li>
-                <a href="#">
+            <li class="active">
+                <a href="/navigation">
                     <span class="title">Layouts</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="/navigation">
                     <span class="title">UI Elements</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="/navigation">
                     <span class="title">Forms</span>
                 </a>
             </li>
