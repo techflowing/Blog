@@ -3,7 +3,7 @@
 
 // Don't take these too seriously -- the expected results appear to be
 // based on the results of actual runs without any serious manual
-// verification. If a change you made causes them to fail, the test is
+// verification. If a change you made causes them to fail, the sample is
 // as likely to wrong as the code.
 
 (function() {
@@ -12,13 +12,13 @@
 
   MT("eviltest",
      "[keyword xquery] [keyword version] [variable &quot;1][keyword .][atom 0][keyword -][variable ml&quot;][def&variable ;]      [comment (: this is       : a          \"comment\" :)]",
-     "      [keyword let] [variable $let] [keyword :=] [variable &lt;x] [variable attr][keyword =][variable &quot;value&quot;&gt;&quot;test&quot;&lt;func&gt][def&variable ;function]() [variable $var] {[keyword function]()} {[variable $var]}[variable &lt;][keyword /][variable func&gt;&lt;][keyword /][variable x&gt;]",
+     "      [keyword let] [variable $let] [keyword :=] [variable &lt;x] [variable attr][keyword =][variable &quot;value&quot;&gt;&quot;sample&quot;&lt;func&gt][def&variable ;function]() [variable $var] {[keyword function]()} {[variable $var]}[variable &lt;][keyword /][variable func&gt;&lt;][keyword /][variable x&gt;]",
      "      [keyword let] [variable $joe][keyword :=][atom 1]",
      "      [keyword return] [keyword element] [variable element] {",
      "          [keyword attribute] [variable attribute] { [atom 1] },",
-     "          [keyword element] [variable test] { [variable &#39;a&#39;] },           [keyword attribute] [variable foo] { [variable &quot;bar&quot;] },",
+     "          [keyword element] [variable sample] { [variable &#39;a&#39;] },           [keyword attribute] [variable foo] { [variable &quot;bar&quot;] },",
      "          [def&variable fn:doc]()[[ [variable foo][keyword /][variable @bar] [keyword eq] [variable $let] ]],",
-     "          [keyword //][variable x] }                 [comment (: a more 'evil' test :)]",
+     "          [keyword //][variable x] }                 [comment (: a more 'evil' sample :)]",
      "      [comment (: Modified Blakeley example (: with nested comment :) ... :)]",
      "      [keyword declare] [keyword private] [keyword function] [def&variable local:declare]() {()}[variable ;]",
      "      [keyword declare] [keyword private] [keyword function] [def&variable local:private]() {()}[variable ;]",
@@ -39,20 +39,20 @@
   MT("testMultiAttr",
      "[tag <p ][attribute a1]=[string \"foo\"] [attribute a2]=[string \"bar\"][tag >][variable hello] [variable world][tag </p>]");
 
-  MT("test namespaced variable",
+  MT("sample namespaced variable",
      "[keyword declare] [keyword namespace] [variable e] [keyword =] [string \"http://example.com/ANamespace\"][variable ;declare] [keyword variable] [variable $e:exampleComThisVarIsNotRecognized] [keyword as] [keyword element]([keyword *]) [variable external;]");
 
-  MT("test EQName variable",
+  MT("sample EQName variable",
      "[keyword declare] [keyword variable] [variable $\"http://www.example.com/ns/my\":var] [keyword :=] [atom 12][variable ;]",
      "[tag <out>]{[variable $\"http://www.example.com/ns/my\":var]}[tag </out>]");
 
-  MT("test EQName function",
+  MT("sample EQName function",
      "[keyword declare] [keyword function] [def&variable \"http://www.example.com/ns/my\":fn] ([variable $a] [keyword as] [atom xs:integer]) [keyword as] [atom xs:integer] {",
      "   [variable $a] [keyword +] [atom 2]",
      "}[variable ;]",
      "[tag <out>]{[def&variable \"http://www.example.com/ns/my\":fn]([atom 12])}[tag </out>]");
 
-  MT("test EQName function with single quotes",
+  MT("sample EQName function with single quotes",
      "[keyword declare] [keyword function] [def&variable 'http://www.example.com/ns/my':fn] ([variable $a] [keyword as] [atom xs:integer]) [keyword as] [atom xs:integer] {",
      "   [variable $a] [keyword +] [atom 2]",
      "}[variable ;]",

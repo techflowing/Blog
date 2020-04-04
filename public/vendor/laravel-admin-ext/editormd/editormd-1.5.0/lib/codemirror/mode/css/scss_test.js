@@ -6,19 +6,19 @@
   function MT(name) { test.mode(name, mode, Array.prototype.slice.call(arguments, 1), "scss"); }
 
   MT('url_with_quotation',
-    "[tag foo] { [property background]:[atom url]([string test.jpg]) }");
+    "[tag foo] { [property background]:[atom url]([string sample.jpg]) }");
 
   MT('url_with_double_quotes',
-    "[tag foo] { [property background]:[atom url]([string \"test.jpg\"]) }");
+    "[tag foo] { [property background]:[atom url]([string \"sample.jpg\"]) }");
 
   MT('url_with_single_quotes',
-    "[tag foo] { [property background]:[atom url]([string \'test.jpg\']) }");
+    "[tag foo] { [property background]:[atom url]([string \'sample.jpg\']) }");
 
   MT('string',
     "[def @import] [string \"compass/css3\"]");
 
   MT('important_keyword',
-    "[tag foo] { [property background]:[atom url]([string \'test.jpg\']) [keyword !important] }");
+    "[tag foo] { [property background]:[atom url]([string \'sample.jpg\']) [keyword !important] }");
 
   MT('variable',
     "[variable-2 $blue]:[atom #333]");

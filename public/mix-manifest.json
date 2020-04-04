@@ -1,4 +1,5 @@
 {
-    "/static-navigation/css/app.css": "/static-navigation/css/app.css?id=08f4ad15e83f6df13efe",
-    "/static-navigation/js/app.js": "/static-navigation/js/app.js?id=f9f0907779c993f5cbc4"
+    "/static-common/js/common.js": "/static-common/js/common.js?id=40a34a8face7e67213d3",
+    "/static-common/css/common.css": "/static-common/css/common.css?id=213bf13c0cdd77a64dde",
+    "/static-navigation/css/app.css": "/static-navigation/css/app.css?id=2cb39e4cfce740d79b72"
 }

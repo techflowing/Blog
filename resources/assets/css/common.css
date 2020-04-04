@@ -1,0 +1,8 @@
+/*保持log宽度和 siderbar 宽度一致*/
+.navbar-brand > a {
+    width: 220px;
+}
+
+.page-content {
+    margin-top: 60px;
+}

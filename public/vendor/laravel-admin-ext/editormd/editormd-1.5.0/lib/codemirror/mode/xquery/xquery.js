@@ -389,7 +389,7 @@ CodeMirror.defineMode("xquery", function() {
   }
 
 
-  // functions to test the current context of the state
+  // functions to sample the current context of the state
   function isInXmlBlock(state) { return isIn(state, "tag"); }
   function isInXmlAttributeBlock(state) { return isIn(state, "attribute"); }
   function isInXmlConstructor(state) { return isIn(state, "xmlconstructor"); }

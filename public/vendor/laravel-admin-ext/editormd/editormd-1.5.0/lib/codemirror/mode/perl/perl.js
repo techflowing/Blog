@@ -280,7 +280,7 @@ CodeMirror.defineMode("perl",function(){
                 dbmclose                        :1,     // - breaks binding on a tied dbm file
                 dbmopen                         :1,     // - create binding on a tied dbm file
                 'default'                       :1,     //
-                defined                         :1,     // - test whether a value, variable, or function is defined
+                defined                         :1,     // - sample whether a value, variable, or function is defined
                 'delete'                        :1,     // - deletes a value from a hash
                 die                             :1,     // - raise an exception or bail out
                 'do'                            :1,     // - turn a BLOCK into a TERM
@@ -292,10 +292,10 @@ CodeMirror.defineMode("perl",function(){
                 endprotoent                     :1,     // - be done using protocols file
                 endpwent                        :1,     // - be done using passwd file
                 endservent                      :1,     // - be done using services file
-                eof                             :1,     // - test a filehandle for its end
+                eof                             :1,     // - sample a filehandle for its end
                 'eval'                          :1,     // - catch exceptions or compile and run code
                 'exec'                          :1,     // - abandon this program to run another
-                exists                          :1,     // - test whether a hash key is present
+                exists                          :1,     // - sample whether a hash key is present
                 exit                            :1,     // - terminate this program
                 'exp'                           :1,     // - raise I to a power
                 fcntl                           :1,     // - file control system call
@@ -334,7 +334,7 @@ CodeMirror.defineMode("perl",function(){
                 glob                            :1,     // - expand filenames using wildcards
                 gmtime                          :1,     // - convert UNIX time into record or string using Greenwich time
                 'goto'                          :1,     // - create spaghetti code
-                grep                            :1,     // - locate elements in a list test true against a given criterion
+                grep                            :1,     // - locate elements in a list sample true against a given criterion
                 hex                             :1,     // - convert a string to a hexadecimal number
                 'import'                        :1,     // - patch a module's namespace into your own
                 index                           :1,     // - find a substring within a string
@@ -468,7 +468,7 @@ CodeMirror.defineMode("perl",function(){
                 use                             :1,     // - load in a module at compile time
                 utime                           :1,     // - set a file's last access and modify times
                 values                          :1,     // - return a list of the values in a hash
-                vec                             :1,     // - test or set particular bits in a string
+                vec                             :1,     // - sample or set particular bits in a string
                 wait                            :1,     // - wait for any child process to die
                 waitpid                         :1,     // - wait for a particular child process to die
                 wantarray                       :1,     // - get void vs scalar vs list context of current subroutine call

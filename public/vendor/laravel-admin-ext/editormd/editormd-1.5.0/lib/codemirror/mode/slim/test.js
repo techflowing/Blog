@@ -15,16 +15,16 @@
      "[tag h1] Hey There .h2");
 
   MT("idShortcut",
-     "[attribute&def #test] Hey There");
+     "[attribute&def #sample] Hey There");
 
   MT("tagWithIdShortcuts",
-     "[tag h1][attribute&def #test] Hey There");
+     "[tag h1][attribute&def #sample] Hey There");
 
   MT("classShortcut",
      "[attribute&qualifier .hello] Hey There");
 
   MT("tagWithIdAndClassShortcuts",
-     "[tag h1][attribute&def #test][attribute&qualifier .hello] Hey There");
+     "[tag h1][attribute&def #sample][attribute&qualifier .hello] Hey There");
 
   MT("docType",
      "[keyword doctype] xml");
@@ -36,10 +36,10 @@
      "[tag h1] This is not a / comment ");
 
   MT("attributes",
-     "[tag a]([attribute title]=[string \"test\"]) [attribute href]=[string \"link\"]}");
+     "[tag a]([attribute title]=[string \"sample\"]) [attribute href]=[string \"link\"]}");
 
   MT("multiLineAttributes",
-     "[tag a]([attribute title]=[string \"test\"]",
+     "[tag a]([attribute title]=[string \"sample\"]",
      "  ) [attribute href]=[string \"link\"]}");
 
   MT("htmlCode",
@@ -49,11 +49,11 @@
      "[operator&special =][variable-2 @item]");
 
   MT("selectorRubyBlock",
-     "[tag a][attribute&qualifier .test][operator&special =] [variable-2 @item]");
+     "[tag a][attribute&qualifier .sample][operator&special =] [variable-2 @item]");
 
   MT("nestedRubyBlock",
       "[tag a]",
-      "  [operator&special =][variable puts] [string \"test\"]");
+      "  [operator&special =][variable puts] [string \"sample\"]");
 
   MT("multilinePlaintext",
       "[tag p]",
@@ -80,7 +80,7 @@
   MT("hamlAfterRubyTag",
     "[attribute&qualifier .block]",
     "  [tag strong][operator&special =] [variable now]",
-    "  [attribute&qualifier .test]",
+    "  [attribute&qualifier .sample]",
     "     [operator&special =][variable now]",
     "  [attribute&qualifier .right]");
 
@@ -89,8 +89,8 @@
      "   [string \"World\"]");
 
   MT("interpolationInHashAttribute",
-     "[tag div]{[attribute id] = [string \"]#{[variable test]}[string _]#{[variable ting]}[string \"]} test");
+     "[tag div]{[attribute id] = [string \"]#{[variable sample]}[string _]#{[variable ting]}[string \"]} sample");
 
   MT("interpolationInHTMLAttribute",
-     "[tag div]([attribute title]=[string \"]#{[variable test]}[string _]#{[variable ting]()}[string \"]) Test");
+     "[tag div]([attribute title]=[string \"]#{[variable sample]}[string _]#{[variable ting]()}[string \"]) Test");
 })();

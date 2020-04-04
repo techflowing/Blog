@@ -1,7 +1,7 @@
 /*!
  * Test plugin for Editor.md
  *
- * @file        test-plugin.js
+ * @file        sample-plugin.js
  * @author      pandao
  * @version     1.2.0
  * @updateTime  2015-03-07
@@ -37,10 +37,10 @@
 		};
 
 	};
-    
+
 	// CommonJS/Node.js
 	if (typeof require === "function" && typeof exports === "object" && typeof module === "object")
-    { 
+    {
         module.exports = factory;
     }
 	else if (typeof define === "function")  // AMD/CMD/Sea.js
@@ -57,7 +57,7 @@
                 factory(editormd);
             });
 		}
-	} 
+	}
 	else
 	{
         factory(window.editormd);
