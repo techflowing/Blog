@@ -61,7 +61,7 @@ $(document).ready(function () {
         fileUploadURL : '/upload',
         tocStartLevel : 1,
         tocm : true,
-        toolbarIcons : [ "back","save", "template","undo", "redo" , "h1", "h2","h3" ,"h4","bold", "hr", "italic","quote","list-ul","list-ol","link","reference-link","image","file","code","html-entities","preformatted-text","code-block","table","history"],
+        toolbarIcons : [ "back","save", "template","undo", "redo" , "h1", "h2","h3" ,"h4","bold", "hr", "italic","quote","list-ul","list-ol","link","reference-link","image","file","code","html-entities","preformatted-text","code-block","table"],
         toolbarIconsClass : {
             bold : "fa-bold"
         } ,
@@ -71,7 +71,6 @@ $(document).ready(function () {
         toolbarCustomIcons:{
             back : '<a href="javascript:;" title="返回"> <i class="fa fa-mail-reply" name="back"></i></a>',
             save : '<a href="javascript:;" title="保存" id="markdown-save" class="disabled"> <i class="fa fa-save" name="save"></i></a>',
-            history : '<a href="javascript:;" title="历史版本"> <i class="fa fa-history" name="history"></i></a>',
             template : '<a href="javascript:;" title="模板"> <i class="fa fa-tachometer" name="template"></i></a>'
         },
         toolbarHandlers :{
@@ -93,31 +92,6 @@ $(document).ready(function () {
             save : function (cm, icon, cursor, selection) {
                 if($("#markdown-save").hasClass('change')) {
                     $("#form-editormd").submit();
-                }
-            },
-            history :function (cm, icon, cursor, selection) {
-                var doc_id = $("#documentId").val();
-                if(!doc_id){
-                    layer.msg('当前文档暂无历史版本');
-                }else{
-                    layer.open({
-                        type: 2,
-                        title: '历史版本',
-                        shadeClose: true,
-                        shade: 0.8,
-                        area: ['700px','80%'],
-                        content: '/docs/history/'+doc_id,
-                        end : function () {
-                           // alert("a")
-                            if(window.SelectedId){
-                                var selected = {node:{
-                                    id : window.SelectedId
-                                }};
-                                window.loadDocument(selected);
-                                window.SelectedId = null;
-                            }
-                        }
-                    });
                 }
             },
             template : function(cm, icon, cursor, selection) {
@@ -225,13 +199,14 @@ $(document).ready(function () {
         }
         return data;
     };
+
     //加载指定的文档
     win.loadDocument = function (selected) {
         var index = layer.load(1, {
             shade: [0.1,'#fff'] //0.1透明度的白色背景
         });
 
-        $.get("/docs/content/" + selected.node.id + '?dataType=json').done(function (data) {
+        $.get("/admin/wiki/content/" + selected.node.id + '?dataType=json').done(function (data) {
             win.isEditorChange = true;
             layer.close(index);
             $("#documentId").val(selected.node.id);
@@ -258,7 +233,7 @@ $(document).ready(function () {
             var id = $(jqForm).find("input[name='id']").val();
             var node = win.treeCatalog.get_node(id);
             if(name == ""){
-                formError.text('文档名称不能为空');
+                formError.text('文档名称不能为空000');
                 return false;
             }
             if(node && node.text == name){

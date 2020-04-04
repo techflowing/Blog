@@ -11,5 +11,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class WikiDocument extends Model
 {
+    public static $TYPE_FILE = 0;
+    public static $TYPE_DIR = 1;
+
     protected $table = 'wiki_document';
 }

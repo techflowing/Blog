@@ -18,7 +18,6 @@ Route::resource('/navigation', 'NavigationController');
 // Wiki 项目导航
 Route::group(['prefix' => 'wiki', 'namespace' => 'wiki'], function () {
 
-
 });
 
 
@@ -47,6 +46,9 @@ Route::group([
     ], function () {
         Route::get('edit/{id}', 'WikiDocumentController@edit')
             ->name('wiki.document.edit')
+            ->where('id', '[0-9]+');
+        Route::get('content/{id}', 'WikiDocumentController@getContent')
+            ->name('wiki.document.content')
             ->where('id', '[0-9]+');
         Route::post('save', 'WikiDocumentController@save')
             ->name('wiki.document.save');

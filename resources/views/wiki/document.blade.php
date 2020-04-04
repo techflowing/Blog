@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8">
     <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="renderer" content="webkit" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="renderer" content="webkit"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="SmartWiki" />
+    <meta name="author" content="SmartWiki"/>
     <title>编辑文档</title>
     <link href="{{asset('static-wiki/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('static-wiki/editormd/css/editormd.min.css')}}" rel="stylesheet">
@@ -15,18 +15,12 @@
     <link href="{{asset('static-wiki/styles/wiki.css')}}" rel="stylesheet">
     <link href="{{asset('static-wiki/styles/wikiedit.css')}}" rel="stylesheet">
     <link href="{{asset('static-wiki/styles/markdown.css')}}" rel="stylesheet">
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
     <script src="{{asset('static-wiki/bootstrap/js/html5shiv.min.js')}}"></script>
     <script src="{{asset('static-wiki/bootstrap/js/respond.min.js')}}"></script>
-    <![endif]-->
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="{{asset('static-wiki/scripts/jquery.min.js')}}"></script>
     <script type="text/javascript">
         window.CONFIG = {
-            "project_id" : "{{$project_id}}"
+            "project_id": "{{$project_id}}"
         };
         window.treeCatalog = {};
     </script>
@@ -38,7 +32,8 @@
             <i class="fa fa-th-large"></i> 目录
         </div>
         <div class="nav-item-right">
-            <button data-target="#create-new" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="create-document" title="创建文档">
+            <button data-target="#create-new" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                    id="create-document" title="创建文档">
                 <i class="fa fa-plus"></i>
             </button>
         </div>
@@ -60,7 +55,8 @@
 <div class="modal fade" id="create-wiki" tabindex="-1" role="dialog" aria-labelledby="添加文件" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form class="form-horizontal" role="form" method="post" action="{{route('wiki.document.save')}}" id="form-document">
+            <form class="form-horizontal" role="form" method="post" action="{{route('wiki.document.save')}}"
+                  id="form-document">
                 <input type="hidden" name="project_id" value="{{$project_id ?? ''}}">
                 <input type="hidden" name="id" value="{{$doc_id ?? ''}}">
                 <input type="hidden" name="parentId" value="{{$parent_id ?? 0}}">
@@ -71,7 +67,8 @@
                     <div class="form-group">
                         <label for="documentName" class="col-sm-2 control-label" id="inputTitle">名称</label>
                         <div class="col-sm-10">
-                            <input type="text" name="documentName" class="form-control" id="documentName" placeholder="文档名称" autocomplete="off">
+                            <input type="text" name="documentName" class="form-control" id="documentName"
+                                   placeholder="文档名称" autocomplete="off">
                         </div>
                     </div>
                 </div>
@@ -151,7 +148,7 @@
      */
     function initJsTree() {
         $("#sidebar").jstree({
-            'plugins': [ "wholerow", "types", 'dnd', 'contextmenu'],
+            'plugins': ["wholerow", "types", 'dnd', 'contextmenu'],
             "types": {
                 "default": {
                     "icon": false  // 删除默认图标
@@ -210,7 +207,7 @@
         }).on('loaded.jstree', function () {
             window.treeCatalog = $(this).jstree();
             $select_node_id = window.treeCatalog.get_selected();
-            if($select_node_id) {
+            if ($select_node_id) {
                 $select_node = window.treeCatalog.get_node($select_node_id[0])
                 if ($select_node) {
                     $select_node.node = {
@@ -222,8 +219,8 @@
             }
 
         }).on('select_node.jstree', function (node, selected, event) {
-            if($("#markdown-save").hasClass('change')) {
-                if(confirm("编辑内容未保存，需要保存吗？")){
+            if ($("#markdown-save").hasClass('change')) {
+                if (confirm("编辑内容未保存，需要保存吗？")) {
                     $("#form-editormd").submit();
                 }
             }
@@ -260,11 +257,12 @@
             });
         });
     }
+
     $(function () {
 
-        $("#template-modal .section>a").on("click",function () {
+        $("#template-modal .section>a").on("click", function () {
             var type = $(this).attr('data-type');
-            if(type){
+            if (type) {
                 var template = $("#template-" + type).text();
                 window.editor.insertValue(template);
             }
