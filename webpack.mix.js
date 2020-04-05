@@ -12,6 +12,7 @@ const mix = require('laravel-mix');
  */
 // 三方库直接copy
 mix.copyDirectory('resources/assets/ztree', 'public/static-third/ztree');
+mix.copyDirectory('resources/assets/editormd', 'public/static-third/editormd');
 
 // 公共资源 图片、字体文件等
 mix.copyDirectory('resources/assets/img/', 'public/static-common/img');
@@ -46,13 +47,14 @@ mix.styles([
     'resources/assets/navigation/css/app.css'
 ], 'public/static-navigation/css/app.css');
 
-// Wiki 资源
+// 后台管理 - Wiki 资源
 mix.styles([
     'resources/assets/admin/wiki/css/custom.css'
 ], 'public/static-admin/wiki/css/app.css');
 
 mix.scripts([
-    'resources/assets/admin/wiki/js/ztree.config.js'
+    'resources/assets/admin/wiki/js/ztree.config.js',
+    'resources/assets/admin/wiki/js/editor.md.config.js'
 ], 'public/static-admin/wiki/js/app.js');
 
 mix.copyDirectory('resources/assets/admin/wiki/img/', 'public/static-admin/wiki/img');

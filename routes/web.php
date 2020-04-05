@@ -58,4 +58,4 @@ Route::group([
 });
 
 // 测试
-Route::get('test', 'TestController@index');
+Route::get('test01', 'TestController@index');

@@ -7,19 +7,20 @@
     <title>Wiki编辑</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <link rel="shortcut icon" href="{{ asset('static-common/img/favicon.png') }}">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <link rel="shortcut icon" href="{{ asset('static-common/img/favicon.png') }}">
     <link rel="stylesheet" href="{{ mix('static-common/css/common.css') }}">
     <link rel="stylesheet" href="{{ mix('static-admin/wiki/css/app.css') }}">
-    <script src="{{ mix('static-common/js/common.js') }}"></script>
-    <script src="{{ mix('static-admin/wiki/js/app.js') }}"></script>
+    <link rel="stylesheet" href="/static-third/editormd/css/editormd.css">
 
+    <script src="{{ mix('static-common/js/common.js') }}"></script>
     <script src="/static-third/ztree/js/jquery.ztree.core.min.js"></script>
+    <script src="/static-third/editormd/editormd.js"></script>
 
 </head>
 <body>
@@ -37,18 +38,24 @@
             </header>
         </div>
         <div>
-            <ul id="treeDemo" class="ztree" style="height: 300px"></ul>
+            <ul id="treeDemo" class="ztree"></ul>
         </div>
     </div>
     {{--markdown编辑区--}}
-    <form id="form-editormd" method="post" action="">
-        <div id="editor-body">
-            <div id="editor-md">
-                <input type="hidden" name="doc_id" id="documentId">
-                <textarea>### Hello，开始创作吧44 </textarea>
+    <div class="wiki-editor-md">
+        <form id="form-editormd" method="post" action="">
+            <div class="editormd-body">
+                <div id="editormd">
+                    <input type="hidden" name="doc_id" id="documentId">
+                    <textarea style="display:none;"> Hello，开始创作吧44 </textarea>
+                </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>
+
+{{--不能放head里！！！--}}
+<script src="{{ mix('static-admin/wiki/js/app.js') }}"></script>
+
 </body>
 </html>

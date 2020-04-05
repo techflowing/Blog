@@ -11,3 +11,10 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 /PhpInfo.php
+
+/resources/assets/test
+
+/public/static-admin/
+/public/static-common/
+/public/static-navigation/
+/public/static-third/
