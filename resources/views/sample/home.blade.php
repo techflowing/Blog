@@ -5,5 +5,7 @@
 
 {{--页面Content--}}
 @section('content')
-    <p>这是继承的测试</p>
+    <div>
+        <ul id="treeDemo" class="ztree"></ul>
+    </div>
 @endsection

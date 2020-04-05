@@ -1,5 +1,7 @@
 {
     "/static-common/js/common.js": "/static-common/js/common.js?id=40a34a8face7e67213d3",
     "/static-common/css/common.css": "/static-common/css/common.css?id=213bf13c0cdd77a64dde",
-    "/static-navigation/css/app.css": "/static-navigation/css/app.css?id=2cb39e4cfce740d79b72"
+    "/static-navigation/css/app.css": "/static-navigation/css/app.css?id=2cb39e4cfce740d79b72",
+    "/static-admin/wiki/css/app.css": "/static-admin/wiki/css/app.css?id=052b1e6242a1c0c4964f",
+    "/static-admin/wiki/js/app.js": "/static-admin/wiki/js/app.js?id=ab8615afbc71a1e54967"
 }

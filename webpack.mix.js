@@ -10,32 +10,10 @@ const mix = require('laravel-mix');
  | file for the application as well as bundling up all the JS files.
  |
  */
-// 导航站
-// mix.styles([
-//     'resources/assets/web-stack/css/font/linecons/css/linecons.css',
-//     'resources/assets/web-stack/css/font/fontawesome/css/font-awesome.min.css',
-//     'resources/assets/web-stack/css/bootstrap.css',
-//     'resources/assets/web-stack/css/xenon-core.css',
-//     'resources/assets/web-stack/css/xenon-components.css',
-//     'resources/assets/web-stack/css/xenon-skins.css',
-//     'resources/assets/web-stack/css/nav.css'
-// ], 'public/static-navigation/css/app.css');
-//
-// mix.copyDirectory('resources/assets/web-stack/css/font/fontawesome/font', 'public/static-navigation/font');
-// mix.copyDirectory('resources/assets/web-stack/css/font/linecons/font', 'public/static-navigation/font');
+// 三方库直接copy
+mix.copyDirectory('resources/assets/ztree', 'public/static-third/ztree');
 
-// mix.scripts([
-//     'resources/assets/web-stack/js/jquery-1.11.1.min.js',
-//     'resources/assets/web-stack/js/bootstrap.min.js',
-//     'resources/assets/web-stack/js/TweenMax.min.js',
-//     'resources/assets/web-stack/js/resizeable.js',
-//     'resources/assets/web-stack/js/joinable.js',
-//     'resources/assets/web-stack/js/xenon-api.js',
-//     'resources/assets/web-stack/js/xenon-toggles.js',
-//     'resources/assets/web-stack/js/xenon-custom.js',
-// ], 'public/static-navigation/js/app.js');
-
-
+// 公共资源 图片、字体文件等
 mix.copyDirectory('resources/assets/img/', 'public/static-common/img');
 mix.copyDirectory('resources/assets/font/', 'public/static-common/font');
 
@@ -67,6 +45,17 @@ mix.styles([
 mix.styles([
     'resources/assets/navigation/css/app.css'
 ], 'public/static-navigation/css/app.css');
+
+// Wiki 资源
+mix.styles([
+    'resources/assets/admin/wiki/css/custom.css'
+], 'public/static-admin/wiki/css/app.css');
+
+mix.scripts([
+    'resources/assets/admin/wiki/js/ztree.config.js'
+], 'public/static-admin/wiki/js/app.js');
+
+mix.copyDirectory('resources/assets/admin/wiki/img/', 'public/static-admin/wiki/img');
 
 mix.version();
 
