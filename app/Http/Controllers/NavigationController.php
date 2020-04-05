@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Model\Admin\HomeNavMenu;
 use App\Model\navigation\Category;
 
 /**
@@ -22,7 +23,11 @@ class NavigationController extends Controller
             ->withCount('children')
             ->orderBy('order')
             ->get();
+        $navMenu = HomeNavMenu::all()
+            ->sortBy('order');
 
-        return view('navigation.index')->with('categories', $categories);
+        return view('navigation.index')
+            ->with('categories', $categories)
+            ->with('navMenu', $navMenu);
     }
 }

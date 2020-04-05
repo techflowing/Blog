@@ -9,34 +9,21 @@
             </a>
         </div>
 
-        <!-- main menu -->
-        <ul class="navbar-nav">
-            <li>
-                <a href="/navigation">
-                    <span class="title">导航站</span>
-                </a>
-            </li>
-            <li class="active">
-                <a href="/navigation">
-                    <span class="title">Layouts</span>
-                </a>
-            </li>
-            <li>
-                <a href="/navigation">
-                    <span class="title">UI Elements</span>
-                </a>
-            </li>
-            <li>
-                <a href="/navigation">
-                    <span class="title">Forms</span>
-                </a>
-            </li>
-            <li>
-                <a href="/admin">
-                    <span class="title">管理后台</span>
-                </a>
-            </li>
-        </ul>
+        @php
+            $curPath = Request::path();
+        @endphp
+
+        @if(count($navMenu) != 0)
+            <ul class="navbar-nav">
+                @foreach($navMenu as $menu)
+                    <li class="{{strcmp($curPath, $menu->path) == 0 ? 'active' : ''}}">
+                        <a target="{{$menu->target == \App\Model\Admin\HomeNavMenu::$TYPE_TARGET_BLANK ? '_black' : '_self'}}" href="{{$menu->path}}">
+                            <span class="title">{{$menu->name}}</span>
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        @endif
     </div>
 
 </nav>

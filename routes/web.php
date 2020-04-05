@@ -36,10 +36,10 @@ Route::group([
     Route::resource('navigation/sites', 'Navigation\SiteController');
     // 文章管理
     Route::resource('article', 'Article\ArticleController');
+    // 首页菜单配置
+    Route::resource('config/nav', 'Config\NavConfigController');
     // Wiki管理
-    Route::resource('/wiki', 'Wiki\WikiProjectController');
-
-    // Wiki 相关
+    Route::resource('wiki', 'Wiki\WikiProjectController');
     Route::group([
         'prefix' => 'wiki',
         'namespace' => 'Wiki'
@@ -57,3 +57,5 @@ Route::group([
     });
 });
 
+// 测试
+Route::get('test', 'TestController@index');
