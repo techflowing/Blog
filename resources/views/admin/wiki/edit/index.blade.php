@@ -23,6 +23,12 @@
     <script src="{{ asset('static-third/ztree/js/jquery.ztree.exedit.min.js') }}"></script>
     <script src="{{ asset('static-third/editormd/editormd.js') }}"></script>
 
+    <script type="text/javascript">
+        // 去除转义字符，转换JSON对象为JS对象
+        window.wiki_project = JSON.parse('{!!$wiki_project !!}');
+        window.wiki_doc_catalog = JSON.parse('{!! $doc_catalog !!}');
+    </script>
+
 </head>
 <body>
 <div id="wiki-edit-container" class="page-container">

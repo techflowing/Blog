@@ -15,4 +15,34 @@ class WikiDocument extends Model
     public static $TYPE_DIR = 1;
 
     protected $table = 'wiki_document';
+
+    /**
+     * 获取项目的文档目录结构
+     * @param integer $projectId 项目Id
+     * @return array 目录结构数组
+     */
+    public static function getDocumentCatalog($projectId)
+    {
+        if (empty($projectId)) {
+            return [];
+        }
+
+        $tree = WikiDocument::where('project_id', '=', $projectId)
+            ->select('id', 'name', 'type', 'parent_id')
+            ->orderBy('sort', 'ASC')
+            ->get();
+        $catalog = [];
+
+        if (!empty($tree)) {
+            foreach ($tree as $item) {
+                $temp['id'] = $item->id . '';
+                $temp['name'] = $item->name;
+                $temp['type'] = $item->type . '';
+                $temp['parent_id'] = $item->parent_id == 0 ? '#' : $item->parent_id;
+
+                $catalog[] = $temp;
+            }
+        }
+        return $catalog;
+    }
 }

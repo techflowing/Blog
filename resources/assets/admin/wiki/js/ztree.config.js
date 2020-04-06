@@ -12,7 +12,7 @@ var setting = {
         simpleData: {
             enable: true,
             idKey: "id",
-            pIdKey: "pId",
+            pIdKey: "parent_id",
             rootPId: "#"
         }
     },
@@ -32,15 +32,6 @@ var setting = {
         onClick: onClick
     }
 };
-// zTree 的数据属性，深入使用请参考 API 文档（zTreeNode 节点数据详解）
-var zNodes = [
-    {"id": 1, "pId": "#", "name": "test1"},
-    {"id": 11, "pId": "1", "name": "test11"},
-    {"id": 12, "pId": "1", "name": "test12"},
-    {"id": 111, "pId": "11", "name": "test111"},
-    {"id": 112, "pId": "#", "name": "test112"},
-    {"id": 113, "pId": "112", "name": "tesasdtasdasdjksadjsadjkashdjkasd112"}
-];
 
 function onClick(e, treeId, treeNode) {
     var zTree = $.fn.zTree.getZTreeObj("treeDemo");
@@ -48,5 +39,5 @@ function onClick(e, treeId, treeNode) {
 }
 
 $(document).ready(function () {
-    zTreeObj = $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+    zTreeObj = $.fn.zTree.init($("#treeDemo"), setting, window.wiki_doc_catalog);
 });
