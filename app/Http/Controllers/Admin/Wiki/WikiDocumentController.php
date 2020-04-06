@@ -28,7 +28,7 @@ class WikiDocumentController extends BaseController
         $catalog = WikiDocument::getDocumentCatalog($wikiProject->id);
         $this->data['doc_catalog'] = json_encode($catalog, JSON_UNESCAPED_UNICODE);
 
-        error_log(json_encode($catalog, JSON_UNESCAPED_UNICODE));
+        $this->data['project_id'] = $wikiProject->id;
 
         return view('admin.wiki.edit.index', $this->data);
     }

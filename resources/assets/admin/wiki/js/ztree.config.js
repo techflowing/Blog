@@ -1,6 +1,30 @@
-var zTreeObj;
+let $createDocument = $('#create-document');
+let $createDocumentDir = $('#create-document-dir');
+let $createDocumentActionBtn = $('#create-document-action-btn');
+let $createDocumentDirActionBtn = $('#create-document-dir-action-btn');
+let createDocumentFormError = $createDocument.find('#error-message');
+let createDocumentDirFormError = $createDocument.find('#dir-error-message');
+
+$createDocument.on('shown.bs.modal', function () {
+    $createDocument.find("input[name='name']").focus();
+});
+
+$createDocumentDir.on('shown.bs.modal', function () {
+    $createDocument.find("input[name='name']").focus();
+});
+
+$createDocument.on("hidden.bs.modal", function () {
+    $createDocumentActionBtn.button('reset');
+});
+
+$createDocumentDir.on("hidden.bs.modal", function () {
+    $createDocumentDirActionBtn.button('reset');
+});
+
+
+let zTreeObj;
 // zTree 的参数配置，深入使用请参考 API 文档（setting 配置详解）
-var setting = {
+let setting = {
     view: {
         // 不显示连接线
         showLine: false,
@@ -8,6 +32,13 @@ var setting = {
         dblClickExpand: false
     },
     data: {
+        keep: {
+            leaf: true,
+            parent: true
+        },
+        key: {
+            isParent: "is_parent"
+        },
         // 使用简单数据
         simpleData: {
             enable: true,
@@ -34,10 +65,22 @@ var setting = {
 };
 
 function onClick(e, treeId, treeNode) {
-    var zTree = $.fn.zTree.getZTreeObj("treeDemo");
+    let zTree = $.fn.zTree.getZTreeObj("treeDemo");
     zTree.expandNode(treeNode);
 }
 
 $(document).ready(function () {
+    // 初始化目录树结构
+    console.log(JSON.stringify(window.wiki_doc_catalog));
     zTreeObj = $.fn.zTree.init($("#treeDemo"), setting, window.wiki_doc_catalog);
+
+    $('#create-document-btn').click(function () {
+        createDocumentFormError.text('');
+        $createDocument.modal('show')
+    });
+    $('#create-document-dir-btn').click(function () {
+        createDocumentDirFormError.text('');
+        $createDocumentDir.modal('show')
+    })
+
 });

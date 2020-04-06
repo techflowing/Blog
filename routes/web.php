@@ -47,6 +47,8 @@ Route::group([
         Route::get('edit/{id}', 'WikiDocumentController@edit')
             ->name('wiki.document.edit')
             ->where('id', '[0-9]+');
+        Route::post('edit/create', 'WikiDocumentController@create')
+            ->name('wiki.document.create');
         Route::get('content/{id}', 'WikiDocumentController@getContent')
             ->name('wiki.document.content')
             ->where('id', '[0-9]+');

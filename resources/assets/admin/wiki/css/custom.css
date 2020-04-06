@@ -12,6 +12,16 @@
     transition: opacity 100ms ease-in-out;
 }
 
+/*ID 选择器方式覆盖三方库内样式*/
+#sidebar-menu-top {
+    padding: 19px 5px;
+    border-bottom: 1px solid #313437;
+}
+
+.wiki-create-btn {
+    cursor: pointer;
+}
+
 .disabled, .disabled > i, .disabled > i:hover {
     background-color: #ddd !important;
     cursor: default;
