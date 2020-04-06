@@ -36,6 +36,11 @@ website:	http://code.google.com/p/jquerytree/
 
 -------------------------------------*/
 
+#treeDemo {
+    height: 100%;
+    overflow-x: auto;
+}
+
 .ztree * {
     padding: 0;
     margin: 0;
@@ -100,10 +105,9 @@ website:	http://code.google.com/p/jquerytree/
 
 .ztree li a.tmpTargetNode_inner {
     padding-top: 0px;
-    background-color: #316AC5;
+    background-color: #151515;
     color: white;
-    height: 16px;
-    border: 1px #316AC5 solid;
+    height: 32px;
     opacity: 0.8;
     filter: alpha(opacity=80)
 }
@@ -142,6 +146,8 @@ website:	http://code.google.com/p/jquerytree/
     background-color: transparent;
     background-repeat: no-repeat;
     background-attachment: scroll;
+    background-image: url("../img/zTreeStandard.png");
+    *background-image: url("../img/zTreeStandard.gif")
 }
 
 .ztree li span.button.chk {
@@ -347,15 +353,13 @@ ul.tmpTargetzTree {
 span.tmpzTreeMove_arrow {
     width: 16px;
     height: 16px;
+    z-index: 100;
     display: inline-block;
     padding: 0;
     margin: 2px 0 0 1px;
     border: 0 none;
     position: absolute;
-    background-color: transparent;
-    background-repeat: no-repeat;
-    background-attachment: scroll;
-    background-position: -110px -80px;
+    background: url("../img/arrow_right.png") no-repeat scroll 0 0 transparent;
 }
 
 ul.ztree.zTreeDragUL {
@@ -364,9 +368,9 @@ ul.ztree.zTreeDragUL {
     position: absolute;
     width: auto;
     height: auto;
+    z-index: 100;
     overflow: hidden;
-    background-color: #cfcfcf;
-    border: 1px #00B83F dotted;
+    background-color: #151515;
     opacity: 0.8;
     filter: alpha(opacity=80)
 }

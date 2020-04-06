@@ -16,11 +16,12 @@
     <link rel="shortcut icon" href="{{ asset('static-common/img/favicon.png') }}">
     <link rel="stylesheet" href="{{ mix('static-common/css/common.css') }}">
     <link rel="stylesheet" href="{{ mix('static-admin/wiki/css/app.css') }}">
-    <link rel="stylesheet" href="/static-third/editormd/css/editormd.css">
+    <link rel="stylesheet" href="{{ asset('static-third/editormd/css/editormd.css') }}">
 
     <script src="{{ mix('static-common/js/common.js') }}"></script>
-    <script src="/static-third/ztree/js/jquery.ztree.core.min.js"></script>
-    <script src="/static-third/editormd/editormd.js"></script>
+    <script src="{{ asset('static-third/ztree/js/jquery.ztree.core.min.js') }}"></script>
+    <script src="{{ asset('static-third/ztree/js/jquery.ztree.exedit.min.js') }}"></script>
+    <script src="{{ asset('static-third/editormd/editormd.js') }}"></script>
 
 </head>
 <body>
@@ -37,9 +38,7 @@
                 </div>
             </header>
         </div>
-        <div>
-            <ul id="treeDemo" class="ztree"></ul>
-        </div>
+        <ul id="treeDemo" class="ztree"></ul>
     </div>
     {{--markdown编辑区--}}
     <div class="wiki-editor-md">
