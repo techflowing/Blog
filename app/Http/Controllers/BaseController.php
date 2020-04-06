@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\ErrorDesc;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -56,17 +55,17 @@ class BaseController extends Controller
 
     /**
      * 构建请求返回数据
-     * @param ErrorDesc $errorDesc 错误码信息
+     * @param array $errorDesc 错误码信息
      * @param null $data 数据
      * @return Response
      */
-    protected function buildResponse(ErrorDesc $errorDesc, $data = null)
+    protected function buildResponse($errorDesc, $data = null)
     {
         $content = ['errCode' => $errorDesc[0], 'msg' => $errorDesc[1]];
         if (!empty($data)) {
             $content['data'] = $data;
         }
-        $this->response->json($content);
+        $this->response = $this->response->json($content);
 
         return $this->response;
     }

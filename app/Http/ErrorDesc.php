@@ -13,9 +13,13 @@ namespace App\Http;
  */
 class ErrorDesc
 {
-    // 成功
+    // 通用
     const SUCCESS = [0, "OK"];
+    const DB_ERROR = [10, "DB 操作失败"];
+    const METHOD_NOT_ALLOWED = [405, "Method Not Allowed"];
 
     // Wiki管理
+    const WIKI_NAME_EMPTY = [202001, "文档名称为空"];
+    const WIKI_PARENT_DOC_EMPTY = [202002, "父级文档不存在"];
 
 }

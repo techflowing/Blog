@@ -62,10 +62,11 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <form class="form-horizontal" role="form" method="post" action="{{route('wiki.document.create')}}" id="form-document">
+                @csrf
                 <input type="hidden" name="project_id" value="{{$project_id or ''}}">
                 {{--0 表示文档--}}
                 <input type="hidden" name="type" value="0">
-                <input type="hidden" name="parent_id" value="#">
+                <input type="hidden" name="parent_id" value="0">
                 <div class="modal-header">
                     <h4 class="modal-title" id="modal-title">新建文档</h4>
                 </div>
@@ -92,10 +93,11 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <form class="form-horizontal" role="form" method="post" action="{{route('wiki.document.create')}}" id="form-document">
+                @csrf
                 <input type="hidden" name="project_id" value="{{$project_id or ''}}">
                 {{--1 表示文件夹--}}
                 <input type="hidden" name="type" value="1">
-                <input type="hidden" name="parent_id" value="#">
+                <input type="hidden" name="parent_id" value="0">
                 <div class="modal-header">
                     <h4 class="modal-title" id="modal-title">新建文件夹</h4>
                 </div>

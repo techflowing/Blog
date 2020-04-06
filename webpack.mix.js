@@ -21,6 +21,7 @@ mix.copyDirectory('resources/assets/font/', 'public/static-common/font');
 // 公共资源-JS
 mix.scripts([
     'resources/assets/js/jquery-1.11.1.min.js',
+    'resources/assets/js/jquery.form.js',
     'resources/assets/js/TweenMax.min.js',
     'resources/assets/js/resizeable.js',
     'resources/assets/js/joinable.js',
