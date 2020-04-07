@@ -21,7 +21,8 @@
         "laravel/tinker": "^2.0",
         "orangehill/iseed": "^2.6",
         "sharemant/laravel-admin-ext-editormd": "^1.0",
-        "spatie/laravel-backup": "^6.8"
+        "spatie/laravel-backup": "^6.8",
+        "ext-json": "*"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.2",

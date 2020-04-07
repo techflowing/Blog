@@ -109,13 +109,87 @@ let setting = {
         showRenameBtn: false
     },
     callback: {
-        onClick: onClick
+        onClick: onZTreeClick,
+        onDrop: onZTreeDrop,
     }
 };
 
-function onClick(e, treeId, treeNode) {
+/**
+ * 目录树节点拖拽操作的回调
+ * @param treeNodes 被拖拽的节点 JSON 数据集合，数组
+ * @param targetNode treeNodes 被拖拽放开的目标节点 JSON 数据对象
+ * @param moveType 指定移动到目标节点的相对位置
+ *           "inner"：成为子节点，"prev"：成为同级前一个节点，"next"：成为同级后一个节点，如果 moveType = null，表明拖拽无效
+ */
+function onZTreeDrop(event, treeId, treeNodes, targetNode, moveType) {
+    // 获取被拖拽后 节点的所有兄弟节点，并标注序号
+    // 当前一次只允许拖拽一个几点，直接取第一个元素
+    let treeNode = treeNodes[0];
+    let sibling;
+    // 判断当前是否在根目录
+    if (treeNode.level === 0) {
+        sibling = getSiblingSort(zTreeObj.getNodes());
+    } else {
+        let parentNode = treeNode.getParentNode();
+        sibling = getSiblingSort(parentNode.children);
+    }
+    // 请求数据
+    let data = {};
+    // 兄弟节点顺序数据
+    data.sibling = sibling;
+    // 节点id
+    data.id = treeNode.id;
+    // 父级id
+    data.parent_id = treeNode.parent_id;
+
+    // jQuery.post 请求
+    let loading = layer.load(1, {
+        shade: [0.1, '#fff'] // 0.1透明度的白色背景
+    });
+
+    // jQuery POST 请求
+    $.post("/admin/wiki/sort/" + window.wiki_project_id, JSON.stringify(data))
+        .done(function (res) {
+            layer.close(loading);
+            if (res.errCode === 0) {
+                layer.msg("保存成功");
+            } else {
+                layer.msg("保存失败" + res.msg);
+            }
+        })
+        .fail(function () {
+            layer.close(loading);
+            layer.msg("保存排序失败，请刷新页面重试");
+        })
+}
+
+/**
+ * 目录树单击事件
+ */
+function onZTreeClick(e, treeId, treeNode) {
     let zTree = $.fn.zTree.getZTreeObj("treeDemo");
     zTree.expandNode(treeNode);
+}
+
+/**
+ * 构造兄弟节点之间的顺序关系
+ * @param nodes 数组，表示同一父节点下的所有兄弟节点
+ * @return [] 兄弟节点顺序，包含：id、sort、parent_id 字段
+ */
+function getSiblingSort(nodes) {
+    if (nodes == null) {
+        return null;
+    }
+    let data = [];
+    let index = 0;
+    for (let node of nodes) {
+        data[index++] = {
+            'id': node.id,
+            'sort': index,
+            'parent_id': node.parent_id
+        };
+    }
+    return data;
 }
 
 $(document).ready(function () {

@@ -6,6 +6,7 @@ use App\Http\Controllers\BaseController;
 use App\Http\ErrorDesc;
 use App\Model\wiki\WikiDocument;
 use App\Model\wiki\WikiProject;
+use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
 class WikiDocumentController extends BaseController
@@ -80,5 +81,40 @@ class WikiDocumentController extends BaseController
             return $this->buildResponse(ErrorDesc::SUCCESS, $data);
         }
         return $this->buildResponse(ErrorDesc::METHOD_NOT_ALLOWED);
+    }
+
+    /**
+     * 目录排序
+     * @param integer $project_id 项目Id
+     * @return \Illuminate\Http\Response
+     */
+    public function sort($project_id)
+    {
+        if (empty(WikiProject::find($project_id))) {
+            return $this->buildResponse(ErrorDesc::WIKI_PROJECT_NOT_EXIST);
+        }
+        $data = $this->request->getContent();
+        if (empty($data)) {
+            return $this->buildResponse(ErrorDesc::REQUEST_BODY_EMPTY);
+        }
+        $data = json_decode($data);
+
+        DB::transaction(function () use ($project_id, $data) {
+            // 更新parent_id
+            $document = ['parent_id' => $data->parent_id];
+            WikiDocument::where('id', '=', $data->id)
+                ->where('project_id', '=', $project_id)
+                ->update($document);
+            // 更新顺序
+            $sibling = $data->sibling;
+            foreach ($sibling as $item) {
+                $data = ['sort' => $item->sort];
+                WikiDocument::where('id', '=', $item->id)
+                    ->where('project_id', '=', $project_id)
+                    ->where('parent_id', '=', $item->parent_id)
+                    ->update($data);
+            }
+        });
+        return $this->buildResponse(ErrorDesc::SUCCESS);
     }
 }

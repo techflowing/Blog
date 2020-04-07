@@ -7,6 +7,7 @@
     <title>Wiki编辑</title>
     <meta name="keywords" content="">
     <meta name="description" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -22,11 +23,17 @@
     <script src="{{ asset('static-third/ztree/js/jquery.ztree.core.min.js') }}"></script>
     <script src="{{ asset('static-third/ztree/js/jquery.ztree.exedit.min.js') }}"></script>
     <script src="{{ asset('static-third/editormd/editormd.js') }}"></script>
+    <script src="{{ asset('static-third/layer/layer.js') }}"></script>
 
     <script type="text/javascript">
         // 去除转义字符，转换JSON对象为JS对象
         window.wiki_project = JSON.parse('{!!$wiki_project !!}');
+        window.wiki_project_id = wiki_project.id;
         window.wiki_doc_catalog = JSON.parse('{!! $doc_catalog !!}');
+    </script>
+
+    <script type="text/javascript">
+        $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
     </script>
 
 </head>
@@ -49,7 +56,7 @@
             <div class="editormd-body">
                 <div id="editormd">
                     <input type="hidden" name="doc_id" id="documentId">
-                    <textarea style="display:none;"> Hello，开始创作吧44 </textarea>
+                    <textarea style="display:none;"> Hello，开始创作吧 </textarea>
                 </div>
             </div>
         </form>

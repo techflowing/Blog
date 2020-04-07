@@ -49,13 +49,14 @@ Route::group([
             ->where('id', '[0-9]+');
         Route::post('edit/create', 'WikiDocumentController@create')
             ->name('wiki.document.create');
+        Route::post('sort/{project_id}', 'WikiDocumentController@sort')
+            ->name('wiki.document.sort');
+
         Route::get('content/{id}', 'WikiDocumentController@getContent')
             ->name('wiki.document.content')
             ->where('id', '[0-9]+');
         Route::post('save', 'WikiDocumentController@save')
             ->name('wiki.document.save');
-        Route::post('sort/{id}', 'WikiDocumentController@sort')
-            ->name('wiki.document.sort');
     });
 });
 

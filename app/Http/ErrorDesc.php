@@ -15,11 +15,13 @@ class ErrorDesc
 {
     // 通用
     const SUCCESS = [0, "OK"];
-    const DB_ERROR = [10, "DB 操作失败"];
+    const DB_ERROR = [100, "DB 操作失败"];
+    const REQUEST_BODY_EMPTY = [101, "请求Body为空"];
     const METHOD_NOT_ALLOWED = [405, "Method Not Allowed"];
 
     // Wiki管理
     const WIKI_NAME_EMPTY = [202001, "文档名称为空"];
     const WIKI_PARENT_DOC_EMPTY = [202002, "父级文档不存在"];
+    const WIKI_PROJECT_NOT_EXIST = [202003, "Wiki 项目不存在"];
 
 }

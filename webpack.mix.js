@@ -13,6 +13,7 @@ const mix = require('laravel-mix');
 // 三方库直接copy
 mix.copyDirectory('resources/assets/ztree', 'public/static-third/ztree');
 mix.copyDirectory('resources/assets/editormd', 'public/static-third/editormd');
+mix.copyDirectory('resources/assets/layer', 'public/static-third/layer');
 
 // 公共资源 图片、字体文件等
 mix.copyDirectory('resources/assets/img/', 'public/static-common/img');
