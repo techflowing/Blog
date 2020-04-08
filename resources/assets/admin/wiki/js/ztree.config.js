@@ -38,8 +38,13 @@ $createDocument.find('#form-document').ajaxForm({
         $createDocumentActionBtn.button('reset');
         if (res.errCode === 0) {
             $createDocument.modal('hide');
-            // 此处只能是根节点
-            zTreeObj.addNodes(null, res.data);
+            if (res.data.parent_t_id === '') {
+                zTreeObj.addNodes(null, res.data);
+            } else {
+                let node = zTreeObj.getNodeByTId(res.data.parent_t_id);
+                zTreeObj.addNodes(node, res.data);
+                zTreeObj.expandNode(node, true);
+            }
         } else {
             createDocumentFormError.text(res.message);
         }
@@ -63,7 +68,13 @@ $createDocumentDir.find('#form-document').ajaxForm({
         $createDocumentDirActionBtn.button('reset');
         if (res.errCode === 0) {
             $createDocumentDir.modal('hide');
-            zTreeObj.addNodes(null, res.data);
+            if (res.data.parent_t_id === '') {
+                zTreeObj.addNodes(null, res.data);
+            } else {
+                let node = zTreeObj.getNodeByTId(res.data.parent_t_id);
+                zTreeObj.addNodes(node, res.data);
+                zTreeObj.expandNode(node, true);
+            }
         } else {
             createDocumentDirFormError.text(res.message);
         }
@@ -111,6 +122,7 @@ let setting = {
     callback: {
         onClick: onZTreeClick,
         onDrop: onZTreeDrop,
+        onRightClick: onZTreeRightClick,
     }
 };
 
@@ -172,6 +184,89 @@ function onZTreeClick(e, treeId, treeNode) {
 }
 
 /**
+ * 右键事件监听
+ */
+function onZTreeRightClick(event, treeId, treeNode) {
+    dismissRightMenu();
+    // 判断是否是文件夹
+    if (treeNode.is_parent) {
+        showRightMenu(event, treeId, treeNode, '.contextmenu-dir')
+    } else {
+        showRightMenu(event, treeId, treeNode, '.contextmenu-doc')
+    }
+}
+
+/**
+ * 显示右键菜单
+ */
+function showRightMenu(event, treeId, treeNode, menu) {
+    //Get window size:
+    var winWidth = $(document).width();
+    var winHeight = $(document).height();
+    //Get pointer position:
+    var posX = event.pageX;
+    var posY = event.pageY;
+    //Get contextmenu size:
+    var menuWidth = $(menu).width();
+    var menuHeight = $(menu).height();
+    //Security margin:
+    var secMargin = 10;
+    //Prevent page overflow:
+    if (posX + menuWidth + secMargin >= winWidth && posY + menuHeight + secMargin >= winHeight) {
+        //Case 1: right-bottom overflow:
+        posLeft = posX - menuWidth - secMargin + "px";
+        posTop = posY - menuHeight - secMargin + "px";
+    } else if (posX + menuWidth + secMargin >= winWidth) {
+        //Case 2: right overflow:
+        posLeft = posX - menuWidth - secMargin + "px";
+        posTop = posY + secMargin + "px";
+    } else if (posY + menuHeight + secMargin >= winHeight) {
+        //Case 3: bottom overflow:
+        posLeft = posX + secMargin + "px";
+        posTop = posY - menuHeight - secMargin + "px";
+    } else {
+        //Case 4: default values:
+        posLeft = posX + secMargin + "px";
+        posTop = posY + secMargin + "px";
+    }
+
+    $('.contextmenu').find('.menu-new-dir').click(function () {
+        $createDocumentDir.find("input[name='name']").val('');
+        $createDocumentDir.find("input[name='parent_id']").val(treeNode.id);
+        $createDocumentDir.find("input[name='parent_t_id']").val(treeNode.tId);
+        createDocumentDirFormError.text('');
+        $createDocumentDir.modal('show')
+    });
+
+    $('.contextmenu').find('.menu-new-doc').click(function () {
+        $createDocument.find("input[name='name']").val('');
+        $createDocument.find("input[name='parent_id']").val(treeNode.id);
+        $createDocument.find("input[name='parent_t_id']").val(treeNode.tId);
+        createDocumentFormError.text('');
+        $createDocument.modal('show')
+    });
+    $('.contextmenu').find('.menu-delete').click(function () {
+        layer.msg('点击了删除' + treeNode.name);
+    });
+    $('.contextmenu').find('.menu-rename').click(function () {
+        layer.msg('点击了重命名' + treeNode.name);
+    });
+
+    $(menu).css({
+        "left": posLeft,
+        "top": posTop
+    }).show();
+}
+
+/**
+ * 隐藏ZTree上的右键菜单
+ */
+function dismissRightMenu() {
+    $('.contextmenu-dir').hide();
+    $('.contextmenu-doc').hide();
+}
+
+/**
  * 构造兄弟节点之间的顺序关系
  * @param nodes 数组，表示同一父节点下的所有兄弟节点
  * @return [] 兄弟节点顺序，包含：id、sort、parent_id 字段
@@ -199,13 +294,18 @@ $(document).ready(function () {
 
     $('#create-document-btn').click(function () {
         $createDocument.find("input[name='name']").val('');
+        $createDocument.find("input[name='parent_t_id']").val('');
         createDocumentFormError.text('');
         $createDocument.modal('show')
     });
     $('#create-document-dir-btn').click(function () {
         $createDocumentDir.find("input[name='name']").val('');
+        $createDocumentDir.find("input[name='parent_t_id']").val('');
         createDocumentDirFormError.text('');
         $createDocumentDir.modal('show')
-    })
+    });
 
+    $(document).click(function () {
+        dismissRightMenu()
+    });
 });

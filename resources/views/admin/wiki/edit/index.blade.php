@@ -74,6 +74,8 @@
                 {{--0 表示文档--}}
                 <input type="hidden" name="type" value="0">
                 <input type="hidden" name="parent_id" value="0">
+                {{--Ztree 内节点标识--}}
+                <input type="hidden" name="parent_t_id" value="">
                 <div class="modal-header">
                     <h4 class="modal-title" id="modal-title">新建文档</h4>
                 </div>
@@ -105,6 +107,8 @@
                 {{--1 表示文件夹--}}
                 <input type="hidden" name="type" value="1">
                 <input type="hidden" name="parent_id" value="0">
+                {{--Ztree 内节点标识--}}
+                <input type="hidden" name="parent_t_id" value="">
                 <div class="modal-header">
                     <h4 class="modal-title" id="modal-title">新建文件夹</h4>
                 </div>
@@ -125,6 +129,18 @@
         </div>
     </div>
 </div>
+
+<ul class="contextmenu contextmenu-doc">
+    <li class="menu-rename"><a>重命名</a></li>
+    <li class="menu-delete"><a>删除</a></li>
+</ul>
+
+<ul class="contextmenu contextmenu-dir">
+    <li class="menu-new-dir"><a>新建文件夹</a></li>
+    <li class="menu-new-doc"><a>新建文件</a></li>
+    <li class="menu-rename"><a>重命名</a></li>
+    <li class="menu-delete"><a>删除</a></li>
+</ul>
 
 {{--不能放head里！！！--}}
 <script src="{{ mix('static-admin/wiki/js/app.js') }}"></script>

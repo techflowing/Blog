@@ -43,6 +43,7 @@ class WikiDocumentController extends BaseController
         if ($this->isPost()) {
             $projectId = $this->request->input('project_id', 0);
             $parentId = $this->request->input('parent_id', 0);
+            $parentTId = $this->request->input('parent_t_id', '');
             $name = $this->request->input('name', '');
             $type = $this->request->input('type', 0);
 
@@ -71,11 +72,12 @@ class WikiDocumentController extends BaseController
                 return $this->buildResponse(ErrorDesc::DB_ERROR);
             }
 
-            // 构造要返回的节点数据
+            // 构造要返回的节点数据，key 值不能变，符合 Ztree 数据格式
             $data['id'] = $document->id . '';
             $data['name'] = $document->name;
             $data['type'] = $document->type . '';
             $data['parent_id'] = $document->parent_id;
+            $data['parent_t_id'] = $parentTId;
             $data['is_parent'] = strcmp($document->type, WikiDocument::$TYPE_DIR) == 0;
 
             return $this->buildResponse(ErrorDesc::SUCCESS, $data);
