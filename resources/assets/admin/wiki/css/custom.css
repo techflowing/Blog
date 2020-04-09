@@ -144,10 +144,9 @@ website:	http://code.google.com/p/jquerytree/
 
 .ztree li a.curSelectedNode_Edit {
     padding-top: 0px;
-    background-color: #FFE6B0;
+    background-color: transparent;
     color: black;
-    height: 16px;
-    border: 1px #FFB951 solid;
+    height: 32px;
     opacity: 0.8;
 }
 
@@ -167,11 +166,11 @@ website:	http://code.google.com/p/jquerytree/
 }
 
 .ztree li a input.rename {
-    height: 14px;
-    width: 80px;
+    height: 32px;
+    width: 100px;
     padding: 0;
     margin: 0;
-    font-size: 12px;
+    font-size: 14px;
     border: 1px #7EC4CC solid;
     *border: 0px
 }

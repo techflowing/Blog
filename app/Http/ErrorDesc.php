@@ -23,5 +23,6 @@ class ErrorDesc
     const WIKI_NAME_EMPTY = [202001, "文档名称为空"];
     const WIKI_PARENT_DOC_EMPTY = [202002, "父级文档不存在"];
     const WIKI_PROJECT_NOT_EXIST = [202003, "Wiki 项目不存在"];
+    const WIKI_DOC_NOT_EXIST = [202003, "Wiki Document 不存在"];
 
 }

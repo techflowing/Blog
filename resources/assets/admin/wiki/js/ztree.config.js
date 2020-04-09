@@ -123,6 +123,8 @@ let setting = {
         onClick: onZTreeClick,
         onDrop: onZTreeDrop,
         onRightClick: onZTreeRightClick,
+        beforeRename: beforeZTreeRename,
+        onRename: onZTreeRename,
     }
 };
 
@@ -197,6 +199,53 @@ function onZTreeRightClick(event, treeId, treeNode) {
 }
 
 /**
+ * 重命名操作确认之前监听
+ */
+function beforeZTreeRename(treeId, treeNode, newName, isCancel) {
+    if (isCancel) {
+        return true;
+    }
+    if (newName === '') {
+        layer.msg('名称不能为空');
+        // 强行恢复原名称
+        zTreeObj.cancelEditName();
+        return false;
+    }
+    treeNode.originName = treeNode.name;
+    return true;
+}
+
+function onZTreeRename(event, treeId, treeNode, isCancel) {
+    if (isCancel) {
+        return;
+    }
+    let data = {};
+    data.newName = treeNode.name;
+
+    let loading = layer.load(1, {
+        shade: [0.1, '#fff'] // 0.1透明度的白色背景
+    });
+    $.post("/admin/wiki/rename/" + window.wiki_project_id + "/" + treeNode.id, JSON.stringify(data))
+        .done(function (res) {
+            layer.close(loading);
+            if (res.errCode !== 0) {
+                zTreeObj.cancelEditName();
+                // 改变回原值，originName 为 beforeZTreeRename方法中临时添加的属性
+                treeNode.name = treeNode.originName;
+                zTreeObj.updateNode(treeNode, false);
+                layer.msg("重命名失败：" + res.msg);
+            }
+        })
+        .fail(function () {
+            layer.close(loading);
+            treeNode.name = treeNode.originName;
+            zTreeObj.updateNode(treeNode, false);
+            zTreeObj.cancelEditName();
+            layer.msg("重命名失败");
+        });
+}
+
+/**
  * 显示右键菜单
  */
 function showRightMenu(event, treeId, treeNode, menu) {
@@ -249,7 +298,8 @@ function showRightMenu(event, treeId, treeNode, menu) {
         layer.msg('点击了删除' + treeNode.name);
     });
     $('.contextmenu').find('.menu-rename').click(function () {
-        layer.msg('点击了重命名' + treeNode.name);
+        zTreeObj.cancelEditName();
+        zTreeObj.editName(treeNode)
     });
 
     $(menu).css({
@@ -289,7 +339,6 @@ function getSiblingSort(nodes) {
 
 $(document).ready(function () {
     // 初始化目录树结构
-    console.log(JSON.stringify(window.wiki_doc_catalog));
     zTreeObj = $.fn.zTree.init($("#treeDemo"), setting, window.wiki_doc_catalog);
 
     $('#create-document-btn').click(function () {

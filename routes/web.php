@@ -44,13 +44,22 @@ Route::group([
         'prefix' => 'wiki',
         'namespace' => 'Wiki'
     ], function () {
+        // Wiki 编辑页面
         Route::get('edit/{id}', 'WikiDocumentController@edit')
             ->name('wiki.document.edit')
             ->where('id', '[0-9]+');
+        // 新建文件、文件夹
         Route::post('edit/create', 'WikiDocumentController@create')
             ->name('wiki.document.create');
+        // 文档排序
         Route::post('sort/{project_id}', 'WikiDocumentController@sort')
-            ->name('wiki.document.sort');
+            ->name('wiki.document.sort')
+            ->where('project_id', '[0-9]+');
+        // 文档重命名
+        Route::post('rename/{project_id}/{doc_id}', 'WikiDocumentController@rename')
+            ->name('wiki.document.rename')
+            ->where('project_id', '[0-9]+')
+            ->where('doc_id', '[0-9]+');
 
         Route::get('content/{id}', 'WikiDocumentController@getContent')
             ->name('wiki.document.content')

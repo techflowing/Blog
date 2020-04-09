@@ -92,14 +92,15 @@ class WikiDocumentController extends BaseController
      */
     public function sort($project_id)
     {
-        if (empty(WikiProject::find($project_id))) {
-            return $this->buildResponse(ErrorDesc::WIKI_PROJECT_NOT_EXIST);
-        }
         $data = $this->request->getContent();
         if (empty($data)) {
             return $this->buildResponse(ErrorDesc::REQUEST_BODY_EMPTY);
         }
         $data = json_decode($data);
+
+        if (empty(WikiProject::find($project_id))) {
+            return $this->buildResponse(ErrorDesc::WIKI_PROJECT_NOT_EXIST);
+        }
 
         DB::transaction(function () use ($project_id, $data) {
             // 更新parent_id
@@ -117,6 +118,30 @@ class WikiDocumentController extends BaseController
                     ->update($data);
             }
         });
+        return $this->buildResponse(ErrorDesc::SUCCESS);
+    }
+
+    /**
+     * 文档重命名
+     * @param integer $projectId 项目Id
+     * @param integer $docId 文档Id
+     * @return \Illuminate\Http\Response
+     */
+    public function rename($projectId, $docId)
+    {
+        $data = $this->request->getContent();
+        if (empty($data)) {
+            return $this->buildResponse(ErrorDesc::REQUEST_BODY_EMPTY);
+        }
+        $data = json_decode($data);
+
+        if (empty(WikiProject::find($projectId))) {
+            return $this->buildResponse(ErrorDesc::WIKI_PROJECT_NOT_EXIST);
+        }
+
+        WikiDocument::where('project_id', '=', $projectId)
+            ->where('id', '=', $docId)
+            ->update(['name' => $data->newName]);
         return $this->buildResponse(ErrorDesc::SUCCESS);
     }
 }
