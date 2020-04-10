@@ -52,7 +52,8 @@
     </div>
     {{--markdown编辑区--}}
     <div class="wiki-editor-md">
-        <form id="form-editormd" method="post" action="">
+        <form id="form-editormd" method="post" action="{{route('wiki.document.save',['project_id'=>$project_id])}}">
+            @csrf
             <div class="editormd-body">
                 <div id="editormd">
                     <input type="hidden" name="doc_id" id="documentId">

@@ -65,12 +65,14 @@ Route::group([
         Route::post('delete/{project_id}', 'WikiDocumentController@delete')
             ->name('wiki.document.delete')
             ->where('project_id', '[0-9]+');
+        // 文档保存
+        Route::post('save/{project_id}', 'WikiDocumentController@save')
+            ->name('wiki.document.save')
+            ->where('project_id', '[0-9]+');
 
         Route::get('content/{id}', 'WikiDocumentController@getContent')
             ->name('wiki.document.content')
             ->where('id', '[0-9]+');
-        Route::post('save', 'WikiDocumentController@save')
-            ->name('wiki.document.save');
     });
 });
 

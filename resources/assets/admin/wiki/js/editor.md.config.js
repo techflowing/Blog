@@ -7,6 +7,9 @@ $(document).ready(function () {
 
 // editor md 编辑器初始化
 (function (window) {
+
+    window.isEditorChange = false;
+
     window.editor = editormd("editormd", {
         path: "/static-third/editormd/lib/",
         placeholder: "本编辑器支持Markdown编辑，左边编写，右边预览",
@@ -51,11 +54,17 @@ $(document).ready(function () {
             editor.setToolbarAutoFixed(false);
         },
         onchange: function () {
-            if (window.isEditorChange) {
-                window.isEditorChange = false;
-            } else {
-                $("#markdown-save").removeClass('disabled').addClass('change');
-            }
+            onEditorChange();
         }
     });
 })(window);
+
+function onEditorChange() {
+    window.isEditorChange = true;
+    $("#markdown-save").removeClass('disabled').addClass('change');
+}
+
+function onEditorChangeSaved() {
+    window.isEditorChange = false;
+    $("#markdown-save").removeClass('change').addClass('disabled');
+}

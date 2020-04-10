@@ -36,6 +36,37 @@ class WikiDocumentController extends BaseController
     }
 
     /**
+     * 保存文档
+     * @param $projectId
+     * @return \Illuminate\Http\Response
+     */
+    public function save($projectId)
+    {
+        if ($this->isPost()) {
+            $data = $this->request->getContent();
+            if (empty($data)) {
+                return $this->buildResponse(ErrorDesc::REQUEST_BODY_EMPTY);
+            }
+
+            if (empty(WikiProject::find($projectId))) {
+                return $this->buildResponse(ErrorDesc::WIKI_PROJECT_NOT_EXIST);
+            }
+            $content = $this->request->input('editormd-markdown-doc', null);
+            $docId = $this->request->input('doc_id', '');
+            $result = WikiDocument::where('project_id', '=', $projectId)
+                ->where('id', '=', $docId)
+                ->update(['content' => $content]);
+
+            if ($result) {
+                return $this->buildResponse(ErrorDesc::SUCCESS);
+            } else {
+                return $this->buildResponse(ErrorDesc::DB_ERROR);
+            }
+        }
+        return $this->buildResponse(ErrorDesc::METHOD_NOT_ALLOWED);
+    }
+
+    /**
      * 创建文件夹、文档
      * @param $projectId
      * @return \Illuminate\Http\Response

@@ -81,6 +81,39 @@ $createDocumentDir.find('#form-document').ajaxForm({
     }
 });
 
+// 保存文档请求回调
+$("#form-editormd").ajaxForm({
+    type: 'post',
+    dataType: 'json',
+    beforeSubmit: function (formData, jqForm, options) {
+        let content = $.trim(window.editor.getMarkdown());
+        if (content === '') {
+            layer.msg('保存成功');
+            return false;
+        }
+        // 设置当前的文档ID
+        let nodes = zTreeObj.getSelectedNodes();
+        let id = nodes[0].id;
+        $('#form-editormd').find("input[name='doc_id']").val(id);
+
+        loading = layer.load(1, {
+            shade: [0.1, '#fff'] // 0.1透明度的白色背景
+        });
+    },
+    success: function (res, statusText, xhr, $form) {
+        layer.close(loading);
+        if (res.errCode === 0) {
+            layer.msg('保存成功');
+            onEditorChangeSaved();
+        } else {
+            layer.msg('保存失败:' + res.msg);
+        }
+    },
+    error: function (res) {
+        layer.close(loading);
+        layer.msg('保存失败');
+    }
+});
 
 let zTreeObj;
 // zTree 的参数配置，深入使用请参考 API 文档（setting 配置详解）
@@ -120,6 +153,7 @@ let setting = {
         showRenameBtn: false
     },
     callback: {
+        beforeClick: onZTreeBeforeClick,
         onClick: onZTreeClick,
         onDrop: onZTreeDrop,
         onRightClick: onZTreeRightClick,
@@ -178,11 +212,33 @@ function onZTreeDrop(event, treeId, treeNodes, targetNode, moveType) {
 }
 
 /**
+ * 目录树捕获点击事件监听
+ */
+function onZTreeBeforeClick(treeId, treeNode, clickFlag) {
+    if (window.isEditorChange) {
+        layer.confirm('未保存的内容即将丢失！是否保存？', {
+            btn: ['保存', '丢弃']
+        }, function (index) {
+            layer.close(index);
+            $("#form-editormd").submit();
+        }, function () {
+            window.editor.clear();
+            onEditorChangeSaved();
+            zTreeObj.selectNode(treeNode)
+        });
+        return false;
+    }
+    return true;
+}
+
+/**
  * 目录树单击事件
  */
 function onZTreeClick(e, treeId, treeNode) {
     let zTree = $.fn.zTree.getZTreeObj("treeDemo");
-    zTree.expandNode(treeNode);
+    if (treeNode.is_parent) {
+        zTree.expandNode(treeNode);
+    }
 }
 
 /**
