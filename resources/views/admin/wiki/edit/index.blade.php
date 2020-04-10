@@ -56,7 +56,7 @@
             @csrf
             <div class="editormd-body">
                 <div id="editormd">
-                    <input type="hidden" name="doc_id" id="documentId">
+                    <input type="hidden" name="doc_id" id="documentId" value="">
                     <textarea style="display:none;"> Hello，开始创作吧 </textarea>
                 </div>
             </div>

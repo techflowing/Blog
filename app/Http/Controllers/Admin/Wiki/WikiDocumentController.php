@@ -136,7 +136,7 @@ class WikiDocumentController extends BaseController
 
         DB::transaction(function () use ($projectId, $data) {
             // 更新parent_id
-            $document = ['parent_id' => $data->parent_id];
+            $document = ['parent_id' => $data->parentId];
             WikiDocument::where('id', '=', $data->id)
                 ->where('project_id', '=', $projectId)
                 ->update($document);
@@ -146,7 +146,7 @@ class WikiDocumentController extends BaseController
                 $data = ['sort' => $item->sort];
                 WikiDocument::where('id', '=', $item->id)
                     ->where('project_id', '=', $projectId)
-                    ->where('parent_id', '=', $item->parent_id)
+                    ->where('parent_id', '=', $item->parentId)
                     ->update($data);
             }
         });

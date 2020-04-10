@@ -60,6 +60,12 @@ $(document).ready(function () {
 })(window);
 
 function onEditorChange() {
+    let node = getCurSelectedNode();
+    if (node == null || node.isParent === true) {
+        editor.setValue("请选择《文档》后再开始编辑！");
+        onEditorChangeSaved();
+        return;
+    }
     window.isEditorChange = true;
     $("#markdown-save").removeClass('disabled').addClass('change');
 }

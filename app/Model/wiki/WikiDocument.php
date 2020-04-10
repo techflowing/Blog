@@ -38,8 +38,8 @@ class WikiDocument extends Model
                 $temp['id'] = $item->id . '';
                 $temp['name'] = $item->name;
                 $temp['type'] = $item->type . '';
-                $temp['parent_id'] = $item->parent_id;
-                $temp['is_parent'] = $item->type == self::$TYPE_DIR;
+                $temp['parentId'] = $item->parent_id;
+                $temp['isParent'] = $item->type == self::$TYPE_DIR;
 
                 $catalog[] = $temp;
             }

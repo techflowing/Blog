@@ -86,19 +86,20 @@ $("#form-editormd").ajaxForm({
     type: 'post',
     dataType: 'json',
     beforeSubmit: function (formData, jqForm, options) {
+        let node = getCurSelectedNode();
+        if (node == null) {
+            layer.msg('未正确选择文档，请刷新页面重试');
+            return false;
+        }
         let content = $.trim(window.editor.getMarkdown());
         if (content === '') {
             layer.msg('保存成功');
             return false;
         }
-        // 设置当前的文档ID
-        let nodes = zTreeObj.getSelectedNodes();
-        let id = nodes[0].id;
-        $('#form-editormd').find("input[name='doc_id']").val(id);
-
         loading = layer.load(1, {
             shade: [0.1, '#fff'] // 0.1透明度的白色背景
         });
+        return true;
     },
     success: function (res, statusText, xhr, $form) {
         layer.close(loading);
@@ -130,13 +131,13 @@ let setting = {
             parent: true
         },
         key: {
-            isParent: "is_parent"
+            isParent: "isParent"
         },
         // 使用简单数据
         simpleData: {
             enable: true,
             idKey: "id",
-            pIdKey: "parent_id",
+            pIdKey: "parentId",
             rootPId: 0
         }
     },
@@ -161,6 +162,19 @@ let setting = {
         onRename: onZTreeRename,
     }
 };
+
+/**
+ * 获取当前被选中的节点数据
+ */
+function getCurSelectedNode() {
+    let nodes = zTreeObj.getSelectedNodes();
+    if (nodes == null || nodes.length === 0) {
+        return null;
+    }
+    node = nodes[0];
+    console.log("当前选中的：" + node.name);
+    return node;
+}
 
 /**
  * 目录树节点拖拽操作的回调
@@ -188,7 +202,7 @@ function onZTreeDrop(event, treeId, treeNodes, targetNode, moveType) {
     // 节点id
     data.id = treeNode.id;
     // 父级id
-    data.parent_id = treeNode.parent_id;
+    data.parentId = treeNode.parentId;
 
     // jQuery.post 请求
     let loading = layer.load(1, {
@@ -236,8 +250,12 @@ function onZTreeBeforeClick(treeId, treeNode, clickFlag) {
  */
 function onZTreeClick(e, treeId, treeNode) {
     let zTree = $.fn.zTree.getZTreeObj("treeDemo");
-    if (treeNode.is_parent) {
+    if (treeNode.isParent) {
         zTree.expandNode(treeNode);
+    } else {
+        $('#form-editormd').find("input[name='doc_id']").val(treeNode.id);
+
+        // todo 加载文档内容
     }
 }
 
@@ -250,7 +268,7 @@ function onZTreeRightClick(event, treeId, treeNode) {
         return
     }
     // 判断是否是文件夹
-    if (treeNode.is_parent) {
+    if (treeNode.isParent) {
         showRightMenu(event, treeId, treeNode, '.contextmenu-dir')
     } else {
         showRightMenu(event, treeId, treeNode, '.contextmenu-doc')
@@ -377,7 +395,7 @@ function onDeleteMenuClick(treeNode) {
     if (treeNode == null) {
         return
     }
-    if (treeNode.is_parent === true) {
+    if (treeNode.isParent === true) {
         layer.confirm('删除文件夹将同时删除所有子节点！是否删除？', {
             btn: ['确定', '取消']
         }, function (index) {
@@ -442,7 +460,7 @@ function dismissRightMenu() {
 /**
  * 构造兄弟节点之间的顺序关系
  * @param nodes 数组，表示同一父节点下的所有兄弟节点
- * @return [] 兄弟节点顺序，包含：id、sort、parent_id 字段
+ * @return [] 兄弟节点顺序，包含：id、sort、parentId 字段
  */
 function getSiblingSort(nodes) {
     if (nodes == null) {
@@ -454,7 +472,7 @@ function getSiblingSort(nodes) {
         data[index++] = {
             'id': node.id,
             'sort': index,
-            'parent_id': node.parent_id
+            'parentId': node.parentId
         };
     }
     return data;
