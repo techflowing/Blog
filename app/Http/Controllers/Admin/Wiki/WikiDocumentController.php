@@ -100,9 +100,26 @@ class WikiDocumentController extends BaseController
                 ->orderBy('sort', 'DESC')
                 ->first();
             $document->sort = ($maxSort ? $maxSort['sort'] + 1 : 0);
+
+            // 开启事务
+            DB::beginTransaction();
             if (!$document->save()) {
+                DB::rollback();
                 return $this->buildResponse(ErrorDesc::DB_ERROR);
             }
+            // 更新 WikiProject 内文档数目信息
+            if ($type == WikiDocument::$TYPE_FILE) {
+                $docCount = WikiDocument::where('project_id', '=', $projectId)
+                    ->where('type', '=', WikiDocument::$TYPE_FILE)
+                    ->count();
+                $result = WikiProject::where('id', '=', $projectId)
+                    ->update(['doc_count' => $docCount]);
+                if (!$result) {
+                    DB::rollback();
+                    return $this->buildResponse(ErrorDesc::DB_ERROR);
+                }
+            }
+            DB::commit();
 
             // 构造要返回的节点数据，key 值不能变，符合 Ztree 数据格式
             $data['id'] = $document->id . '';
@@ -193,9 +210,27 @@ class WikiDocumentController extends BaseController
         if (empty(WikiProject::find($projectId))) {
             return $this->buildResponse(ErrorDesc::WIKI_PROJECT_NOT_EXIST);
         }
-        WikiDocument::where('project_id', '=', $projectId)
+        // 开启事务
+        DB::beginTransaction();
+        $result = WikiDocument::where('project_id', '=', $projectId)
             ->whereIn('id', $data)
             ->delete();
+        if (!$result) {
+            DB::rollBack();
+            return $this->buildResponse(ErrorDesc::DB_ERROR);
+        }
+        // 更新文档数目
+        $docCount = WikiDocument::where('project_id', '=', $projectId)
+            ->where('type', '=', WikiDocument::$TYPE_FILE)
+            ->count();
+        $result = WikiProject::where('id', '=', $projectId)
+            ->update(['doc_count' => $docCount]);
+        if (!$result) {
+            DB::rollback();
+            return $this->buildResponse(ErrorDesc::DB_ERROR);
+        }
+        DB::commit();
+
         return $this->buildResponse(ErrorDesc::SUCCESS);
     }
 }

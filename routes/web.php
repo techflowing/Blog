@@ -19,6 +19,7 @@ Route::resource('/navigation', 'NavigationController');
 
 // Wiki 相关
 Route::group(['prefix' => 'wiki'], function () {
+    // 获取指定文档内容
     Route::get('content/{project_id}/{doc_id}', 'WikiController@getContent')
         ->name('wiki.document.content')
         ->where('project_id', '[0-9]+')
