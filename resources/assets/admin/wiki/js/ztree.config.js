@@ -38,10 +38,10 @@ $createDocument.find('#form-document').ajaxForm({
         $createDocumentActionBtn.button('reset');
         if (res.errCode === 0) {
             $createDocument.modal('hide');
-            if (res.data.parent_t_id === '') {
+            if (res.data.parentTId === '') {
                 zTreeObj.addNodes(null, res.data);
             } else {
-                let node = zTreeObj.getNodeByTId(res.data.parent_t_id);
+                let node = zTreeObj.getNodeByTId(res.data.parentTId);
                 zTreeObj.addNodes(node, res.data);
                 zTreeObj.expandNode(node, true);
             }
@@ -68,10 +68,10 @@ $createDocumentDir.find('#form-document').ajaxForm({
         $createDocumentDirActionBtn.button('reset');
         if (res.errCode === 0) {
             $createDocumentDir.modal('hide');
-            if (res.data.parent_t_id === '') {
+            if (res.data.parentTId === '') {
                 zTreeObj.addNodes(null, res.data);
             } else {
-                let node = zTreeObj.getNodeByTId(res.data.parent_t_id);
+                let node = zTreeObj.getNodeByTId(res.data.parentTId);
                 zTreeObj.addNodes(node, res.data);
                 zTreeObj.expandNode(node, true);
             }
@@ -91,11 +91,6 @@ $("#form-editormd").ajaxForm({
             layer.msg('未正确选择文档，请刷新页面重试');
             return false;
         }
-        let content = $.trim(window.editor.getMarkdown());
-        if (content === '') {
-            layer.msg('保存成功');
-            return false;
-        }
         loading = layer.load(1, {
             shade: [0.1, '#fff'] // 0.1透明度的白色背景
         });
@@ -105,7 +100,7 @@ $("#form-editormd").ajaxForm({
         layer.close(loading);
         if (res.errCode === 0) {
             layer.msg('保存成功');
-            onEditorChangeSaved();
+            clearEditorChangeStatus();
         } else {
             layer.msg('保存失败:' + res.msg);
         }
@@ -164,6 +159,18 @@ let setting = {
 };
 
 /**
+ * 判断特定节点是否是当前选定的节点
+ * @param treeNode
+ */
+function isCurSelectedNode(treeNode) {
+    if (treeNode === null) {
+        return false;
+    }
+    let curNode = getCurSelectedNode();
+    return curNode != null && curNode.id === treeNode.id;
+}
+
+/**
  * 获取当前被选中的节点数据
  */
 function getCurSelectedNode() {
@@ -214,14 +221,14 @@ function onZTreeDrop(event, treeId, treeNodes, targetNode, moveType) {
         .done(function (res) {
             layer.close(loading);
             if (res.errCode === 0) {
-                layer.msg("保存成功");
+                layer.msg("排序保存成功");
             } else {
-                layer.msg("保存失败" + res.msg);
+                layer.msg("排序保存失败：" + res.msg);
             }
         })
         .fail(function () {
             layer.close(loading);
-            layer.msg("保存排序失败，请刷新页面重试");
+            layer.msg("排序保存失败，请刷新页面重试");
         })
 }
 
@@ -229,6 +236,11 @@ function onZTreeDrop(event, treeId, treeNodes, targetNode, moveType) {
  * 目录树捕获点击事件监听
  */
 function onZTreeBeforeClick(treeId, treeNode, clickFlag) {
+    // 判断是否当前 文档 Node 重复点击
+    let curNode = getCurSelectedNode();
+    if (curNode !== null && curNode.isParent === false && treeNode.id === curNode.id) {
+        return false;
+    }
     if (window.isEditorChange) {
         layer.confirm('未保存的内容即将丢失！是否保存？', {
             btn: ['保存', '丢弃']
@@ -236,9 +248,8 @@ function onZTreeBeforeClick(treeId, treeNode, clickFlag) {
             layer.close(index);
             $("#form-editormd").submit();
         }, function () {
-            window.editor.clear();
-            onEditorChangeSaved();
-            zTreeObj.selectNode(treeNode)
+            zTreeObj.selectNode(treeNode);
+            loadContent(treeNode);
         });
         return false;
     }
@@ -246,16 +257,55 @@ function onZTreeBeforeClick(treeId, treeNode, clickFlag) {
 }
 
 /**
- * 目录树单击事件
+ * 目录树单击事件, 逻辑待优化
  */
 function onZTreeClick(e, treeId, treeNode) {
     let zTree = $.fn.zTree.getZTreeObj("treeDemo");
     if (treeNode.isParent) {
+        window.ignoreEditorChange = true;
+        window.editor.setValue("请选择 '文档' 后再开始编辑！");
         zTree.expandNode(treeNode);
     } else {
-        $('#form-editormd').find("input[name='doc_id']").val(treeNode.id);
+        loadContent(treeNode)
+    }
+}
 
-        // todo 加载文档内容
+/**
+ * 加载文档内容，加载失败强制弹窗重新加载，逻辑待优化
+ * @param treeNode
+ */
+function loadContent(treeNode) {
+    let loading = layer.load(1, {
+        shade: [0.1, '#fff'] // 0.1透明度的白色背景
+    });
+    $.get("/wiki/content/" + window.wiki_project_id + "/" + treeNode.id)
+        .done(function (res) {
+            layer.close(loading);
+            if (res.errCode === 0) {
+                $('#form-editormd').find("input[name='doc_id']").val(treeNode.id);
+                // 设置忽略变化标记，避免回调 onChange 方法
+                window.ignoreEditorChange = true;
+                // 设置editor内容
+                window.editor.setValue(res.data.content);
+                clearEditorChangeStatus();
+            } else {
+                showLoadContentConfirm(treeNode);
+            }
+        })
+        .fail(function () {
+            layer.close(loading);
+            showLoadContentConfirm(treeNode);
+        });
+
+    // 内容加载失败，弹窗提示重新加载
+    function showLoadContentConfirm(treeNode) {
+        layer.confirm('文档加载失败，点击重新加载', {
+            btn: ['确定'],
+            closeBtn: 0
+        }, function (index) {
+            layer.close(index);
+            loadContent(treeNode)
+        });
     }
 }
 
@@ -438,6 +488,12 @@ function deleteDoc(treeNode) {
         .done(function (res) {
             layer.close(loading);
             if (res.errCode === 0) {
+                if (isCurSelectedNode(treeNode)) {
+                    // 清除内容，重置已编辑状态
+                    window.ignoreEditorChange = true;
+                    window.editor.clear();
+                    clearEditorChangeStatus();
+                }
                 zTreeObj.removeNode(treeNode, false);
             } else {
                 layer.msg("删除失败，请稍后重试," + res.msg);

@@ -108,9 +108,9 @@ class WikiDocumentController extends BaseController
             $data['id'] = $document->id . '';
             $data['name'] = $document->name;
             $data['type'] = $document->type . '';
-            $data['parent_id'] = $document->parent_id;
-            $data['parent_t_id'] = $parentTId;
-            $data['is_parent'] = strcmp($document->type, WikiDocument::$TYPE_DIR) == 0;
+            $data['parentId'] = $document->parent_id;
+            $data['parentTId'] = $parentTId;
+            $data['isParent'] = strcmp($document->type, WikiDocument::$TYPE_DIR) == 0;
 
             return $this->buildResponse(ErrorDesc::SUCCESS, $data);
         }

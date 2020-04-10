@@ -13,11 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', 'HomeController@index');
+
+// 导航站相关
 Route::resource('/navigation', 'NavigationController');
 
-// Wiki 项目导航
-Route::group(['prefix' => 'wiki', 'namespace' => 'wiki'], function () {
-
+// Wiki 相关
+Route::group(['prefix' => 'wiki'], function () {
+    Route::get('content/{project_id}/{doc_id}', 'WikiController@getContent')
+        ->name('wiki.document.content')
+        ->where('project_id', '[0-9]+')
+        ->where('doc_id', '[0-9]+');
 });
 
 
@@ -69,10 +74,6 @@ Route::group([
         Route::post('save/{project_id}', 'WikiDocumentController@save')
             ->name('wiki.document.save')
             ->where('project_id', '[0-9]+');
-
-        Route::get('content/{id}', 'WikiDocumentController@getContent')
-            ->name('wiki.document.content')
-            ->where('id', '[0-9]+');
     });
 });
 

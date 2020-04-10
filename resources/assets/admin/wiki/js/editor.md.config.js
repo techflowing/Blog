@@ -9,6 +9,8 @@ $(document).ready(function () {
 (function (window) {
 
     window.isEditorChange = false;
+    // 忽略当次变化，一次有效
+    window.ignoreEditorChange = false;
 
     window.editor = editormd("editormd", {
         path: "/static-third/editormd/lib/",
@@ -54,23 +56,27 @@ $(document).ready(function () {
             editor.setToolbarAutoFixed(false);
         },
         onchange: function () {
-            onEditorChange();
+            setEditorChangeStatus();
         }
     });
 })(window);
 
-function onEditorChange() {
+function setEditorChangeStatus() {
+    if (window.ignoreEditorChange) {
+        window.ignoreEditorChange = false;
+        return;
+    }
     let node = getCurSelectedNode();
     if (node == null || node.isParent === true) {
-        editor.setValue("请选择《文档》后再开始编辑！");
-        onEditorChangeSaved();
+        editor.setValue("请选择 '文档' 后再开始编辑！");
+        clearEditorChangeStatus();
         return;
     }
     window.isEditorChange = true;
     $("#markdown-save").removeClass('disabled').addClass('change');
 }
 
-function onEditorChangeSaved() {
+function clearEditorChangeStatus() {
     window.isEditorChange = false;
     $("#markdown-save").removeClass('change').addClass('disabled');
 }
