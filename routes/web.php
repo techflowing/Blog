@@ -49,8 +49,9 @@ Route::group([
             ->name('wiki.document.edit')
             ->where('id', '[0-9]+');
         // 新建文件、文件夹
-        Route::post('edit/create', 'WikiDocumentController@create')
-            ->name('wiki.document.create');
+        Route::post('edit/create/{project_id}', 'WikiDocumentController@create')
+            ->name('wiki.document.create')
+            ->where('project_id', '[0-9]+');;
         // 文档排序
         Route::post('sort/{project_id}', 'WikiDocumentController@sort')
             ->name('wiki.document.sort')
@@ -60,6 +61,10 @@ Route::group([
             ->name('wiki.document.rename')
             ->where('project_id', '[0-9]+')
             ->where('doc_id', '[0-9]+');
+        // 文档删除
+        Route::post('delete/{project_id}', 'WikiDocumentController@delete')
+            ->name('wiki.document.delete')
+            ->where('project_id', '[0-9]+');
 
         Route::get('content/{id}', 'WikiDocumentController@getContent')
             ->name('wiki.document.content')

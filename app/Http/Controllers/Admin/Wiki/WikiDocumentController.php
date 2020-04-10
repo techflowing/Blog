@@ -37,11 +37,12 @@ class WikiDocumentController extends BaseController
 
     /**
      * 创建文件夹、文档
+     * @param $projectId
+     * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($projectId)
     {
         if ($this->isPost()) {
-            $projectId = $this->request->input('project_id', 0);
             $parentId = $this->request->input('parent_id', 0);
             $parentTId = $this->request->input('parent_t_id', '');
             $name = $this->request->input('name', '');
@@ -87,10 +88,10 @@ class WikiDocumentController extends BaseController
 
     /**
      * 目录排序
-     * @param integer $project_id 项目Id
+     * @param integer $projectId 项目Id
      * @return \Illuminate\Http\Response
      */
-    public function sort($project_id)
+    public function sort($projectId)
     {
         $data = $this->request->getContent();
         if (empty($data)) {
@@ -98,22 +99,22 @@ class WikiDocumentController extends BaseController
         }
         $data = json_decode($data);
 
-        if (empty(WikiProject::find($project_id))) {
+        if (empty(WikiProject::find($projectId))) {
             return $this->buildResponse(ErrorDesc::WIKI_PROJECT_NOT_EXIST);
         }
 
-        DB::transaction(function () use ($project_id, $data) {
+        DB::transaction(function () use ($projectId, $data) {
             // 更新parent_id
             $document = ['parent_id' => $data->parent_id];
             WikiDocument::where('id', '=', $data->id)
-                ->where('project_id', '=', $project_id)
+                ->where('project_id', '=', $projectId)
                 ->update($document);
             // 更新顺序
             $sibling = $data->sibling;
             foreach ($sibling as $item) {
                 $data = ['sort' => $item->sort];
                 WikiDocument::where('id', '=', $item->id)
-                    ->where('project_id', '=', $project_id)
+                    ->where('project_id', '=', $projectId)
                     ->where('parent_id', '=', $item->parent_id)
                     ->update($data);
             }
@@ -142,6 +143,28 @@ class WikiDocumentController extends BaseController
         WikiDocument::where('project_id', '=', $projectId)
             ->where('id', '=', $docId)
             ->update(['name' => $data->newName]);
+        return $this->buildResponse(ErrorDesc::SUCCESS);
+    }
+
+    /**
+     * 删除文档
+     * @param $projectId
+     * @return \Illuminate\Http\Response
+     */
+    public function delete($projectId)
+    {
+        $data = $this->request->getContent();
+        if (empty($data)) {
+            return $this->buildResponse(ErrorDesc::REQUEST_BODY_EMPTY);
+        }
+        $data = json_decode($data);
+
+        if (empty(WikiProject::find($projectId))) {
+            return $this->buildResponse(ErrorDesc::WIKI_PROJECT_NOT_EXIST);
+        }
+        WikiDocument::where('project_id', '=', $projectId)
+            ->whereIn('id', $data)
+            ->delete();
         return $this->buildResponse(ErrorDesc::SUCCESS);
     }
 }

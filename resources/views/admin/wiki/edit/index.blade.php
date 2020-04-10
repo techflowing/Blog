@@ -68,9 +68,9 @@
 <div class="modal fade" id="create-document" tabindex="-1" role="dialog" aria-labelledby="添加文件" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form class="form-horizontal" role="form" method="post" action="{{route('wiki.document.create')}}" id="form-document">
+            <form class="form-horizontal" role="form" method="post"
+                  action="{{route('wiki.document.create',['project_id'=>$project_id])}}" id="form-document">
                 @csrf
-                <input type="hidden" name="project_id" value="{{$project_id or ''}}">
                 {{--0 表示文档--}}
                 <input type="hidden" name="type" value="0">
                 <input type="hidden" name="parent_id" value="0">
@@ -101,9 +101,9 @@
 <div class="modal fade" id="create-document-dir" tabindex="-1" role="dialog" aria-labelledby="添加文件夹" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form class="form-horizontal" role="form" method="post" action="{{route('wiki.document.create')}}" id="form-document">
+            <form class="form-horizontal" role="form" method="post"
+                  action="{{route('wiki.document.create',['project_id'=>$project_id])}}" id="form-document">
                 @csrf
-                <input type="hidden" name="project_id" value="{{$project_id or ''}}">
                 {{--1 表示文件夹--}}
                 <input type="hidden" name="type" value="1">
                 <input type="hidden" name="parent_id" value="0">

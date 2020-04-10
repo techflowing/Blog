@@ -190,6 +190,9 @@ function onZTreeClick(e, treeId, treeNode) {
  */
 function onZTreeRightClick(event, treeId, treeNode) {
     dismissRightMenu();
+    if (treeNode == null) {
+        return
+    }
     // 判断是否是文件夹
     if (treeNode.is_parent) {
         showRightMenu(event, treeId, treeNode, '.contextmenu-dir')
@@ -278,6 +281,8 @@ function showRightMenu(event, treeId, treeNode, menu) {
         posLeft = posX + secMargin + "px";
         posTop = posY + secMargin + "px";
     }
+    // 先移除click 事件，避免重复绑定
+    $('.contextmenu').find('li').unbind("click");
 
     $('.contextmenu').find('.menu-new-dir').click(function () {
         $createDocumentDir.find("input[name='name']").val('');
@@ -295,7 +300,7 @@ function showRightMenu(event, treeId, treeNode, menu) {
         $createDocument.modal('show')
     });
     $('.contextmenu').find('.menu-delete').click(function () {
-        layer.msg('点击了删除' + treeNode.name);
+        onDeleteMenuClick(treeNode);
     });
     $('.contextmenu').find('.menu-rename').click(function () {
         zTreeObj.cancelEditName();
@@ -306,6 +311,68 @@ function showRightMenu(event, treeId, treeNode, menu) {
         "left": posLeft,
         "top": posTop
     }).show();
+}
+
+/**
+ * 删除TreeNode节点
+ * @param treeNode
+ */
+function onDeleteMenuClick(treeNode) {
+    if (treeNode == null) {
+        return
+    }
+    if (treeNode.is_parent === true) {
+        layer.confirm('删除文件夹将同时删除所有子节点！是否删除？', {
+            btn: ['确定', '取消']
+        }, function (index) {
+            layer.close(index);
+            deleteDoc(treeNode)
+        });
+    } else {
+        layer.confirm('确定删除此文档吗？', {
+            btn: ['确定', '取消']
+        }, function (index) {
+            layer.close(index);
+            deleteDoc(treeNode)
+        });
+    }
+}
+
+/**
+ * 执行删除操作
+ */
+function deleteDoc(treeNode) {
+    let loading = layer.load(1, {
+        shade: [0.1, '#fff'] // 0.1透明度的白色背景
+    });
+
+    // 遍历获取所有子节点
+    let nodes = [];
+    let visitLoop = function (treeNode) {
+        if (treeNode) {
+            nodes.push(treeNode.id);
+            if (treeNode.children) {
+                for (let node of treeNode.children) {
+                    visitLoop(node);
+                }
+            }
+        }
+    };
+    visitLoop(treeNode);
+
+    $.post("/admin/wiki/delete/" + window.wiki_project_id, JSON.stringify(nodes))
+        .done(function (res) {
+            layer.close(loading);
+            if (res.errCode === 0) {
+                zTreeObj.removeNode(treeNode, false);
+            } else {
+                layer.msg("删除失败，请稍后重试," + res.msg);
+            }
+        })
+        .fail(function () {
+            layer.close(loading);
+            layer.msg("删除失败，请稍后重试");
+        })
 }
 
 /**
