@@ -19,6 +19,8 @@ Route::resource('/navigation', 'NavigationController');
 
 // Wiki 相关
 Route::group(['prefix' => 'wiki'], function () {
+    // Wiki 首页
+    Route::get('/', 'WikiController@index');
     // 获取指定文档内容
     Route::get('content/{project_id}/{doc_id}', 'WikiController@getContent')
         ->name('wiki.document.content')

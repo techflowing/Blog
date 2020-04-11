@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\ErrorDesc;
+use App\Model\Admin\HomeNavMenu;
 use App\Model\wiki\WikiDocument;
 use App\Model\wiki\WikiProject;
 
@@ -13,6 +14,18 @@ use App\Model\wiki\WikiProject;
  */
 class WikiController extends BaseController
 {
+    /**
+     * Wiki 首页
+     */
+    public function index()
+    {
+        $navMenu = HomeNavMenu::all()
+            ->sortBy('order');
+
+        return view('wiki.index')
+            ->with('navMenu', $navMenu);;
+    }
+
     /**
      * 获取指定文档内容
      * @param integer $projectId 项目ID
