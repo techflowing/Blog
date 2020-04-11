@@ -6,6 +6,7 @@ use App\Http\ErrorDesc;
 use App\Model\Admin\HomeNavMenu;
 use App\Model\wiki\WikiDocument;
 use App\Model\wiki\WikiProject;
+use Encore\Admin\Facades\Admin;
 
 /**
  * Wiki 相关控制器
@@ -19,11 +20,24 @@ class WikiController extends BaseController
      */
     public function index()
     {
+        $project = null;
+
+        if (Admin::user() != null && Admin::user()->isAdministrator()) {
+            // 登录账户显示所有文档，包含隐私文档
+            $project = WikiProject::all()
+                ->sortBy('updated_at');
+        } else {
+            $project = WikiProject::where('type', '=', WikiProject::$TYPE_PUBLIC)
+                ->orderBy('updated_at')
+                ->get();
+        }
+
         $navMenu = HomeNavMenu::all()
             ->sortBy('order');
 
         return view('wiki.index')
-            ->with('navMenu', $navMenu);;
+            ->with('projects', $project)
+            ->with('navMenu', $navMenu);
     }
 
     /**

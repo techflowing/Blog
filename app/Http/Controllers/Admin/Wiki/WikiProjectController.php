@@ -74,6 +74,7 @@ class WikiProjectController extends Controller
                     return "<span class='label label-default'>未知-非法</span>";
             }
         });
+        $grid->thumb('封面图')->gallery(['width' => 30, 'height' => 20]);
         $grid->created_at('创建时间')->date('Y-m-d');
         $grid->updated_at('修改时间')->date('Y-m-d');
 
@@ -96,6 +97,12 @@ class WikiProjectController extends Controller
         $form->radio('type', "类型")
             ->options([WikiProject::$TYPE_PUBLIC => '公开', WikiProject::$TYPE_PRIVATE => '私密'])
             ->default(WikiProject::$TYPE_PUBLIC)
+            ->required();
+
+        $form->image('thumb', '封面图')
+            ->crop(300, 200)
+            ->help('图片尺寸需要 300*200')
+            ->uniqueName()
             ->required();
 
         $form->footer(function ($footer) {

@@ -17,4 +17,5 @@ yarn-error.log
 /public/static-admin/
 /public/static-common/
 /public/static-navigation/
+/public/static-wiki/
 /public/static-third/

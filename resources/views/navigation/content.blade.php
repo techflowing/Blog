@@ -6,6 +6,9 @@
                                  id="{{ $category->title }}"></i>{{ $category->title }}</h4>
 
         @php
+
+            $mediaStore = config('mediastore.name');
+
             foreach ($category->sites->chunk(4) as $sites){
             echo '<div class="row">';
 
@@ -15,7 +18,7 @@
                         <div class="xe-widget xe-conversations box2 label-info" onclick="window.open('$site->url', '_blank')">
                             <div class="xe-comment-entry">
                                 <a class="xe-user-img">
-                                    <img src="/uploads/$site->thumb" class="img-circle" width="40">
+                                    <img src="$mediaStore/$site->thumb" class="img-circle" width="40">
                                 </a>
                                 <div class="xe-comment">
                                     <a href="#" class="xe-user-name overflowClip_1">

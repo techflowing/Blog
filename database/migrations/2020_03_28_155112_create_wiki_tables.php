@@ -23,6 +23,7 @@ class CreateWikiTables extends Migration
             $table->string('description', 2000)->nullable(true)->comment('项目描述');
             $table->integer('type')->comment('项目类型，1-公开/ 0-私密');
             $table->integer('doc_count')->default(0)->comment('文档数量');
+            $table->string('thumb')->comment('项目封面图');
             $table->timestamps();
         });
         Schema::create('wiki_document', function (Blueprint $table) {

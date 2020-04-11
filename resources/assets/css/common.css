@@ -5,6 +5,7 @@
 
 .page-body {
     overscroll-behavior: none;
+    background: #F5F5F5;
 }
 
 .page-content {

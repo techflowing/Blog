@@ -49,6 +49,10 @@ mix.styles([
     'resources/assets/navigation/css/app.css'
 ], 'public/static-navigation/css/app.css');
 
+// wiki 资源
+mix.styles(['resources/assets/wiki/css/app.css'],
+    'public/static-wiki/css/app.css');
+
 // 后台管理 - Wiki 资源
 mix.styles([
     'resources/assets/admin/wiki/css/custom.css'
