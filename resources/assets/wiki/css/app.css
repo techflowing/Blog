@@ -53,3 +53,40 @@
     -webkit-line-clamp: 2;
     overflow: hidden;
 }
+
+.doc-title-container {
+    height: 50px;
+}
+
+.doc-detail-title {
+    font-size: 28px;
+    color: #383434;
+    padding: 0 20px;
+}
+
+.editormd-body {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding: 30px 30px 0 30px;
+}
+
+.editormd-view-body, .editormd-toc {
+    height: 100%;
+    overflow: auto;
+    overflow: -moz-scrollbars-none;
+}
+
+.editormd-view-body::-webkit-scrollbar {
+    width: 0 !important
+}
+
+.editormd-toc::-webkit-scrollbar {
+    width: 0 !important
+}
+
+.editormd-toc {
+    border-left: 1px solid #ddd;
+}

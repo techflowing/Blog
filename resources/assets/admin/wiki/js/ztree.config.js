@@ -260,11 +260,10 @@ function onZTreeBeforeClick(treeId, treeNode, clickFlag) {
  * 目录树单击事件, 逻辑待优化
  */
 function onZTreeClick(e, treeId, treeNode) {
-    let zTree = $.fn.zTree.getZTreeObj("treeDemo");
     if (treeNode.isParent) {
         window.ignoreEditorChange = true;
         window.editor.setValue("请选择 '文档' 后再开始编辑！");
-        zTree.expandNode(treeNode);
+        zTreeObj.expandNode(treeNode);
     } else {
         loadContent(treeNode)
     }

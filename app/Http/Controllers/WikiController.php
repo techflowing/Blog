@@ -16,7 +16,7 @@ use Encore\Admin\Facades\Admin;
 class WikiController extends BaseController
 {
     /**
-     * Wiki 首页
+     * Wiki 首页, 显示项目列表
      */
     public function index()
     {
@@ -24,11 +24,10 @@ class WikiController extends BaseController
 
         if (Admin::user() != null && Admin::user()->isAdministrator()) {
             // 登录账户显示所有文档，包含隐私文档
-            $project = WikiProject::all()
-                ->sortBy('updated_at');
+            $project = WikiProject::orderBy('updated_at', 'DESC')->get();
         } else {
             $project = WikiProject::where('type', '=', WikiProject::$TYPE_PUBLIC)
-                ->orderBy('updated_at')
+                ->orderBy('updated_at', 'DESC')
                 ->get();
         }
 
@@ -55,6 +54,9 @@ class WikiController extends BaseController
         if (empty($wikiProject)) {
             abort(404);
         }
+        if ($wikiProject->type == WikiProject::$TYPE_PRIVATE && (Admin::user() == null || !Admin::user()->isAdministrator())) {
+            abort(403);
+        }
         $document = WikiDocument::where('project_id', '=', $projectId)
             ->where('id', '=', $docId)
             ->first();
@@ -63,5 +65,35 @@ class WikiController extends BaseController
         }
         $data['content'] = $document->content != null ? $document->content : "";
         return $this->buildResponse(ErrorDesc::SUCCESS, $data);
+    }
+
+    /**
+     * 展示文档详情
+     * @param integer $projectId 项目ID
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function detail($projectId)
+    {
+        if (empty($projectId) || $projectId <= 0) {
+            abort(404);
+        }
+        $project = WikiProject::where('id', '=', $projectId)
+            ->first();
+        if (empty($project)) {
+            abort(404);
+        }
+        if ($project->type == WikiProject::$TYPE_PRIVATE && (Admin::user() == null || !Admin::user()->isAdministrator())) {
+            abort(403);
+        }
+        $navMenu = HomeNavMenu::all()
+            ->sortBy('order');
+
+        $catalog = WikiDocument::getDocumentCatalog($project->id);
+
+        return view('wiki.detail.index')
+            ->with('navMenu', $navMenu)
+            ->with('wiki_project', $project)
+            ->with('doc_catalog', json_encode($catalog, JSON_UNESCAPED_UNICODE))
+            ->with('project_id', $project->id);
     }
 }

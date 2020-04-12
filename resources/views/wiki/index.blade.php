@@ -13,7 +13,7 @@
 
             @foreach($projects as $project)
                 <div class="col-sm-3">
-                    <a class="wiki-doc-container">
+                    <a class="wiki-doc-container" href="{{route('wiki.document.detail',['project_id'=>$project->id])}}">
                         <img class="wiki-doc-img" src="{{$mediaStore.'/'.$project->thumb}}">
                         <div class="wiki-doc-detail-content">
                             <h4 class="wiki-doc-title">{{$project->name}}</h4>

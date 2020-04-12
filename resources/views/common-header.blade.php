@@ -6,7 +6,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <link rel="shortcut icon" href="{{ asset('static-common/img/favicon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('/static-common/img/favicon.png') }}">
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -14,9 +14,9 @@
     <![endif]-->
     {{--业务特定header，交由业务填充--}}
 
-    <link rel="stylesheet" href="{{ mix('static-common/css/common.css') }}">
+    <link rel="stylesheet" href="{{ mix('/static-common/css/common.css') }}">
 
-    <script src="{{ mix('static-common/js/common.js') }}"></script>
+    <script src="{{ mix('/static-common/js/common.js') }}"></script>
 
     <script type="text/javascript">
         $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});

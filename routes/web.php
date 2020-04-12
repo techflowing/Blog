@@ -26,6 +26,10 @@ Route::group(['prefix' => 'wiki'], function () {
         ->name('wiki.document.content')
         ->where('project_id', '[0-9]+')
         ->where('doc_id', '[0-9]+');
+    // 文档列表展示
+    Route::get('detail/{project_id}', 'WikiController@detail')
+        ->name('wiki.document.detail')
+        ->where('project_id', '[0-9]+');
 });
 
 

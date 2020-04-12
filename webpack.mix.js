@@ -50,8 +50,15 @@ mix.styles([
 ], 'public/static-navigation/css/app.css');
 
 // wiki 资源
-mix.styles(['resources/assets/wiki/css/app.css'],
-    'public/static-wiki/css/app.css');
+mix.styles([
+    'resources/assets/wiki/css/app.css',
+    'resources/assets/admin/wiki/css/custom.css'
+], 'public/static-wiki/css/app.css');
+mix.scripts([
+    'resources/assets/wiki/js/ztree.config.js'
+], 'public/static-wiki/js/app.js');
+// Wiki 资源 - 复用部分 Wiki后台管理资源
+mix.copyDirectory('resources/assets/admin/wiki/img/', 'public/static-wiki/img');
 
 // 后台管理 - Wiki 资源
 mix.styles([
