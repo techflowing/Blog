@@ -99,8 +99,8 @@ class WikiProjectController extends Controller
             ->default(WikiProject::$TYPE_PUBLIC)
             ->required();
 
-        $form->image('thumb', '封面图')
-            ->crop(300, 200)
+        $form->cropper('thumb', '封面图')
+            ->cRatio(300, 200)
             ->help('图片尺寸需要 300*200')
             ->uniqueName()
             ->required();

@@ -145,9 +145,10 @@ class SiteController extends Controller
         $form->text('order', '顺序')
             ->attribute('min', 1)
             ->attribute('max', 10000);
-        $form->image('thumb', '图标')
-            ->crop(120, 120)
-            ->uniqueName();
+        $form->cropper('thumb', '图标')
+            ->cRatio(120, 120)
+            ->uniqueName()
+            ->required();
         $form->text('describe', '描述')
             ->attribute('autocomplete', 'off')
             ->rules('required|max:300');

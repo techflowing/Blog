@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.2.5",
+        "ext-json": "*",
         "caouecs/laravel-lang": "~6.0",
         "encore/laravel-admin": "^1.7",
         "fideloper/proxy": "^4.2",
@@ -16,13 +17,13 @@
         "guzzlehttp/guzzle": "^6.3",
         "intervention/image": "^2.5",
         "jxlwqq/material-ui": "^1.0",
+        "laravel-admin-ext/cropper": "^1.0",
         "laravel-admin-ext/grid-lightbox": "^1.0",
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
         "orangehill/iseed": "^2.6",
         "sharemant/laravel-admin-ext-editormd": "^1.0",
-        "spatie/laravel-backup": "^6.8",
-        "ext-json": "*"
+        "spatie/laravel-backup": "^6.8"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.2",

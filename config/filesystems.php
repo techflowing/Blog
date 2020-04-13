@@ -66,9 +66,9 @@ return [
 
         'admin' => [
             'driver' => 'local',
-            'root' => public_path(env('MEDIA_STORE', 'media-store')),
+            'root' => public_path('uploads'),
             'visibility' => 'public',
-            'url' => env('APP_URL') . '/' . env('MEDIA_STORE', 'media-store'),
+            'url' => env('APP_URL') . '/uploads',
         ],
     ],
 

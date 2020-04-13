@@ -420,6 +420,10 @@ return [
                     'height' => 600,
                     'emoji' => true
                 ]
+        ],
+        // 图片裁剪库
+        'cropper' => [
+            'enable' => true,
         ]
     ],
 ];
