@@ -49,7 +49,7 @@ Route::group([
     // 文章管理
     Route::resource('article', 'Article\ArticleController');
     // 首页菜单配置
-    Route::resource('config/nav', 'Config\NavConfigController');
+    Route::resource('nav', 'Config\NavConfigController');
     // Wiki管理
     Route::resource('wiki', 'Wiki\WikiProjectController');
     Route::group([
