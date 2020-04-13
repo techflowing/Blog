@@ -32,6 +32,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/jxlwqq/material-ui" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel-admin-ext/cropper" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel-admin-ext/grid-lightbox" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laravel-admin-ext/media-manager" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/framework" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel/tinker" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/league/commonmark" />

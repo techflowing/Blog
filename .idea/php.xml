@@ -117,6 +117,7 @@
       <path value="$PROJECT_DIR$/vendor/spatie/db-dumper" />
       <path value="$PROJECT_DIR$/vendor/spatie/laravel-backup" />
       <path value="$PROJECT_DIR$/vendor/laravel-admin-ext/cropper" />
+      <path value="$PROJECT_DIR$/vendor/laravel-admin-ext/media-manager" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />

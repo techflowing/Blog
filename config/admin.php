@@ -424,6 +424,11 @@ return [
         // 图片裁剪库
         'cropper' => [
             'enable' => true,
-        ]
+        ],
+        // 媒体管理
+        'media-manager' => [
+            // Select a local disk that you configured in `config/filesystem.php`
+            'disk' => 'media-store'
+        ],
     ],
 ];
