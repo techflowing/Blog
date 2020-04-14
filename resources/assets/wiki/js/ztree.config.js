@@ -143,6 +143,9 @@ function getFirstDocContent() {
  */
 function getFirstLeafNode() {
     let nodes = zTreeObj.getNodes();
+    if (nodes === null || nodes.length === 0) {
+        return null;
+    }
     let leaf;
     for (let node of nodes) {
         leaf = getLeafNode(node);
