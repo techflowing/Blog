@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7f430904c71ca814ec412af1067c0a79",
+    "content-hash": "c8eae47cb585b37649be59bffd767d0d",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1280,6 +1280,66 @@
             "time": "2018-09-29T18:48:56+00:00"
         },
         {
+            "name": "james.xue/login-captcha",
+            "version": "2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/xiaoxuan6/login-captcha.git",
+                "reference": "84634686212cae7fa7dbf254b5ce6456063391db"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/xiaoxuan6/login-captcha/zipball/84634686212cae7fa7dbf254b5ce6456063391db",
+                "reference": "84634686212cae7fa7dbf254b5ce6456063391db",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "encore/laravel-admin": "~1.7",
+                "mews/captcha": "^3.0",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Encore\\James\\JamesServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Encore\\James\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "xiaoxuan6",
+                    "email": "1527736751@qq.com"
+                }
+            ],
+            "description": "laravel-admin 登录验证码",
+            "homepage": "https://github.com/xiaoxuan6/login-captcha",
+            "keywords": [
+                "extension",
+                "laravel-admin",
+                "login-captcha"
+            ],
+            "time": "2020-02-10T14:27:49+00:00"
+        },
+        {
             "name": "jxlwqq/material-ui",
             "version": "1.0.7",
             "source": {
@@ -1973,6 +2033,81 @@
                 "storage"
             ],
             "time": "2020-03-17T18:58:12+00:00"
+        },
+        {
+            "name": "mews/captcha",
+            "version": "3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mewebstudio/captcha.git",
+                "reference": "cc4d745c4f7506be0b73ac70324f71408c7e3a80"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mewebstudio/captcha/zipball/cc4d745c4f7506be0b73ac70324f71408c7e3a80",
+                "reference": "cc4d745c4f7506be0b73ac70324f71408c7e3a80",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "ext-gd": "*",
+                "illuminate/config": "~5.0|^6.0|^7.0",
+                "illuminate/filesystem": "~5.0|^6.0|^7.0",
+                "illuminate/hashing": "~5.0|^6.0|^7.0",
+                "illuminate/session": "~5.0|^6.0|^7.0",
+                "illuminate/support": "~5.0|^6.0|^7.0",
+                "intervention/image": "~2.5",
+                "php": "^7.2"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.0",
+                "phpunit/phpunit": "^8.5"
+            },
+            "type": "package",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Mews\\Captcha\\CaptchaServiceProvider"
+                    ],
+                    "aliases": {
+                        "Captcha": "Mews\\Captcha\\Facades\\Captcha"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Mews\\Captcha\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Muharrem ERİN",
+                    "email": "me@mewebstudio.com",
+                    "homepage": "https://github.com/mewebstudio",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Laravel 5 & 6 Captcha Package",
+            "homepage": "https://github.com/mewebstudio/captcha",
+            "keywords": [
+                "captcha",
+                "laravel5 Security",
+                "laravel6 Captcha",
+                "laravel6 Security"
+            ],
+            "time": "2020-03-21T08:52:58+00:00"
         },
         {
             "name": "monolog/monolog",

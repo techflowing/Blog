@@ -41,6 +41,10 @@ Route::group([
     'middleware' => config('admin.route.middleware'),
 ], function () {
 
+    // 切换为带验证码的登录
+    Route::get('auth/login', '\Encore\James\JamesController@getLogin');
+    Route::post('auth/login', '\Encore\James\JamesController@postLogin');
+
     Route::get('/', 'DashboardController@index')->name('admin:dashboard');
     // 导航站分类管理
     Route::resource('navigation/categories', 'Navigation\CategoryController');

@@ -430,5 +430,9 @@ return [
             // Select a local disk that you configured in `config/filesystem.php`
             'disk' => 'media-store'
         ],
+        // 验证码登录
+        'login-captcha' => [
+            'enable' => true,
+        ]
     ],
 ];
