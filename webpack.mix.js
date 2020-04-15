@@ -44,6 +44,15 @@ mix.styles([
     'resources/assets/css/xenon-skins.css',
 ], 'public/static-common/css/common.css');
 
+// 欢迎页资源
+mix.styles([
+    'resources/assets/welcome/css/app.css'
+], 'public/static-welcome/css/app.css');
+
+mix.scripts([
+    'resources/assets/welcome/js/app.js'
+], 'public/static-welcome/js/app.js');
+
 // 导航站资源
 mix.styles([
     'resources/assets/navigation/css/app.css'

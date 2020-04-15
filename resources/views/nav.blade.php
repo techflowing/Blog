@@ -1,4 +1,5 @@
 {{--顶部导航--}}
+@isset($navMenu){
 <nav class="navbar horizontal-menu navbar-fixed-top">
     <div class="navbar-inner">
 
@@ -26,5 +27,6 @@
             </ul>
         @endif
     </div>
-
 </nav>
+@endisset
+

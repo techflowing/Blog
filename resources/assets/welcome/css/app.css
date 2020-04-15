@@ -1,0 +1,255 @@
+.keyboard {
+    display: grid;
+    grid-template-columns: repeat(30, 1.9vw);
+    grid-template-rows: repeat(5, 4.75vw);
+    grid-gap: 0.95vw;
+    background: #c2ccdb;
+    padding: 1.727272727272727vw;
+    border-radius: 1.266666666666667vw;
+    background: #d8dee8;
+    box-shadow: -0.316666666666667vw -0.316666666666667vw 0.95vw #f3f5f8, 0.316666666666667vw 0.316666666666667vw 0.633333333333333vw #c2ccdb;
+}
+
+.keyboard .key {
+    border-radius: 0.76vw;
+    grid-column: auto/span 2;
+    width: 100%;
+    height: 100%;
+    padding: 0.475vw;
+    font-size: 1.9vw;
+    display: grid;
+    align-items: center;
+    color: #8a94a4;
+    justify-content: center;
+    cursor: pointer;
+    background: #d8dee8;
+    box-shadow: -0.316666666666667vw -0.316666666666667vw 0.95vw #f3f5f8, 0.316666666666667vw 0.316666666666667vw 0.633333333333333vw #c2ccdb;
+    transition: all 100ms cubic-bezier(0.09, 0.32, 0.34, 2);
+    user-select: none;
+}
+
+.keyboard .key:hover,
+.keyboard .key.pressed {
+    transform: perspective(300px) scale(0.97);
+    box-shadow: inset -0.316666666666667vw -0.316666666666667vw 0.95vw -0.158333333333333vw #f6f8fa, inset 0.316666666666667vw 0.316666666666667vw 0.633333333333333vw #c2ccdb;
+    color: #fff;
+    text-shadow: 0 0 10px #f7f9fa, 0 0 15px #f7f9fa, 0 0 20px #f7f9fa;
+}
+
+.keyboard .key.dotted {
+    position: relative;
+}
+
+.keyboard .key.dotted::before {
+    content: '_';
+    font-weight: bold;
+    color: #b5c0d2;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.keyboard .key.esc {
+    background: #ed4c67;
+    color: #fbdbe1;
+}
+
+.keyboard .key.esc:hover,
+.keyboard .key.esc.pressed {
+    transform: perspective(300px) scale(0.97);
+    box-shadow: inset -0.316666666666667vw -0.316666666666667vw 0.95vw -0.158333333333333vw #f38e9f, inset 0.316666666666667vw 0.316666666666667vw 0.633333333333333vw #c71432;
+    color: #fff;
+    text-shadow: 0 0 10px #f59eac, 0 0 15px #f59eac, 0 0 20px #f59eac;
+}
+
+.keyboard .key.back {
+    background: #d63031;
+    color: #f7d6d6;
+}
+
+.keyboard .key.back:hover,
+.keyboard .key.back.pressed {
+    transform: perspective(300px) scale(0.97);
+    box-shadow: inset -0.316666666666667vw -0.316666666666667vw 0.95vw -0.158333333333333vw #e57c7d, inset 0.316666666666667vw 0.316666666666667vw 0.633333333333333vw #991e1f;
+    color: #fff;
+    text-shadow: 0 0 10px #e88f90, 0 0 15px #e88f90, 0 0 20px #e88f90;
+}
+
+.keyboard .key.shift {
+    background: #1e90ff;
+    color: #d2e9ff;
+}
+
+.keyboard .key.shift:hover,
+.keyboard .key.shift.pressed {
+    transform: perspective(300px) scale(0.97);
+    box-shadow: inset -0.316666666666667vw -0.316666666666667vw 0.95vw -0.158333333333333vw #71b9ff, inset 0.316666666666667vw 0.316666666666667vw 0.633333333333333vw #0065c8;
+    color: #fff;
+    text-shadow: 0 0 10px #85c3ff, 0 0 15px #85c3ff, 0 0 20px #85c3ff;
+}
+
+.keyboard .key.control {
+    background: #be2edd;
+    color: #f2d5f8;
+}
+
+.keyboard .key.control:hover,
+.keyboard .key.control.pressed {
+    transform: perspective(300px) scale(0.97);
+    box-shadow: inset -0.316666666666667vw -0.316666666666667vw 0.95vw -0.158333333333333vw #d57be9, inset 0.316666666666667vw 0.316666666666667vw 0.633333333333333vw #891aa1;
+    color: #fff;
+    text-shadow: 0 0 10px #db8eec, 0 0 15px #db8eec, 0 0 20px #db8eec;
+}
+
+.keyboard .key.win {
+    background: #f7b731;
+    color: #fdf1d6;
+}
+
+.keyboard .key.win:hover,
+.keyboard .key.win.pressed {
+    transform: perspective(300px) scale(0.97);
+    box-shadow: inset -0.316666666666667vw -0.316666666666667vw 0.95vw -0.158333333333333vw #fad17d, inset 0.316666666666667vw 0.316666666666667vw 0.633333333333333vw #c78908;
+    color: #fff;
+    text-shadow: 0 0 10px #fad890, 0 0 15px #fad890, 0 0 20px #fad890;
+}
+
+.keyboard .key.alt {
+    background: #5352ed;
+    color: #dddcfb;
+}
+
+.keyboard .key.alt:hover,
+.keyboard .key.alt.pressed {
+    transform: perspective(300px) scale(0.97);
+    box-shadow: inset -0.316666666666667vw -0.316666666666667vw 0.95vw -0.158333333333333vw #9291f3, inset 0.316666666666667vw 0.316666666666667vw 0.633333333333333vw #1615ca;
+    color: #fff;
+    text-shadow: 0 0 10px #a2a1f5, 0 0 15px #a2a1f5, 0 0 20px #a2a1f5;
+}
+
+.keyboard .key.fn {
+    background: #26de81;
+    color: #d4f8e6;
+}
+
+.keyboard .key.fn:hover,
+.keyboard .key.fn.pressed {
+    transform: perspective(300px) scale(0.97);
+    box-shadow: inset -0.316666666666667vw -0.316666666666667vw 0.95vw -0.158333333333333vw #76eaaf, inset 0.316666666666667vw 0.316666666666667vw 0.633333333333333vw #189e5a;
+    color: #fff;
+    text-shadow: 0 0 10px #8aedbb, 0 0 15px #8aedbb, 0 0 20px #8aedbb;
+}
+
+.keyboard .key.cap {
+    background: #ee5a24;
+    color: #fcded3;
+    position: relative;
+}
+
+.keyboard .key.cap:hover,
+.keyboard .key.cap.pressed {
+    transform: perspective(300px) scale(0.97);
+    box-shadow: inset -0.316666666666667vw -0.316666666666667vw 0.95vw -0.158333333333333vw #f49675, inset 0.316666666666667vw 0.316666666666667vw 0.633333333333333vw #b23a0e;
+    color: #fff;
+    text-shadow: 0 0 10px #f6a588, 0 0 15px #f6a588, 0 0 20px #f6a588;
+}
+
+.keyboard .key.cap::before {
+    content: '';
+    position: absolute;
+    width: 0.5vw;
+    height: 0.5vw;
+    background: #f6ac91;
+    top: 1vw;
+    right: 1vw;
+    border-radius: 50%;
+}
+
+.keyboard .key.cap.on::before {
+    background: #fbded3;
+    box-shadow: 0 0 0.5vw 0.2vw rgba(255, 255, 255, 0.8);
+}
+
+.keyboard .key.tab {
+    background: #12cbc4;
+    color: #cafaf8;
+}
+
+.keyboard .key.tab:hover,
+.keyboard .key.tab.pressed {
+    transform: perspective(300px) scale(0.97);
+    box-shadow: inset -0.316666666666667vw -0.316666666666667vw 0.95vw -0.158333333333333vw #5aede7, inset 0.316666666666667vw 0.316666666666667vw 0.633333333333333vw #0d8e89;
+    color: #fff;
+    text-shadow: 0 0 10px #72f0eb, 0 0 15px #72f0eb, 0 0 20px #72f0eb;
+}
+
+.keyboard .key.enter {
+    background: #fdcb6e;
+    color: #fff5e2;
+}
+
+.keyboard .key.enter:hover,
+.keyboard .key.enter.pressed {
+    transform: perspective(300px) scale(0.97);
+    box-shadow: inset -0.316666666666667vw -0.316666666666667vw 0.95vw -0.158333333333333vw #fddea3, inset 0.316666666666667vw 0.316666666666667vw 0.633333333333333vw #fba403;
+    color: #fff;
+    text-shadow: 0 0 10px #fde2b0, 0 0 15px #fde2b0, 0 0 20px #fde2b0;
+}
+
+.keyboard .key.s2 {
+    font-size: 1.727272727272727vw;
+    grid-column: auto/span 2;
+}
+
+.keyboard .key.s3 {
+    font-size: 1.727272727272727vw;
+    grid-column: auto/span 3;
+}
+
+.keyboard .key.s4 {
+    font-size: 1.727272727272727vw;
+    grid-column: auto/span 4;
+}
+
+.keyboard .key.s5 {
+    font-size: 1.727272727272727vw;
+    grid-column: auto/span 5;
+}
+
+.keyboard .key.s6 {
+    font-size: 1.727272727272727vw;
+    grid-column: auto/span 6;
+}
+
+.keyboard .key.s12 {
+    font-size: 1.727272727272727vw;
+    grid-column: auto/span 12;
+}
+
+.keyboard .key[on-shift] {
+    font-size: 1.461538461538461vw;
+    justify-items: center;
+}
+
+.keyboard .key[on-shift]::before {
+    content: attr(on-shift);
+    align-items: end;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Sen:wght@700&display=swap");
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Sen', sans-serif;
+    min-height: 100vh;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    background: radial-gradient(circle at top left, #d8dee8 30%, #c2ccdb);
+}
