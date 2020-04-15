@@ -9,7 +9,7 @@
 
 .wiki-doc-container {
     margin-bottom: 15px;
-    background: white;
+    background: #333333;
     cursor: pointer;
     display: block;
 }
@@ -35,7 +35,6 @@
 .wiki-doc-title {
     font-size: 1.5rem;
     font-weight: 600;
-    color: #373737;
     margin-bottom: 10px;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -48,10 +47,15 @@
 
 .wiki-doc-desc {
     margin-top: 20px;
+    color: #8B8C8C;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
     overflow: hidden;
+}
+
+.wiki-doc-desc:hover {
+    color: #8B8C8C;
 }
 
 .doc-title-container {
@@ -60,7 +64,6 @@
 
 .doc-detail-title {
     font-size: 28px;
-    color: #383434;
     padding: 0 20px;
 }
 
@@ -88,5 +91,27 @@
 }
 
 .editormd-toc {
-    border-left: 1px solid #ddd;
+    border-left: 1px solid #505050;
+}
+
+/*自定义markdown主题*/
+.editormd-preview-theme-dark {
+    color: #979898;
+    background: #2B2B2B;
+}
+
+.markdown-body h1, .markdown-body h2, .markdown-body hr {
+    border-bottom: 1px solid #444444;
+}
+
+.editormd-preview-container hr, .editormd-html-preview hr {
+    border-top: 1px solid #444444;
+}
+
+.editormd-preview-container pre.prettyprint, .editormd-html-preview pre.prettyprint {
+    border: 1px solid #444444;
+}
+
+.markdown-toc-list li {
+    color: #3D7DB4;
 }

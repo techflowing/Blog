@@ -5,10 +5,19 @@
 
 .page-body {
     overscroll-behavior: none;
-    background: #F5F5F5;
+    background: #2B2B2B;
 }
 
 .page-content {
     height: 100%;
     width: 100%;
+}
+
+footer.main-footer {
+    border-top: 1px solid #444444;
+    background-color: #2B2B2B;
+}
+
+footer.main-footer .footer-text {
+    color: #3D7DB4;
 }

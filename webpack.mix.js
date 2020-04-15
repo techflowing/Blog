@@ -34,7 +34,6 @@ mix.scripts([
 
 // 公共资源-CSS
 mix.styles([
-    'resources/assets/common/css/common.css',
     'resources/assets/common/css/font-awesome.min.css',
     'resources/assets/common/css/linecons.css',
     'resources/assets/common/css/bootstrap.css',
@@ -42,6 +41,7 @@ mix.styles([
     'resources/assets/common/css/xenon-core.css',
     'resources/assets/common/css/xenon-forms.css',
     'resources/assets/common/css/xenon-skins.css',
+    'resources/assets/common/css/common.css',
 ], 'public/static-common/css/common.css');
 
 // 欢迎页资源

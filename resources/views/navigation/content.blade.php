@@ -2,7 +2,7 @@
 
     @if(count($category->sites) != 0)
 
-        <h4 class="text-gray"><i class="linecons-tag" style="margin-right: 7px;"
+        <h4 class="navigation-category"><i class="linecons-tag" style="margin-right: 7px;"
                                  id="{{ $category->title }}"></i>{{ $category->title }}</h4>
 
         @php

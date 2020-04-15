@@ -2,7 +2,7 @@
 
     <div class="col-md-9 col-lg-9  editormd-view-body">
         <p class="doc-detail-title" id="doc-title"></p>
-        <div class="markdown-body" id="editormd-html-view">
+        <div class="markdown-body editormd-preview-theme-dark" id="editormd-html-view">
             <textarea style="display:none;" name="test-editormd-markdown-doc">###Hello world!</textarea>
         </div>
     </div>

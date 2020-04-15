@@ -1,6 +1,6 @@
 @section('header')
-    <link rel="stylesheet" href="{{ mix('static-wiki/css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('static-third/editormd/css/editormd.css') }}">
+    <link rel="stylesheet" href="{{ asset('static-wiki/css/app.css') }}">
 
     <script src="{{ asset('static-third/ztree/js/jquery.ztree.core.min.js') }}"></script>
     <script src="{{ asset('static-third/layer/layer.js') }}"></script>
