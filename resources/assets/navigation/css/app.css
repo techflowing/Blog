@@ -30,6 +30,10 @@
     transition: all 0.3s ease;
 }
 
+.xe-widget.xe-conversations {
+    background: #FFFFFF;
+}
+
 .xe-comment-entry img {
     float: left;
     display: block;

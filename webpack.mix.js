@@ -16,42 +16,38 @@ mix.copyDirectory('resources/assets/editormd', 'public/static-third/editormd');
 mix.copyDirectory('resources/assets/layer', 'public/static-third/layer');
 
 // 公共资源 图片、字体文件等
-mix.copyDirectory('resources/assets/img/', 'public/static-common/img');
-mix.copyDirectory('resources/assets/font/', 'public/static-common/font');
+mix.copyDirectory('resources/assets/common/img/', 'public/static-common/img');
+mix.copyDirectory('resources/assets/common/font/', 'public/static-common/font');
 
 // 公共资源-JS
 mix.scripts([
-    'resources/assets/js/jquery-1.11.1.min.js',
-    'resources/assets/js/jquery.form.js',
-    'resources/assets/js/TweenMax.min.js',
-    'resources/assets/js/resizeable.js',
-    'resources/assets/js/joinable.js',
-    'resources/assets/js/bootstrap.min.js',
-    'resources/assets/js/xenon-api.js',
-    'resources/assets/js/xenon-toggles.js',
-    'resources/assets/js/xenon-custom.js',
+    'resources/assets/common/js/jquery-1.11.1.min.js',
+    'resources/assets/common/js/jquery.form.js',
+    'resources/assets/common/js/TweenMax.min.js',
+    'resources/assets/common/js/resizeable.js',
+    'resources/assets/common/js/joinable.js',
+    'resources/assets/common/js/bootstrap.min.js',
+    'resources/assets/common/js/xenon-api.js',
+    'resources/assets/common/js/xenon-toggles.js',
+    'resources/assets/common/js/xenon-custom.js',
 ], 'public/static-common/js/common.js');
 
 // 公共资源-CSS
 mix.styles([
-    'resources/assets/css/common.css',
-    'resources/assets/css/font-awesome.min.css',
-    'resources/assets/css/linecons.css',
-    'resources/assets/css/bootstrap.css',
-    'resources/assets/css/xenon-components.css',
-    'resources/assets/css/xenon-core.css',
-    'resources/assets/css/xenon-forms.css',
-    'resources/assets/css/xenon-skins.css',
+    'resources/assets/common/css/common.css',
+    'resources/assets/common/css/font-awesome.min.css',
+    'resources/assets/common/css/linecons.css',
+    'resources/assets/common/css/bootstrap.css',
+    'resources/assets/common/css/xenon-components.css',
+    'resources/assets/common/css/xenon-core.css',
+    'resources/assets/common/css/xenon-forms.css',
+    'resources/assets/common/css/xenon-skins.css',
 ], 'public/static-common/css/common.css');
 
 // 欢迎页资源
 mix.styles([
     'resources/assets/welcome/css/app.css'
 ], 'public/static-welcome/css/app.css');
-
-mix.scripts([
-    'resources/assets/welcome/js/app.js'
-], 'public/static-welcome/js/app.js');
 
 // 导航站资源
 mix.styles([

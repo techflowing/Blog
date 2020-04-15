@@ -6,7 +6,7 @@
 {{--顶部导航数据--}}
 @include('nav')
 {{--页面Content数据，交由具体页面填充--}}
-<div class="page-content">
+<div class="page-content" @isset($navMenu) style="padding-top: 60px" @endisset>
     @yield('content')
 </div>
 </body>
