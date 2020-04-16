@@ -3,7 +3,7 @@
 }
 
 .box2 {
-    height: 86px;
+    height: 75px;
     cursor: pointer;
     border-radius: 4px;
     padding: 0px 30px 0px 30px;
@@ -29,7 +29,7 @@
 }
 
 .xe-widget.xe-conversations {
-    background: #333333;
+    background: #2C2E2E;
 }
 
 .xe-comment-entry img {
@@ -45,6 +45,7 @@
 .overflowClip_1 {
     overflow: hidden;
     text-overflow: ellipsis;
+    color: #C6C9CF;
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
@@ -53,8 +54,10 @@
 .overflowClip_2 {
     overflow: hidden;
     text-overflow: ellipsis;
+    color: #6C757D;
+    margin-top: 5px;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
 }
 
@@ -64,5 +67,4 @@
 
 .navigation-category {
     color: #989898;
-    background: ;
 }
