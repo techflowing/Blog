@@ -32,6 +32,13 @@ Route::group(['prefix' => 'wiki'], function () {
         ->where('project_id', '[0-9]+');
 });
 
+// 博客配置
+Route::group(['prefix' => 'blog'], function () {
+    // Wiki 首页
+    Route::get('/', 'BlogController@index');
+});
+
+
 
 // 后台管理模块路由
 Admin::routes();
