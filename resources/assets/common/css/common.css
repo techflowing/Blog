@@ -1,6 +1,19 @@
 /*保持log宽度和 siderbar 宽度一致*/
-.navbar-brand > a {
-    width: 220px;
+.navbar.horizontal-menu .navbar-inner .navbar-brand {
+    padding: 0 40px;
+    width: 280px;
+}
+
+.navbar-logo-img {
+    height: 35px;
+    width: 35px;
+}
+
+.navbar-slogan {
+    display: inline;
+    vertical-align: middle;
+    margin-left: 10px;
+    font-size: 16px;
 }
 
 .page-body {

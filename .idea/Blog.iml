@@ -33,6 +33,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/jakub-onderka/php-console-highlighter" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/james.xue/login-captcha" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/jxlwqq/material-ui" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/laravel-admin-ext/backup" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel-admin-ext/config" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel-admin-ext/cropper" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/laravel-admin-ext/grid-lightbox" />

@@ -6,7 +6,8 @@
             <!-- Navbar Brand -->
             <div class="navbar-brand">
                 <a href="/" class="logo">
-                    <img src="{{asset('/static-common/img/logo@2x.png')}}" width="120" alt=""/>
+                    <img class="navbar-logo-img" src="{{asset('/static-common/img/logo.png')}}" alt=""/>
+                    <p class="navbar-slogan">代码改变世界</p>
                 </a>
             </div>
 
