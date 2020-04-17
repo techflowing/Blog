@@ -49,6 +49,11 @@ mix.styles([
     'resources/assets/welcome/css/app.css'
 ], 'public/static-welcome/css/app.css');
 
+// 错误页
+mix.styles([
+    'resources/assets/errors/css/app.css'
+], 'public/static-errors/css/app.css');
+
 // 导航站资源
 mix.styles([
     'resources/assets/navigation/css/app.css'

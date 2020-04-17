@@ -1,0 +1,30 @@
+.errors-container {
+    position: absolute;
+    width: 90%;
+    height: 400px;
+    background: #2C2E2E;
+    border-radius: 5px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.errors-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.error-code {
+    color: #C6C9CF;
+    font-size: 6rem;
+    text-align: center;
+}
+
+.error-message {
+    margin-top: 50px;
+    color: #6C757D;
+    font-size: 2rem;
+    text-align: center;
+}

@@ -1,9 +1,10 @@
 {
     "/static-common/js/common.js": "/static-common/js/common.js?id=438289523f9fb3a8979b",
-    "/static-common/css/common.css": "/static-common/css/common.css?id=23da92d144559ff6409e",
+    "/static-common/css/common.css": "/static-common/css/common.css?id=59c2a0a43d21e51ee84a",
     "/static-welcome/css/app.css": "/static-welcome/css/app.css?id=f160588a6f9b1553c8eb",
-    "/static-navigation/css/app.css": "/static-navigation/css/app.css?id=47c2bc6e3ccad4d573c4",
-    "/static-wiki/css/app.css": "/static-wiki/css/app.css?id=9d981d4844f99f7ebdf7",
+    "/static-errors/css/app.css": "/static-errors/css/app.css?id=ed4c09f024bf48902472",
+    "/static-navigation/css/app.css": "/static-navigation/css/app.css?id=faeb00ff355b728b443a",
+    "/static-wiki/css/app.css": "/static-wiki/css/app.css?id=747b58242df15af02ca4",
     "/static-wiki/js/app.js": "/static-wiki/js/app.js?id=79466180f15b0940c8fc",
     "/static-admin/wiki/css/app.css": "/static-admin/wiki/css/app.css?id=f746981692bf421c1335",
     "/static-admin/wiki/js/app.js": "/static-admin/wiki/js/app.js?id=5c91231edd2d84b9b36b"
