@@ -1,3 +1,7 @@
+.page-container {
+    overflow: hidden;
+}
+
 .wiki-box {
     padding: 50px 10%;
 }
@@ -25,6 +29,7 @@
     -moz-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
+    color: #589bd6;
 }
 
 .wiki-doc-detail-content {
