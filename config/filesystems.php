@@ -76,6 +76,16 @@ return [
             'visibility' => 'public',
             'url' => env('APP_URL') . '/media-store',
         ],
+        'oss' => [
+            'driver' => 'oss',
+            'access_id' => env('OSS_ACCESS_ID'),
+            'access_key' => env('OSS_ACCESS_KEY'),
+            'bucket' => env('OSS_BUCKET'),
+            'endpoint' => env('OSS_ENDPOINT'),
+            'ssl' => true,
+            'isCName' => false,
+            'debug' => false
+        ],
     ],
 
     /*

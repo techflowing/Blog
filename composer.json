@@ -16,6 +16,7 @@
         "fruitcake/laravel-cors": "^1.0",
         "guzzlehttp/guzzle": "^6.3",
         "intervention/image": "^2.5",
+        "jacobcyl/ali-oss-storage": "^2.1",
         "james.xue/login-captcha": "^2.0",
         "jxlwqq/material-ui": "^1.0",
         "laravel-admin-ext/config": "^1.1",

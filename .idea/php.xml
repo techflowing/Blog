@@ -121,6 +121,8 @@
       <path value="$PROJECT_DIR$/vendor/laravel-admin-ext/config" />
       <path value="$PROJECT_DIR$/vendor/james.xue/login-captcha" />
       <path value="$PROJECT_DIR$/vendor/mews/captcha" />
+      <path value="$PROJECT_DIR$/vendor/aliyuncs/oss-sdk-php" />
+      <path value="$PROJECT_DIR$/vendor/jacobcyl/ali-oss-storage" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />

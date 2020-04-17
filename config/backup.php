@@ -19,6 +19,7 @@ return [
                  */
                 'include' => [
                     base_path('public/uploads'),
+                    base_path('public/media-store'),
                 ],
 
                 /*
@@ -97,6 +98,7 @@ return [
              */
             'disks' => [
                 'local',
+                'oss',
             ],
         ],
 
