@@ -51,6 +51,10 @@
     -webkit-box-orient: vertical;
 }
 
+.overflowClip_1:hover {
+    color: #C6C9CF;
+}
+
 .overflowClip_2 {
     overflow: hidden;
     text-overflow: ellipsis;

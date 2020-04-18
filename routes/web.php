@@ -39,7 +39,6 @@ Route::group(['prefix' => 'blog'], function () {
 });
 
 
-
 // 后台管理模块路由
 Admin::routes();
 Route::group([
@@ -92,6 +91,9 @@ Route::group([
         Route::post('save/{project_id}', 'WikiDocumentController@save')
             ->name('wiki.document.save')
             ->where('project_id', '[0-9]+');
+        // 图片附件上传
+        Route::post('upload/img', 'WikiAssetUploadController@uploadImg')
+            ->name('wiki.document.upload.img');
     });
 });
 

@@ -1,3 +1,15 @@
+.page-content {
+    overflow: hidden;
+}
+
+.editormd-container-mask {
+    background-color: #2C2E2E;
+}
+
+.editormd .CodeMirror-linenumbers {
+    width: 30px;
+}
+
 .wiki-editor-md {
     display: table-cell;
     position: relative;
@@ -23,7 +35,7 @@
 }
 
 .disabled, .disabled > i, .disabled > i:hover {
-    background-color: #ddd !important;
+    background-color: #2C2E2E !important;
     cursor: default;
 }
 
@@ -85,7 +97,7 @@ website:	http://code.google.com/p/jquerytree/
 -------------------------------------*/
 
 #treeDemo {
-    height: 100%;
+    height: fit-content;
     overflow-x: auto;
 }
 
