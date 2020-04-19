@@ -24,6 +24,11 @@
     transition: opacity 100ms ease-in-out;
 }
 
+.sidebar-menu-inner {
+    position: relative;
+    height: 100%;
+}
+
 /*ID 选择器方式覆盖三方库内样式*/
 #sidebar-menu-top {
     padding: 19px 5px;
@@ -97,13 +102,21 @@ website:	http://code.google.com/p/jquerytree/
 -------------------------------------*/
 
 #treeDemo {
-    height: 100%;
     overflow: auto;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 #wiki-catalog-tree {
-    height: 100%;
     overflow: auto;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
 }
 
 .ztree * {

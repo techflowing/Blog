@@ -13,8 +13,8 @@
                     <p class="wiki-create-btn col-md-4" id="create-document-btn">新建文档</p>
                     <p class="wiki-create-btn col-md-5" id="create-document-dir-btn">新建文件夹</p>
                 </header>
+                <ul id="treeDemo" class="ztree"></ul>
             </div>
-            <ul id="treeDemo" class="ztree"></ul>
         </div>
         {{--markdown编辑区--}}
         <div class="wiki-editor-md">
