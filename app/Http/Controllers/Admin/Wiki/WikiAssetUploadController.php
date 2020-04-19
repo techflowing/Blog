@@ -21,7 +21,24 @@ class WikiAssetUploadController extends BaseController
         if (isset($_FILES['editormd-image-file'])) {
             $file = $this->request->file('editormd-image-file');
             $dirPath = 'media-store/wiki/img/';
-            $allowExt = ["jpg", "jpeg", "gif", "png"];
+            $allowExt = explode('|', env('WIKI_UPLOAD_IMAGE_EXT', 'jpg|jpeg|gif|png'));
+            return $this->upload($dirPath, $file, $allowExt);
+        } else {
+            $data['success'] = 0;
+            $data['message'] = '非法';
+            return $this->response->json($data);
+        }
+    }
+
+    /**
+     * 上传文件
+     */
+    public function uploadFile()
+    {
+        if (isset($_FILES['editormd-file-file'])) {
+            $file = $this->request->file('editormd-file-file');
+            $dirPath = 'media-store/wiki/file/';
+            $allowExt = explode('|', env('WIKI_UPLOAD_FILE_EXT', 'txt|doc|docx|xls|xlsx|ppt|pptx|pdf|7z|rar|zip'));
             return $this->upload($dirPath, $file, $allowExt);
         } else {
             $data['success'] = 0;
@@ -72,9 +89,6 @@ class WikiAssetUploadController extends BaseController
                 $data['message'] = 'ok';
                 $data['alt'] = $file->getClientOriginalName();
                 $data['url'] = url($webPath);
-                if (isset($_FILES['editormd-file-file'])) {
-                    $data['icon'] = resolve_attachicons($ext);
-                }
                 return $this->response->json($data);
 
             } catch (Exception $ex) {

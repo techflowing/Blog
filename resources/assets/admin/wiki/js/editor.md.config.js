@@ -18,6 +18,8 @@ $(document).ready(function () {
         imageUpload: true,
         imageFormats: ["jpg", "jpeg", "gif", "png", "JPG", "JPEG", "GIF", "PNG"],
         imageUploadURL: "/admin/wiki/upload/img",
+        fileUpload: true,
+        fileUploadURL: '/admin/wiki/upload/file',
         htmlDecode: true,
         emoji: true,
         tocStartLevel: 1,
@@ -31,7 +33,7 @@ $(document).ready(function () {
             "bold", "del", "italic", "quote", "|",
             "h1", "h2", "h3", "h4", "h5", "h6", "|",
             "list-ul", "list-ol", "hr", "|",
-            "link", "reference-link", "image", "code", "preformatted-text", "code-block", "table", "datetime", "emoji", "html-entities", "pagebreak", "|",
+            "link", "reference-link", "image", "file", "code", "preformatted-text", "code-block", "table", "datetime", "emoji", "html-entities", "pagebreak", "|",
             "goto-line", "watch", "preview", "fullscreen", "clear", "search", "|",
             "help", "info"
         ],

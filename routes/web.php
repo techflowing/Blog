@@ -94,6 +94,9 @@ Route::group([
         // 图片附件上传
         Route::post('upload/img', 'WikiAssetUploadController@uploadImg')
             ->name('wiki.document.upload.img');
+        // 文件附件上传
+        Route::post('upload/file', 'WikiAssetUploadController@uploadFile')
+            ->name('wiki.document.upload.file');
     });
 });
 
