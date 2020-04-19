@@ -97,8 +97,13 @@ website:	http://code.google.com/p/jquerytree/
 -------------------------------------*/
 
 #treeDemo {
-    height: fit-content;
-    overflow-x: auto;
+    height: 100%;
+    overflow: auto;
+}
+
+#wiki-catalog-tree {
+    height: 100%;
+    overflow: auto;
 }
 
 .ztree * {
