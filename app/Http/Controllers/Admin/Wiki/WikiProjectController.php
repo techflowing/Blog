@@ -61,6 +61,7 @@ class WikiProjectController extends Controller
     {
         $grid = new Grid(new WikiProject());
 
+        $grid->id('项目ID');
         $grid->name('项目名称');
         $grid->description('项目描述');
         $grid->doc_count('文档数量');

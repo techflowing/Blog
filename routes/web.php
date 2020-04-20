@@ -50,7 +50,7 @@ Route::group([
     // 切换为带验证码的登录
     Route::get('auth/login', '\Encore\James\JamesController@getLogin');
     Route::post('auth/login', '\Encore\James\JamesController@postLogin');
-
+    // 仪表盘
     Route::get('/', 'DashboardController@index')->name('admin:dashboard');
     // 导航站分类管理
     Route::resource('navigation/categories', 'Navigation\CategoryController');
@@ -98,6 +98,8 @@ Route::group([
         Route::post('upload/file', 'WikiAssetUploadController@uploadFile')
             ->name('wiki.document.upload.file');
     });
+    // LeetCode题解生成
+    Route::get('leetcode', 'LeetCodeCreateController@index');
 });
 
 // 测试
