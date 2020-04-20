@@ -78,6 +78,11 @@ class LeetCodeCreator extends Form
             $doc->content = $this->getContent($item);
             $doc->save();
         }
+        $docCount = WikiDocument::where('project_id', '=', $projectId)
+            ->where('type', '=', WikiDocument::$TYPE_FILE)
+            ->count();
+        WikiProject::where('id', '=', $projectId)
+            ->update(['doc_count' => $docCount]);
     }
 
     private function getContent($item)
