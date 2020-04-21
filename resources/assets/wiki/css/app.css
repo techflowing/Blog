@@ -120,3 +120,9 @@
 .markdown-toc-list li {
     color: #3D7DB4;
 }
+
+.editormd-preview-container code, .editormd-html-preview code {
+    border: 0 solid #ddd;
+    background: #333333;
+    color: #C5C5C5;
+}
