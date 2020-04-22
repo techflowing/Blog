@@ -142,6 +142,7 @@ class SiteController extends Controller
             ->attribute('autocomplete', 'off')
             ->rules('required|max:50');
         $form->text('order', '顺序')
+            ->default(10000)
             ->attribute('min', 1)
             ->attribute('max', 10000);
         $form->text('describe', '描述')
