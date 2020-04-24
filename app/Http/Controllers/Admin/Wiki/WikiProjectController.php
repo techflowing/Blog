@@ -46,12 +46,14 @@ class WikiProjectController extends Controller
 
     /**
      * 编辑项目
+     * @param Content $content
      * @param $id
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return Content
      */
-    public function edit($id)
+    public function edit(Content $content, $id)
     {
-        return redirect("/admin/wiki/edit/$id");
+        return $content->header('编辑项目')
+            ->body($this->form()->edit($id));
     }
 
     /**
@@ -78,6 +80,12 @@ class WikiProjectController extends Controller
         $grid->thumb('封面图')->gallery(['width' => 30, 'height' => 20]);
         $grid->created_at('创建时间')->date('Y-m-d');
         $grid->updated_at('修改时间')->date('Y-m-d');
+
+
+        $grid->actions(function ($actions) {
+            $href = "/admin/wiki/edit/" . $actions->row->id;
+            $actions->append("<a href=$href target='_blank'><i class='fa fa-paper-plane'></i></a>");
+        });
 
         $grid->disableFilter();
         $grid->disableRowSelector();
