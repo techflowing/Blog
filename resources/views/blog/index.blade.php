@@ -7,7 +7,7 @@
 @section('content')
 
     <div class="page-container">
-        <div class="col-sm-10 col-sm-offset-1 blog-container">
+        <div class="col-sm-10 col-lg-10 col-sm-offset-1 blog-container">
             <div class="col-sm-9">
                 <table class="blog-article-table">
                     <thead>
@@ -21,7 +21,9 @@
                     @isset($blogArticle)
                         @foreach($blogArticle as $article)
                             <tr>
-                                <th class='col-sm-8'><a class='blog-article-name' href='{{$article->link}}'>{{$article->title}}</a></th>
+                                <th class='col-sm-8'>
+                                    <a class='blog-article-name' href='{{$article->link}}' target='_blank'>{{$article->title}}</a>
+                                </th>
                                 <th class='col-sm-2'>{{$article->category}}</th>
                                 <th class='col-sm-2'>{{$article->date}}</th>
                             </tr>
@@ -33,7 +35,7 @@
                     <ul id="blog-article-paginator"></ul>
                 </div>
             </div>
-            <div class="user-profile col-sm-3">
+            <div class="user-profile col-sm-3 col-lg-3">
 
             </div>
         </div>

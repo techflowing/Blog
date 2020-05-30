@@ -34,11 +34,14 @@ Route::group(['prefix' => 'wiki'], function () {
 
 // 博客配置
 Route::group(['prefix' => 'blog'], function () {
-    // Wiki 首页
+    // 博客首页
     Route::get('/', 'BlogController@index');
     Route::get("/page/{page}", 'BlogController@getPageList')
         ->name('blog.page.list')
         ->where('page', '[0-9]+');
+    // 博客详情页面
+    Route::get("/detail/{title}", 'BlogController@getArticleDetail')
+        ->name('blog.article.detail');
 });
 
 

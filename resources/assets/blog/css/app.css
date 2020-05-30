@@ -89,3 +89,15 @@ table.blog-article-table th {
     background-color: #2a6496;
     border-color: #1A1D1E;
 }
+
+/*详情页样式*/
+.blog-detail-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.blog-detail-content, .blog-detail-toc {
+    padding-top: 40px;
+}

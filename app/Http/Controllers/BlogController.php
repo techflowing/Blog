@@ -61,6 +61,25 @@ class BlogController extends BaseController
     }
 
     /**
+     * 获取指定文章的详情页
+     * @param String $title 文章标题
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function getArticleDetail($title)
+    {
+        $doc = WikiDocument::where('name', '=', $title)->first();
+        if (empty($doc)) {
+            abort(404);
+        }
+        $project = WikiProject::where('id', '=', $doc->project_id)->first();
+        if (empty($project) || $project->type == WikiProject::$TYPE_PRIVATE) {
+            abort(403);
+        }
+        return view('blog.detail.index')
+            ->with('article', $doc);
+    }
+
+    /**
      * 分页查询数据
      * @param int $page 当前页数
      * @param int $size 每页的数量

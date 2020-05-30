@@ -31,12 +31,14 @@ function getBlogListSuccess(data) {
     // 添加子元素
     for (let item of data) {
         let dom = "<tr>\n" +
-            "<th class='col-sm-8'><a class='blog-article-name' href='" + item.link + "'>" + item.title + "</a></th>\n" +
+            "<th class='col-sm-8'><a class='blog-article-name' target='_blank' href='" + item.link + "'>" + item.title + "</a></th>\n" +
             "<th class='col-sm-2'>" + item.category + "</th>\n" +
             "<th class='col-sm-2'>" + item.date + "</th>\n" +
             "</tr>";
         $('#blog-article-list-body').append(dom);
     }
+    // 滚动到顶部
+    $('html,body').animate({scrollTop: 0}, 100);
 }
 
 $(document).ready(function () {

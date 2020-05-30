@@ -6,7 +6,6 @@
     <script src="{{ asset('static-third/paginator/bootstrap-paginator.min.js') }}"></script>
 
     <script type="text/javascript">
-        // 去除转义字符，转换JSON对象为JS对象
         window.pageCount = '{{$pageCount}}';
     </script>
 @endsection
