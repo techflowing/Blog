@@ -4,6 +4,8 @@
 
 .wiki-box {
     padding: 50px 10%;
+    height: 100%;
+    overflow: auto;
 }
 
 .wiki-doc-img {

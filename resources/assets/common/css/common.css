@@ -29,8 +29,13 @@
 footer.main-footer {
     border-top: 1px solid #444444;
     background-color: #1A1D1E;
+    padding: 15px 30px;
+    border-top: 1px solid #2c2c2c;
 }
 
 footer.main-footer .footer-text {
-    color: #3D7DB4;
+    color: #60686F;
+    text-align: center;
+    line-height: 100%;
+    float: none;
 }
