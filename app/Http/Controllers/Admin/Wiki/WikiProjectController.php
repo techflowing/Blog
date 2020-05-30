@@ -81,10 +81,12 @@ class WikiProjectController extends Controller
         $grid->created_at('创建时间')->date('Y-m-d');
         $grid->updated_at('修改时间')->date('Y-m-d');
 
-
         $grid->actions(function ($actions) {
             $href = "/admin/wiki/edit/" . $actions->row->id;
             $actions->append("<a href=$href target='_blank'><i class='fa fa-paper-plane'></i></a>");
+
+            // 去掉查看
+            $actions->disableView();
         });
 
         $grid->disableFilter();
@@ -102,7 +104,7 @@ class WikiProjectController extends Controller
         $form = new Form(new WikiProject());
 
         $form->text('name', "项目名称")->required();
-        $form->textarea('description', "项目描述");
+        $form->textarea('description', "项目描述")->required();
         $form->radio('type', "类型")
             ->options([WikiProject::$TYPE_PUBLIC => '公开', WikiProject::$TYPE_PRIVATE => '私密'])
             ->default(WikiProject::$TYPE_PUBLIC)
@@ -111,8 +113,8 @@ class WikiProjectController extends Controller
         $form->cropper('thumb', '封面图')
             ->cRatio(300, 200)
             ->help('图片尺寸需要 300*200')
-            ->uniqueName()
-            ->required();
+            ->uniqueName();
+        // cropper() 添加 required() 有问题，原因未知
 
         $form->footer(function ($footer) {
             // 去掉`查看`checkbox

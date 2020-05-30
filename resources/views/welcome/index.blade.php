@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="circle-container">
-        <div class="outer-circle" onclick="window.open('/navigation','_self')">
+        <div class="outer-circle" onclick="window.open('/blog','_self')">
             <div class="inner-circle">
             </div>
             <span></span>
