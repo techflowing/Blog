@@ -22,6 +22,7 @@ class CreateWikiTables extends Migration
             $table->string('name')->comment('项目名称');
             $table->string('description', 2000)->nullable(true)->comment('项目描述');
             $table->integer('type')->comment('项目类型，1-公开/ 0-私密');
+            $table->boolean("sync_to_blog")->comment("是否同步到博客")->default(true);
             $table->integer('doc_count')->default(0)->comment('文档数量');
             $table->string('thumb')->comment('项目封面图');
             $table->timestamps();

@@ -77,6 +77,13 @@ class WikiProjectController extends Controller
                     return "<span class='label label-default'>未知-非法</span>";
             }
         });
+        $grid->sync_to_blog('同步到博客')->display(function ($sync) {
+            if ($sync) {
+                return "<span class='label label-success'>同步</span>";
+            } else {
+                return "<span class='label label-danger'>不同步</span>";
+            }
+        });
         $grid->thumb('封面图')->gallery(['width' => 30, 'height' => 20]);
         $grid->created_at('创建时间')->date('Y-m-d');
         $grid->updated_at('修改时间')->date('Y-m-d');
@@ -108,6 +115,12 @@ class WikiProjectController extends Controller
         $form->radio('type', "类型")
             ->options([WikiProject::$TYPE_PUBLIC => '公开', WikiProject::$TYPE_PRIVATE => '私密'])
             ->default(WikiProject::$TYPE_PUBLIC)
+            ->required();
+
+        $form->radio("sync_to_blog", "同步到博客")
+            ->options([true => '同步', false => '不同步'])
+            ->help("此选项只对公开项目有效")
+            ->default(true)
             ->required();
 
         $form->cropper('thumb', '封面图')

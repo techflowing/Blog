@@ -91,7 +91,8 @@ class BlogController extends BaseController
             ->whereIn('project_id', function ($query) {
                 $query->select('id')
                     ->from('wiki_project')
-                    ->where('type', '=', WikiProject::$TYPE_PUBLIC);
+                    ->where('type', '=', WikiProject::$TYPE_PUBLIC)
+                    ->where('sync_to_blog', '=', true);
             })
             ->join('wiki_project', 'wiki_project.id', '=', 'wiki_document.project_id')
             ->select('wiki_document.name as title', 'wiki_project.name as category', 'wiki_document.created_at')
@@ -121,7 +122,8 @@ class BlogController extends BaseController
             ->whereIn('project_id', function ($query) {
                 $query->select('id')
                     ->from('wiki_project')
-                    ->where('type', '=', WikiProject::$TYPE_PUBLIC);
+                    ->where('type', '=', WikiProject::$TYPE_PUBLIC)
+                    ->where('sync_to_blog', '=', true);
             })
             ->join('wiki_project', 'wiki_project.id', '=', 'wiki_document.project_id')
             ->select('wiki_document.name as title', 'wiki_project.name as category', 'wiki_document.created_at')
