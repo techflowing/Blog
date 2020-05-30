@@ -21,5 +21,6 @@ yarn-error.log
 /public/static-third/
 /public/static-welcome/
 /public/static-errors/
+/public/static-blog/
 /public/media-store/
 /public/uploads/

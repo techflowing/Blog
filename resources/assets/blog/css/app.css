@@ -1,0 +1,91 @@
+.blog-container {
+    padding-top: 20px;
+}
+
+.user-profile {
+    background: red;
+    height: 400px;
+}
+
+table.blog-article-table {
+    background: #2C2E2E;
+    border-radius: 5px;
+    width: 100%;
+}
+
+table.blog-article-table thead th {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+table.blog-article-table tbody tr {
+    cursor: pointer;
+}
+
+table.blog-article-table tbody tr:hover {
+    background: #353839;
+}
+
+table.blog-article-table tbody th {
+    font-weight: normal;
+    font-size: 15px;
+}
+
+table.blog-article-table tr {
+    border-bottom: 1px dashed #4c4c4c;
+}
+
+table.blog-article-table th {
+    color: #C6C9CF;
+    height: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.blog-article-name {
+    color: #C6C9CF;
+}
+
+.blog-article-name:hover {
+    color: #9EA1A7;
+}
+
+.blog-article-paginator-container {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.pagination > li > a, .pagination > li > span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #C6C9CF;
+    text-decoration: none;
+    background-color: #2C2E2E;
+    border: 1px solid #1A1D1E;
+    cursor: pointer;
+}
+
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus {
+    color: #2a6496;
+    background-color: #2C2E2E;
+    border-color: #1A1D1E;
+}
+
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+    z-index: 2;
+    color: #fff;
+    cursor: default;
+    background-color: #2a6496;
+    border-color: #1A1D1E;
+}

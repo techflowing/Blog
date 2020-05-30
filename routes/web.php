@@ -36,6 +36,9 @@ Route::group(['prefix' => 'wiki'], function () {
 Route::group(['prefix' => 'blog'], function () {
     // Wiki 首页
     Route::get('/', 'BlogController@index');
+    Route::get("/page/{page}", 'BlogController@getPageList')
+        ->name('blog.page.list')
+        ->where('page', '[0-9]+');
 });
 
 

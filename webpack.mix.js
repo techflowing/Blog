@@ -14,6 +14,7 @@ const mix = require('laravel-mix');
 mix.copyDirectory('resources/assets/ztree', 'public/static-third/ztree');
 mix.copyDirectory('resources/assets/editormd', 'public/static-third/editormd');
 mix.copyDirectory('resources/assets/layer', 'public/static-third/layer');
+mix.copyDirectory('resources/assets/paginator', 'public/static-third/paginator');
 
 // 公共资源 图片、字体文件等
 mix.copyDirectory('resources/assets/common/img/', 'public/static-common/img');
@@ -58,6 +59,15 @@ mix.styles([
 mix.styles([
     'resources/assets/navigation/css/app.css'
 ], 'public/static-navigation/css/app.css');
+
+// 博客资源
+mix.styles([
+    'resources/assets/blog/css/app.css'
+], 'public/static-blog/css/app.css');
+
+mix.scripts([
+    'resources/assets/blog/js/app.js'
+], 'public/static-blog/js/app.js');
 
 // wiki 资源
 mix.styles([
