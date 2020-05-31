@@ -231,4 +231,8 @@ return [
 
     ],
 
+    // 自定义配置
+    'author' => env('AUTHOR', 'Laravel'),
+    'record' => env('RECORD', '')
+
 ];
