@@ -8,7 +8,7 @@
 
     <div class="page-container">
         <div class="col-sm-10 col-lg-10 col-sm-offset-1 blog-container">
-            <div class="col-sm-9">
+            <div class="col-sm-9 blog-article-container">
                 <table class="blog-article-table">
                     <thead>
                     <tr>
@@ -31,9 +31,13 @@
                     @endisset
                     </tbody>
                 </table>
+
                 <div class="blog-article-paginator-container">
                     <ul id="blog-article-paginator"></ul>
                 </div>
+
+                @include('tpl-footer')
+
             </div>
             <div class="user-profile col-sm-3 col-lg-3">
 

@@ -72,3 +72,8 @@
 .navigation-category {
     color: #989898;
 }
+
+.page-container .main-content {
+    /*底部版权高度*/
+    padding-bottom: 40px;
+}

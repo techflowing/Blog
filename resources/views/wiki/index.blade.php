@@ -5,8 +5,7 @@
 @section('content')
 
     <div class="page-container">
-        <div class="row wiki-box">
-
+        <div class="col-sm-10 col-lg-10 col-sm-offset-1 wiki-project-container">
             @php
                 $mediaStore = config('mediastore.name');
             @endphp
@@ -24,6 +23,9 @@
                 </div>
 
             @endforeach
+
+            @include('tpl-footer')
+
         </div>
     </div>
 @endsection

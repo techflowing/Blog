@@ -1,11 +1,7 @@
-.page-container {
-    overflow: hidden;
-}
-
-.wiki-box {
-    padding: 50px 10%;
+.wiki-project-container {
     height: 100%;
-    overflow: auto;
+    padding-top: 20px;
+    padding-bottom: 40px;
 }
 
 .wiki-doc-img {

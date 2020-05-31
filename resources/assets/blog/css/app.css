@@ -1,4 +1,5 @@
 .blog-container {
+    height: 100%;
     padding-top: 20px;
 }
 
@@ -100,4 +101,11 @@ table.blog-article-table th {
 
 .blog-detail-content, .blog-detail-toc {
     padding-top: 40px;
+}
+
+.blog-article-container {
+    /*版权信息高度*/
+    padding-bottom: 40px;
+    height: 100%;
+    position: relative;
 }

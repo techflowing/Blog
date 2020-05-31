@@ -11,7 +11,7 @@
 
             @include('navigation.content')
 
-            {{--@include('tpl-footer')--}}
+            @include('tpl-footer')
 
         </div>
     </div>
