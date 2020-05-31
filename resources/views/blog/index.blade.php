@@ -40,8 +40,32 @@
 
             </div>
             <div class="user-profile col-sm-3 col-lg-3">
-
+                @php
+                    $userAvatar = config('user_avatar','/static-common/img/logo.png');
+                    $userSlogin = config('user_slogin','Coding For Fun，代码改变世界');
+                    $username = config('username','Laravel');
+                @endphp
+                <img class="user-profile-avatar" src="{{$userAvatar}}">
+                <p class="user-profile-name">{{$username}}</p>
+                <p class="user-profile-slogin">{{$userSlogin}}</p>
+                <div class="user-profile-statistics">
+                    <p class="user-profile-statistics-item">{{$blogCount}}<br>文章</p>
+                    <p class="user-profile-statistics-item">{{$categoryCount}}<br>分类</p>
+                </div>
             </div>
+
+            @isset($category)
+                <div class="category-detail col-sm-3 col-lg-3">
+                    <p class="category-title">文章分类</p>
+                    @foreach($category as $item)
+                        <a class="category-item" href="{{route('wiki.document.detail',['project_id'=>$item->id])}}">
+                            <p class="category-item-name">{{$item->name}}</p>
+                            <p class="category-item-count">{{$item->count}}</p>
+                        </a>
+                    @endforeach
+                </div>
+            @endisset
+
         </div>
     </div>
 

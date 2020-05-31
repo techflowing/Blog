@@ -7,6 +7,7 @@ use App\Model\Admin\HomeNavMenu;
 use App\Model\wiki\WikiDocument;
 use App\Model\wiki\WikiProject;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Facades\DB;
 
 /**
  * 博客站
@@ -36,14 +37,24 @@ class BlogController extends BaseController
             abort(404);
         }
 
-        $documentCount = $this->getBlogArticleCount();
+        // 获取项目详情，id、name、count
+        $project = $this->getBlogProject();
+
+        // 计算所有文章数量
+        $documentCount = 0;
+        foreach ($project as $item) {
+            $documentCount += $item->count;
+        }
+        // 计算分页数量
         $pageCount = ceil($documentCount / self::$PAGE_SIZE);
 
         return view('blog.index')
             ->with('navMenu', $navMenu)
             ->with('blogArticle', $document)
-            ->with("blogCount", $documentCount)
-            ->with('pageCount', $pageCount);
+            ->with('blogCount', $documentCount)
+            ->with('categoryCount', sizeof($project))
+            ->with('pageCount', $pageCount)
+            ->with('category', $project);
     }
 
     /**
@@ -113,10 +124,9 @@ class BlogController extends BaseController
     }
 
     /**
-     * 所有文章数量
-     * @return int 所有文章数量
+     * 所有项目详情，id、name、文章数量（公开且同步到博客类文档）
      */
-    private function getBlogArticleCount()
+    private function getBlogProject()
     {
         return WikiDocument::where('wiki_document.type', '=', WikiDocument::$TYPE_FILE)
             ->whereIn('project_id', function ($query) {
@@ -126,7 +136,8 @@ class BlogController extends BaseController
                     ->where('sync_to_blog', '=', true);
             })
             ->join('wiki_project', 'wiki_project.id', '=', 'wiki_document.project_id')
-            ->select('wiki_document.name as title', 'wiki_project.name as category', 'wiki_document.created_at')
-            ->count();
+            ->select('wiki_project.id as id', 'wiki_project.name as name', DB::raw('count(*) as count'))
+            ->groupBy('wiki_project.id', 'wiki_project.name')
+            ->get();
     }
 }
