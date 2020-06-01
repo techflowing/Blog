@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Admin\Article;
 
 use App\Http\Controllers\Controller;
-use App\Model\blog\Article;
-use App\Model\blog\ArticleCategory;
-use App\Model\blog\ArticleTag;
+use App\Model\Blog\Article;
+use App\Model\Blog\ArticleCategory;
+use App\Model\Blog\ArticleTag;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Layout\Content;

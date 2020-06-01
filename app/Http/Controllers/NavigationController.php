@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Model\Admin\HomeNavMenu;
-use App\Model\navigation\Category;
+use App\Model\Navigation\Category;
 
 /**
  * 网址收藏

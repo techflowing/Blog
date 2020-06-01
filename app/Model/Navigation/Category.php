@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Model\navigation;
+namespace App\Model\Navigation;
 
 use Encore\Admin\Traits\AdminBuilder;
 use Encore\Admin\Traits\ModelTree;
@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 /**
  * 定义网站分类Model
  * Class Category
- * @package App\Model\navigation
+ * @package App\Model\Navigation
  */
 class Category extends Model
 {

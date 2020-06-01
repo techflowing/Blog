@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin\Navigation;
 
 use App\Http\Controllers\Controller;
-use App\Model\navigation\Category;
+use App\Model\Navigation\Category;
 use Encore\Admin\Controllers\ModelForm;
 use Encore\Admin\Form;
 use Encore\Admin\Layout\Content;

@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Admin\Wiki;
 
 use App\Http\Controllers\BaseController;
 use App\Http\ErrorDesc;
-use App\Model\wiki\WikiDocument;
-use App\Model\wiki\WikiProject;
+use App\Model\Wiki\WikiDocument;
+use App\Model\Wiki\WikiProject;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 

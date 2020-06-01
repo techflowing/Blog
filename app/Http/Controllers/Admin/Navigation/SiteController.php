@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Admin\Navigation;
 
 use App\Http\Controllers\Controller;
-use App\Model\navigation\Category;
-use App\Model\navigation\Site;
+use App\Model\Navigation\Category;
+use App\Model\Navigation\Site;
 use Encore\Admin\Controllers\HasResourceActions;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;

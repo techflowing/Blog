@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Model\wiki;
+namespace App\Model\Wiki;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * Wiki Document Model
  * Class WikiDocument
- * @package App\Model\wiki
+ * @package App\Model\Wiki
  */
 class WikiDocument extends Model
 {

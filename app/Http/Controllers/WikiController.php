@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\ErrorDesc;
 use App\Model\Admin\HomeNavMenu;
-use App\Model\wiki\WikiDocument;
-use App\Model\wiki\WikiProject;
+use App\Model\Wiki\WikiDocument;
+use App\Model\Wiki\WikiProject;
 use Encore\Admin\Facades\Admin;
 
 /**

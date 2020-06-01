@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Model\blog;
+namespace App\Model\Blog;
 
 use Illuminate\Database\Eloquent\Model;
 
 /**
  * 文章分类Model
  * Class ArticleCategory
- * @package App\Model\blog
+ * @package App\Model\Blog
  */
 class ArticleCategory extends Model
 {

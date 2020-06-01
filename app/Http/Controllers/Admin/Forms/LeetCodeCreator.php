@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Admin\Forms;
 
-use App\Model\wiki\WikiDocument;
-use App\Model\wiki\WikiProject;
+use App\Model\Wiki\WikiDocument;
+use App\Model\Wiki\WikiProject;
 use Encore\Admin\Widgets\Form;
 use Illuminate\Http\Request;
 

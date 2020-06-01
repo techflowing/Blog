@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin\Wiki;
 
 use App\Http\Controllers\Controller;
-use App\Model\wiki\WikiProject;
+use App\Model\Wiki\WikiProject;
 use Encore\Admin\Controllers\ModelForm;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
