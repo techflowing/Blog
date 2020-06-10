@@ -1,14 +1,13 @@
 {
     "/static-common/js/common.js": "/static-common/js/common.js?id=438289523f9fb3a8979b",
-    "/static-common/css/common.css": "/static-common/css/common.css?id=94f21d4a721aa0d9f046",
-    "/static-welcome/css/app.css": "/static-welcome/css/app.css?id=f160588a6f9b1553c8eb",
+    "/static-common/css/common.css": "/static-common/css/common.css?id=485b12f23617d9e3f562",
+    "/static-welcome/css/app.css": "/static-welcome/css/app.css?id=3c2a975bf919a094cabf",
     "/static-errors/css/app.css": "/static-errors/css/app.css?id=fe04afdc542c2b83253e",
-    "/static-navigation/css/app.css": "/static-navigation/css/app.css?id=c6fe8a8d27178faed5e4",
-    "/static-blog/css/app.css": "/static-blog/css/app.css?id=90c28d62fa684e72f589",
-    "/static-blog/js/app.js": "/static-blog/js/app.js?id=92ffcde30ea1b11d6da6",
-    "/static-blog/js/detail.js": "/static-blog/js/detail.js?id=d41d8cd98f00b204e980",
-    "/static-wiki/css/app.css": "/static-wiki/css/app.css?id=efdb1f8821334d5708ef",
+    "/static-navigation/css/app.css": "/static-navigation/css/app.css?id=94ff1d47ae7e6f8fffbc",
+    "/static-blog/css/app.css": "/static-blog/css/app.css?id=99834f7de3d436fc7f00",
+    "/static-blog/js/app.js": "/static-blog/js/app.js?id=61ac0d9579d7d6051e5d",
+    "/static-wiki/css/app.css": "/static-wiki/css/app.css?id=44c718fbd81c9a4e35e7",
     "/static-wiki/js/app.js": "/static-wiki/js/app.js?id=79466180f15b0940c8fc",
-    "/static-admin/wiki/css/app.css": "/static-admin/wiki/css/app.css?id=0558284b53a1032c928f",
+    "/static-admin/wiki/css/app.css": "/static-admin/wiki/css/app.css?id=9577d5f03e872c3b67c5",
     "/static-admin/wiki/js/app.js": "/static-admin/wiki/js/app.js?id=0f8c4113d65b60fd317d"
 }

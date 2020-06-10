@@ -12,8 +12,6 @@ npm-debug.log
 yarn-error.log
 /PhpInfo.php
 
-/resources/assets/test
-
 /public/static-admin/
 /public/static-common/
 /public/static-navigation/
@@ -22,5 +20,6 @@ yarn-error.log
 /public/static-welcome/
 /public/static-errors/
 /public/static-blog/
+/public/static-test/
 /public/media-store/
 /public/uploads/

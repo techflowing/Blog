@@ -92,5 +92,7 @@ mix.scripts([
 
 mix.copyDirectory('resources/assets/admin/wiki/img/', 'public/static-admin/wiki/img');
 
+mix.copyDirectory('resources/assets/test', 'public/static-test');
+
 mix.version();
 

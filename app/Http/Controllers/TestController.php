@@ -17,4 +17,23 @@ class TestController extends Controller
         return view('sample.home')
             ->with('navMenu', $navMenu);
     }
+
+    public function share()
+    {
+        $imgUrl = request('imgUrl');
+        $iconUrl = request('iconUrl');
+        $type = request('type');
+        $title = request('title');
+        $name = request('name');
+        $scheme = urldecode(request('scheme'));
+
+
+        return view('test.share.index')
+            ->with('imgUrl', $imgUrl)
+            ->with('iconUrl', $iconUrl)
+            ->with('type', $type)
+            ->with('title', $title)
+            ->with('name', $name)
+            ->with('scheme', $scheme);
+    }
 }
