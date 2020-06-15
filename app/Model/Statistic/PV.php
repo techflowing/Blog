@@ -10,5 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class PV extends Model
 {
+    protected $table = 'statistic_pv';
 
+    protected $fillable = ['scene', 'location'];
 }

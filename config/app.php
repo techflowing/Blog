@@ -167,7 +167,7 @@ return [
          */
         \Orangehill\Iseed\IseedServiceProvider::class,
         Jacobcyl\AliOSS\AliOssServiceProvider::class,
-
+        Jenssegers\Agent\AgentServiceProvider::class,
         /*
          * Application Service Providers...
          */
@@ -228,7 +228,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-
+        'Agent' => Jenssegers\Agent\Facades\Agent::class,
     ],
 
     // 自定义配置

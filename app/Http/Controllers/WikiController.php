@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\ErrorDesc;
 use App\Model\Admin\HomeNavMenu;
+use App\Model\Event\Event;
 use App\Model\Wiki\WikiDocument;
 use App\Model\Wiki\WikiProject;
+use App\Util\StatisticUtil;
 use Encore\Admin\Facades\Admin;
 
 /**
@@ -20,6 +22,8 @@ class WikiController extends BaseController
      */
     public function index()
     {
+        StatisticUtil::recordVisitorEvent(Event::$SCENE_MAIN_PAGE, Event::$LOCATION_WIKI);
+
         $project = null;
 
         if (Admin::user() != null && Admin::user()->isAdministrator()) {

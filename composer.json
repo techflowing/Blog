@@ -18,6 +18,7 @@
         "intervention/image": "^2.5",
         "jacobcyl/ali-oss-storage": "^2.1",
         "james.xue/login-captcha": "^2.0",
+        "jenssegers/agent": "^2.6",
         "jxlwqq/material-ui": "^1.0",
         "laravel-admin-ext/config": "^1.1",
         "laravel-admin-ext/cropper": "^1.0",

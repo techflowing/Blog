@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\ErrorDesc;
 use App\Model\Admin\HomeNavMenu;
+use App\Model\Event\Event;
 use App\Model\Wiki\WikiDocument;
 use App\Model\Wiki\WikiProject;
+use App\Util\StatisticUtil;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Support\Facades\DB;
 
@@ -27,6 +29,7 @@ class BlogController extends BaseController
      */
     public function index()
     {
+        StatisticUtil::recordVisitorEvent(Event::$SCENE_MAIN_PAGE, Event::$LOCATION_BLOG);
 
         $navMenu = HomeNavMenu::all()
             ->sortBy('order');

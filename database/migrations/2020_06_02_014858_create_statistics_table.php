@@ -23,6 +23,7 @@ class CreateStatisticsTable extends Migration
             $table->string('scene')->nullable(false)->comment("场景值");
             $table->string('location')->nullable(false)->comment("位置（二级分类）");
             $table->string('ip')->nullable(true)->comment("用户IP");
+            $table->string('content')->nullable(true)->comment("自定义统计内容");
             $table->string('date')->nullable(false)->comment("访问日期，格式 Y-m-d");
             $table->timestamps();
         });

@@ -5,11 +5,14 @@ namespace App\Http\Controllers;
 
 
 use App\Model\Admin\HomeNavMenu;
+use App\Util\StatisticUtil;
 
 class TestController extends Controller
 {
     public function index()
     {
+
+        StatisticUtil::recordVisitorEvent("scene", "location");
 
         $navMenu = HomeNavMenu::all()
             ->sortBy('order');

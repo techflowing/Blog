@@ -4,7 +4,11 @@
 namespace App\Model\Statistic;
 
 
-class UV
-{
+use Illuminate\Database\Eloquent\Model;
 
+class UV extends Model
+{
+    protected $table = 'statistic_uv';
+
+    protected $fillable = ['scene', 'location'];
 }
