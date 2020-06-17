@@ -14,11 +14,8 @@ class TestController extends Controller
 
         StatisticUtil::recordVisitorEvent("scene", "location");
 
-        $navMenu = HomeNavMenu::all()
-            ->sortBy('order');
-
         return view('sample.home')
-            ->with('navMenu', $navMenu);
+            ->with('navMenu', HomeNavMenu::getNavMenu());
     }
 
     public function share()

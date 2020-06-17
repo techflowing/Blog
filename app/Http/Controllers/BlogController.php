@@ -31,9 +31,6 @@ class BlogController extends BaseController
     {
         StatisticUtil::recordVisitorEvent(Event::$SCENE_MAIN_PAGE, Event::$LOCATION_BLOG);
 
-        $navMenu = HomeNavMenu::all()
-            ->sortBy('order');
-
         $document = $this->getBlogArticle(1, self::$PAGE_SIZE);
 
         if (empty($document)) {
@@ -52,7 +49,7 @@ class BlogController extends BaseController
         $pageCount = ceil($documentCount / self::$PAGE_SIZE);
 
         return view('blog.index')
-            ->with('navMenu', $navMenu)
+            ->with('navMenu', HomeNavMenu::getNavMenu())
             ->with('blogArticle', $document)
             ->with('blogCount', $documentCount)
             ->with('categoryCount', sizeof($project))

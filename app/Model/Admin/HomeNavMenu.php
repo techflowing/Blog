@@ -21,4 +21,14 @@ class HomeNavMenu extends Model
     public static $TYPE_TARGET_BLANK = 1;
 
     protected $table = 'admin_nav_menu_config';
+
+    /**
+     * 获取菜单
+     * @return HomeNavMenu[]|\Illuminate\Database\Eloquent\Collection
+     */
+    static function getNavMenu()
+    {
+        return HomeNavMenu::all()
+            ->sortBy('order');
+    }
 }

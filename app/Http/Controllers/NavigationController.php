@@ -27,11 +27,9 @@ class NavigationController extends Controller
             ->withCount('children')
             ->orderBy('order')
             ->get();
-        $navMenu = HomeNavMenu::all()
-            ->sortBy('order');
 
         return view('navigation.index')
             ->with('categories', $categories)
-            ->with('navMenu', $navMenu);
+            ->with('navMenu', HomeNavMenu::getNavMenu());
     }
 }
