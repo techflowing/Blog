@@ -8,7 +8,6 @@ use App\Model\Statistic\PV;
 use App\Model\Statistic\UV;
 use App\Util\StatisticUtil;
 use phpDocumentor\Reflection\Types\Collection;
-use phpDocumentor\Reflection\Types\Object_;
 use stdClass;
 
 /**
@@ -20,6 +19,8 @@ class AboutController extends BaseController
 {
     public function index()
     {
+        StatisticUtil::recordVisitorEvent(Event::$SCENE_MAIN_PAGE, Event::$LOCATION_ABOUT);
+
         return view('about.index')
             ->with('navMenu', HomeNavMenu::getNavMenu())
             ->with('accessData', $this->getAccessStatistic());
@@ -38,7 +39,8 @@ class AboutController extends BaseController
             $this->findAccessData(Event::$LOCATION_WELCOME, "首页", $pv, $uv),
             $this->findAccessData(Event::$LOCATION_BLOG, "博客", $pv, $uv),
             $this->findAccessData(Event::$LOCATION_WIKI, "知识库", $pv, $uv),
-            $this->findAccessData(Event::$LOCATION_NAVIGATE, "导航站", $pv, $uv)
+            $this->findAccessData(Event::$LOCATION_NAVIGATE, "导航站", $pv, $uv),
+            $this->findAccessData(Event::$LOCATION_ABOUT, "关于", $pv, $uv)
         );
     }
 

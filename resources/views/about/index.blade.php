@@ -36,12 +36,11 @@
                             $email = "mailto:".$email;
                         }
                     @endphp
-                    <p class="about-item-title">联系我</p>
                     <img class="about-wechat-img" src="{{$weChat}}">
                     <p class="about-contact-me-text">微信扫码联系我</p>
                     <div class="about-contact-me-more">
                         <div class="about-contact-me-more-item">
-                            <a href="{{$gitHub}}" title="GitHub">
+                            <a href="{{$gitHub}}" target="_blank" title="GitHub">
                                 <img class="about-contact-me-more-item-icon" src="{{asset('/static-common/img/github.png')}}">
                             </a>
                         </div>
