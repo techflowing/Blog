@@ -44,6 +44,12 @@ Route::group(['prefix' => 'blog'], function () {
         ->name('blog.article.detail');
 });
 
+// 关于页面配置
+Route::group(['prefix' => 'about'], function () {
+    // 关于首页
+    Route::get('/', 'AboutController@index');
+});
+
 
 // 后台管理模块路由
 Admin::routes();

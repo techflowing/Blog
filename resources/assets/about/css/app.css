@@ -1,0 +1,107 @@
+.about-container {
+    height: 100%;
+    padding-top: 20px;
+}
+
+.about-container-left {
+    /*版权信息高度*/
+    padding-bottom: 40px;
+    height: 100%;
+    position: relative;
+    padding-right: 0;
+}
+
+.about-item-title {
+    text-align: left;
+    font-size: 16px;
+    color: #C6C9CF;
+    margin-bottom: 0;
+}
+
+.about-me, .about-site {
+    background: #2C2E2E;
+    height: fit-content;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.about-site {
+    margin-top: 15px;
+}
+
+.user-profile {
+    background: #2C2E2E;
+    height: fit-content;
+    text-align: center;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.about-wechat-img {
+    width: 140px;
+    height: 140px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.about-contact-me-text {
+    font-size: 12px;
+    color: #969797;
+}
+
+.about-contact-me-more {
+    display: flex;
+    /*border-bottom: 1px dashed #4c4c4c;*/
+    border-top: 1px dashed #4c4c4c;
+    vertical-align: middle;
+    margin-top: 10px;
+}
+
+.about-contact-me-more-item {
+    display: inline-block;
+    height: fit-content;
+    width: 50%;
+    padding: 15px 0 0;
+    font-size: 15px;
+    margin-bottom: 0;
+}
+
+.about-contact-me-more-item-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.access-statistic-detail {
+    margin-top: 15px;
+    background: #2C2E2E;
+    height: fit-content;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.access-statistic-item {
+    padding: 15px 0 0;
+}
+
+.access-statistic-item-pv, .access-statistic-item-uv {
+    display: block;
+    vertical-align: middle;
+    font-size: 14px;
+    padding: 5px 0;
+}
+
+.access-statistic-item-name {
+    font-size: 15px;
+    color: #C1C1C1;
+    margin-bottom: 0;
+}
+
+.access-statistic-name, .access-statistic-pv, .access-statistic-uv {
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+.access-statistic-pv, .access-statistic-uv {
+    float: right;
+    font-weight: bold;
+}
