@@ -11,15 +11,16 @@
 
                 <div class="about-me">
                     <p class="about-item-title">关于我</p>
-
-                    <p style="margin-top: 15px">一条啥都不会还不想学习的咸鱼，等待翻身</p>
+                    <div class="markdown-body editormd-preview-theme-dark bout-me-editormd" id="about-me-editormd-html-view">
+                        <textarea style="display:none;" name="test-editormd-markdown-doc">###Hello world!</textarea>
+                    </div>
                 </div>
 
                 <div class="about-site">
                     <p class="about-item-title">关于本站</p>
-
-                    <p style="margin-top: 15px">待更新</p>
-
+                    <div class="markdown-body editormd-preview-theme-dark about-site-editormd" id="about-site-editormd-html-view">
+                        <textarea style="display:none;" name="test-editormd-markdown-doc">###Hello world!</textarea>
+                    </div>
                 </div>
 
                 @include('tpl-footer')
@@ -72,4 +73,26 @@
             </div>
         </div>
     </div>
+
+    <script type="text/javascript">
+
+        editormd.markdownToHTML("about-me-editormd-html-view", {
+            markdown: window.aboutMe,
+            htmlDecode: "style,script,iframe",
+            tocm: true,
+            emoji: true,
+            taskList: true,
+            tex: true,
+        });
+
+        editormd.markdownToHTML("about-site-editormd-html-view", {
+            markdown: window.aboutSite,
+            htmlDecode: "style,script,iframe",
+            tocm: true,
+            emoji: true,
+            taskList: true,
+            tex: true,
+        });
+    </script>
+
 @endsection

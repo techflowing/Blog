@@ -105,3 +105,31 @@
     float: right;
     font-weight: bold;
 }
+
+/*自定义markdown主题*/
+.editormd-preview-theme-dark {
+    color: #979898;
+    background: transparent;
+}
+
+.editormd-html-preview {
+    padding: 20px 10px;
+}
+
+.markdown-body h1, .markdown-body h2, .markdown-body hr {
+    border-bottom: 1px solid #333333;
+}
+
+.editormd-preview-container hr, .editormd-html-preview hr {
+    border-top: 1px solid #333333;
+}
+
+.editormd-preview-container pre.prettyprint, .editormd-html-preview pre.prettyprint {
+    border: 1px solid #333333;
+}
+
+.editormd-preview-container code, .editormd-html-preview code {
+    border: 0 solid #ddd;
+    background: #333333;
+    color: #C5C5C5;
+}

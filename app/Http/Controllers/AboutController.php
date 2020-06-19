@@ -23,6 +23,8 @@ class AboutController extends BaseController
 
         return view('about.index')
             ->with('navMenu', HomeNavMenu::getNavMenu())
+            ->with('aboutMe', config('about_me', ""))
+            ->with('aboutSite', config('about_site', ""))
             ->with('accessData', $this->getAccessStatistic());
     }
 
