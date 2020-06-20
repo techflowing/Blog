@@ -112,6 +112,8 @@ Route::group([
     });
     // LeetCode题解生成
     Route::get('leetcode', 'LeetCodeCreateController@index');
+    // 思维导图
+    Route::resource('xmind', 'XMind\XMindAdminController');
 });
 
 // 测试
