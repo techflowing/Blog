@@ -95,6 +95,14 @@ mix.scripts([
     'resources/assets/admin/wiki/js/editor.md.config.js'
 ], 'public/static-admin/wiki/js/app.js');
 
+mix.styles([
+    'resources/assets/admin/xmind/css/app.css'
+], 'public/static-admin/xmind/css/app.css');
+
+mix.scripts([
+    'resources/assets/admin/xmind/js/app.js',
+], 'public/static-admin/xmind/js/app.js');
+
 mix.copyDirectory('resources/assets/admin/wiki/img/', 'public/static-admin/wiki/img');
 
 mix.copyDirectory('resources/assets/test', 'public/static-test');

@@ -15,7 +15,9 @@
     <![endif]-->
     {{--业务特定header，交由业务填充--}}
 
-    <link rel="stylesheet" href="{{ mix('/static-common/css/common.css') }}">
+    @empty($notUseCommonCss)
+        <link rel="stylesheet" href="{{ mix('/static-common/css/common.css') }}">
+    @endempty
 
     <script src="{{ mix('/static-common/js/common.js') }}"></script>
 

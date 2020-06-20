@@ -8,7 +8,9 @@
     "/static-blog/js/app.js": "/static-blog/js/app.js?id=61ac0d9579d7d6051e5d",
     "/static-wiki/css/app.css": "/static-wiki/css/app.css?id=44c718fbd81c9a4e35e7",
     "/static-wiki/js/app.js": "/static-wiki/js/app.js?id=79466180f15b0940c8fc",
-    "/static-about/css/app.css": "/static-about/css/app.css?id=99a958f2d2b176b1d84d",
+    "/static-about/css/app.css": "/static-about/css/app.css?id=87d3e509ae1fae647975",
     "/static-admin/wiki/css/app.css": "/static-admin/wiki/css/app.css?id=9577d5f03e872c3b67c5",
-    "/static-admin/wiki/js/app.js": "/static-admin/wiki/js/app.js?id=0f8c4113d65b60fd317d"
+    "/static-admin/wiki/js/app.js": "/static-admin/wiki/js/app.js?id=0f8c4113d65b60fd317d",
+    "/static-admin/xmind/css/app.css": "/static-admin/xmind/css/app.css?id=e4aaa44641ce71dadeeb",
+    "/static-admin/xmind/js/app.js": "/static-admin/xmind/js/app.js?id=da1bde2ff5de7f2ce36b"
 }

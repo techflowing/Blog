@@ -2,19 +2,21 @@
 
 namespace App\Http\Controllers\Admin\XMind;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\BaseController;
+use App\Http\ErrorDesc;
 use App\Model\XMind\XMind;
 use Encore\Admin\Controllers\ModelForm;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Layout\Content;
+use Illuminate\View\View;
 
 /**
  * 思维导图后台管理控制器
  * Class XMindAdminController
  * @package App\Http\Controllers\Admin\XMind
  */
-class XMindAdminController extends Controller
+class XMindAdminController extends BaseController
 {
 
     /**
@@ -54,6 +56,56 @@ class XMindAdminController extends Controller
     {
         return $content->header('编辑项目')
             ->body($this->form()->edit($id));
+    }
+
+    /**
+     * 编辑具体的思维导图
+     * @param int $id id
+     * @return View
+     */
+    public function editXMind($id)
+    {
+        if (empty($id) || $id <= 0) {
+            abort(404);
+        }
+        $mindProject = XMind::find($id);
+        if (empty($mindProject)) {
+            abort(404);
+        }
+        return view('admin.xmind.edit.index')
+            ->with("notUseCommonCss", true)
+            ->with("project", $mindProject);
+    }
+
+    /**
+     * 保存变动
+     * @param $id
+     * @return \Illuminate\Http\Response
+     */
+    public function save($id)
+    {
+        if ($this->isPost()) {
+            $data = $this->request->getContent();
+            if (empty($data)) {
+                return $this->buildResponse(ErrorDesc::REQUEST_BODY_EMPTY);
+            }
+
+            if (empty(XMind::find($id))) {
+                return $this->buildResponse(ErrorDesc::MIND_PROJECT_NOT_EXIST);
+            }
+
+            $data = json_decode($data);
+            $content = $data->content;
+            $result = XMind::where('id', '=', $id)
+                ->update(['content' => $content]);
+
+            if ($result) {
+                return $this->buildResponse(ErrorDesc::SUCCESS);
+            } else {
+                return $this->buildResponse(ErrorDesc::DB_ERROR);
+            }
+        }
+        return $this->buildResponse(ErrorDesc::METHOD_NOT_ALLOWED);
     }
 
     /**

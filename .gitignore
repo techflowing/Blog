@@ -22,5 +22,6 @@ yarn-error.log
 /public/static-blog/
 /public/static-test/
 /public/static-about/
+/public/static-bower/
 /public/media-store/
 /public/uploads/

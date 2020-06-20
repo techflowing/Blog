@@ -114,6 +114,18 @@ Route::group([
     Route::get('leetcode', 'LeetCodeCreateController@index');
     // 思维导图
     Route::resource('xmind', 'XMind\XMindAdminController');
+    Route::group([
+        'prefix' => 'xmind',
+        'namespace' => 'xmind'
+    ], function () {
+        // Wiki 编辑页面
+        Route::get('edit/{id}', 'XMindAdminController@editXMind')
+            ->name('xmind.edit')
+            ->where('id', '[0-9]+');
+        Route::post('save/{id}', 'XMindAdminController@save')
+            ->name('xmind.save')
+            ->where('id', '[0-9]+');
+    });
 });
 
 // 测试

@@ -26,4 +26,6 @@ class ErrorDesc
     const WIKI_PROJECT_PRIVATE = [202004, "Wiki 项目为私有项目，不允许公开访问"];
     const WIKI_DOC_NOT_EXIST = [202005, "Wiki Document 不存在"];
 
+    // 思维导图
+    const MIND_PROJECT_NOT_EXIST = [203001, "思维导图项目不存在"];
 }
