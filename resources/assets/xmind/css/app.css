@@ -1,0 +1,18 @@
+.page-content {
+    overflow: hidden;
+}
+
+.page-container {
+    display: block;
+}
+
+.category-container {
+    background: #2C2E2E;
+    height: 100%;
+    overflow: scroll;
+}
+
+.xmind-container {
+    height: 100%;
+    overflow: hidden;
+}

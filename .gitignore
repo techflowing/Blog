@@ -23,5 +23,6 @@ yarn-error.log
 /public/static-test/
 /public/static-about/
 /public/static-bower/
+/public/static-xmind/
 /public/media-store/
 /public/uploads/

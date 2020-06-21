@@ -80,6 +80,11 @@ mix.scripts([
 // Wiki 资源 - 复用部分 Wiki后台管理资源
 mix.copyDirectory('resources/assets/admin/wiki/img/', 'public/static-wiki/img');
 
+// 思维导图
+mix.styles([
+    'resources/assets/xmind/css/app.css'
+], 'public/static-xmind/css/app.css');
+
 // 关于页面资源
 mix.styles([
     'resources/assets/about/css/app.css'

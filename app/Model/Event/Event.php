@@ -18,5 +18,6 @@ class Event
     public static $LOCATION_BLOG = "blog";
     public static $LOCATION_WIKI = "wiki";
     public static $LOCATION_NAVIGATE = "navigate";
+    public static $LOCATION_XMIND = "xmind";
     public static $LOCATION_ABOUT = "about";
 }
