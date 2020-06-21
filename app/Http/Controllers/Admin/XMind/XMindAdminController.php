@@ -115,6 +115,16 @@ class XMindAdminController extends BaseController
     {
         $grid = new Grid(new XMind());
         $grid->name('名称');
+        $grid->type('类型')->display(function ($type) {
+            switch ($type) {
+                case XMind::$TYPE_PRIVATE:
+                    return "<span class='label label-danger'>私密</span>";
+                case XMind::$TYPE_PUBLIC:
+                    return "<span class='label label-success'>公开</span>";
+                default:
+                    return "<span class='label label-default'>未知-非法</span>";
+            }
+        });
         $grid->created_at('创建时间')->date('Y-m-d');
         $grid->updated_at('修改时间')->date('Y-m-d');
 
@@ -142,6 +152,11 @@ class XMindAdminController extends BaseController
         $form = new Form(new XMind());
 
         $form->text('name', "名称")->required();
+
+        $form->radio('type', "类型")
+            ->options([XMind::$TYPE_PUBLIC => '公开', XMind::$TYPE_PRIVATE => '私密'])
+            ->default(XMind::$TYPE_PUBLIC)
+            ->required();
 
         $form->footer(function ($footer) {
             // 去掉`查看`checkbox

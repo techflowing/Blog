@@ -16,6 +16,7 @@ class CreateXMindTable extends Migration
         Schema::create('xmind_map', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable(false);
+            $table->integer('type')->default(0)->comment('项目类型，1-公开/ 0-私密');
             $table->longText('content')->nullable(true);
             $table->timestamps();
         });

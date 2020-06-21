@@ -11,5 +11,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class XMind extends Model
 {
+    public static $TYPE_PRIVATE = 0;
+    public static $TYPE_PUBLIC = 1;
+
     protected $table = 'xmind_map';
 }
