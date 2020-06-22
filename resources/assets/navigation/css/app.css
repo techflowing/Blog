@@ -69,11 +69,23 @@
     margin-top: 50px;
 }
 
+.navigation-content {
+    height: 100%;
+    width: 100%;
+    padding: 30px 30px 0;
+}
+
 .navigation-category {
     color: #989898;
 }
 
 .page-container .main-content {
-    /*底部版权高度*/
-    padding-bottom: 40px;
+    /*底部版权高度 40px*/
+    padding: 0 0 40px;
+}
+
+.navigation-footer-container {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
 }

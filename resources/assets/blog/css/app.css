@@ -1,6 +1,24 @@
 .blog-container {
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+    box-sizing: border-box;
+    padding-bottom: 40px;
+}
+
+.blog-main-content {
     height: 100%;
     padding-top: 20px;
+}
+
+.blog-right-container {
+    padding-left: 0;
+}
+
+.blog-footer-container {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
 }
 
 .user-profile {
@@ -176,8 +194,6 @@ table.blog-article-table th {
 }
 
 .blog-article-container {
-    /*版权信息高度*/
-    padding-bottom: 40px;
     height: 100%;
     position: relative;
 }

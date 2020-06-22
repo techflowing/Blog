@@ -1,11 +1,23 @@
 .about-container {
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+    box-sizing: border-box;
+    padding-bottom: 60px;
+}
+
+.about-main-container {
     height: 100%;
     padding-top: 20px;
 }
 
+.about-footer-container {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
 .about-container-left {
-    /*版权信息高度*/
-    padding-bottom: 40px;
     height: 100%;
     position: relative;
     padding-right: 0;

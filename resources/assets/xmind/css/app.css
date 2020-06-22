@@ -1,18 +1,16 @@
-.page-content {
-    overflow: hidden;
-}
-
-.page-container {
+.xmind-container {
     display: block;
+    width: 100%;
+    height: 100%;
 }
 
 .category-container {
     background: #2C2E2E;
     height: 100%;
-    overflow: scroll;
+    overflow: auto;
 }
 
-.xmind-container {
+.xmind-map-container {
     height: 100%;
-    overflow: hidden;
+    overflow: auto;
 }

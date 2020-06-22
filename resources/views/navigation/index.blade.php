@@ -9,9 +9,13 @@
 
         <div class="main-content">
 
-            @include('navigation.content')
+            <div class="navigation-content">
+                @include('navigation.content')
+            </div>
 
-            @include('tpl-footer')
+            <div class="navigation-footer-container">
+                @include('tpl-footer')
+            </div>
 
         </div>
     </div>

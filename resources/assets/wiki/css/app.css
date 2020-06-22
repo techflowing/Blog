@@ -1,7 +1,20 @@
+.wiki-container {
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+    box-sizing: border-box;
+    padding-bottom: 40px;
+}
+
 .wiki-project-container {
     height: 100%;
     padding-top: 20px;
-    padding-bottom: 40px;
+}
+
+.wiki-footer-container {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
 }
 
 .wiki-doc-img {

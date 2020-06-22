@@ -24,6 +24,13 @@
 .page-content {
     height: 100%;
     width: 100%;
+    overflow: auto;
+}
+
+.fill-and-overflow-auto {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
 }
 
 footer.main-footer {
@@ -31,10 +38,10 @@ footer.main-footer {
     background-color: #1A1D1E;
     padding: 15px 30px;
     border-top: 1px solid #2c2c2c;
-    position: absolute;
-    bottom: 0;
     height: 40px;
     width: 100%;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 footer.main-footer .footer-text {
