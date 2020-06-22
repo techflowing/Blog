@@ -4,13 +4,55 @@
     height: 100%;
 }
 
-.category-container {
+.xmind-list-container {
     background: #2C2E2E;
     height: 100%;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 15px 0;
 }
 
 .xmind-map-container {
     height: 100%;
-    overflow: auto;
+    overflow: hidden;
+    position: relative;
+    padding: 0;
+}
+
+.xmind-footer-container {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+.xmind-item-name {
+    line-height: 16px;
+    font-size: 15px;
+    cursor: pointer;
+    color: #939494;
+    padding: 10px 20px;
+    margin-bottom: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.xmind-item-name:hover {
+    background: #353839;
+}
+
+.xmind-name {
+    margin: 15px;
+    font-size: 16px;
+    color: #979898;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    position: fixed;
+}
+
+.xmind-content {
+    height: 100%;
+    width: 100%;
+    padding: 15px 15px 50px 15px;
 }

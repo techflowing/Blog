@@ -48,6 +48,7 @@ Route::group(['prefix' => 'blog'], function () {
 Route::group(['prefix' => 'xmind'], function () {
     // 关于首页
     Route::get('/', 'XMindController@index');
+    Route::get('/content/{name}', 'XMindController@getContent');
 });
 
 // 关于页面配置

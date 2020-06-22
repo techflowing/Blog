@@ -85,6 +85,10 @@ mix.styles([
     'resources/assets/xmind/css/app.css'
 ], 'public/static-xmind/css/app.css');
 
+mix.scripts([
+    'resources/assets/xmind/js/app.js',
+], 'public/static-xmind/js/app.js');
+
 // 关于页面资源
 mix.styles([
     'resources/assets/about/css/app.css'
