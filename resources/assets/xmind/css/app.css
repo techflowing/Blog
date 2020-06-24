@@ -42,8 +42,8 @@
 }
 
 .xmind-name {
-    margin: 15px;
-    font-size: 16px;
+    margin: 8px;
+    font-size: 6px;
     color: #979898;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -54,5 +54,31 @@
 .xmind-content {
     height: 100%;
     width: 100%;
-    padding: 15px 15px 50px 15px;
+    padding: 25px 5px 25px 5px;
+}
+
+.xmind-zoom-container {
+    padding: 5px;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: #202C2E2E;
+    border-radius: 5px;
+    z-index: 100;
+}
+
+.xmind-zoom-img {
+    height: 24px;
+    width: 24px;
+    display: block;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+footer.main-footer {
+    background: transparent;
+    border-top: none;
+    height: 20px;
+    padding: 2px 0 0 0;
+    margin-top: 0;
 }

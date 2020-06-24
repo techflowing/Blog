@@ -1,13 +1,16 @@
 /**
  * 设置思维导图数据
+ * @param name 名称
  * @param jsonData JSON 格式数据
  */
-function setXMindData(jsonData) {
+function setXMindData(name, jsonData) {
+
+    $("#xmind-name").text(name);
+
     // console.log("加载内容：" + jsonData);
     let minder = window.minder;
     minder.execCommand('Theme', 'classic');
     minder.importData('json', jsonData);
-    minder.execCommand('hand');
 }
 
 /**
@@ -31,7 +34,7 @@ function loadXMindData(name) {
             layer.close(loading);
             if (res.errCode === 0) {
                 // console.log(res.data.content);
-                setXMindData(res.data.content);
+                setXMindData(name, res.data.content);
             } else {
                 layer.msg("获取内容失败：" + data.msg);
             }
@@ -41,6 +44,27 @@ function loadXMindData(name) {
             layer.msg("获取内容失败，请稍后重试");
         }
     });
+}
+
+/**
+ * 放大
+ */
+function zoomIn() {
+    window.minder.execCommand('ZoomIn');
+}
+
+/**
+ * 聚焦
+ */
+function zoomForce() {
+    window.minder.execCommand('camera', window.minder.getRoot(), 600);
+}
+
+/**
+ * 缩小
+ */
+function zoomOut() {
+    window.minder.execCommand('ZoomOut');
 }
 
 /**
@@ -56,6 +80,7 @@ $(document).ready(function () {
     window.minder = new kityminder.Minder({
         renderTo: '#xmind-content'
     });
+    minder.execCommand('hand');
 
-    setXMindData(window.current.content);
+    setXMindData(window.current.name, window.current.content);
 });

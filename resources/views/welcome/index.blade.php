@@ -5,7 +5,7 @@
 @section('content')
     <div class="welcome-container">
         <div class="welcome-center-container">
-            <div class="outer-circle" onclick="window.open('/blog','_self')">
+            <div class="outer-circle">
                 <div class="inner-circle">
                 </div>
                 <span></span>
@@ -24,7 +24,7 @@
             @isset($homeMenu)
                 <div class="welcome-nav-menu-container">
                     @foreach($homeMenu as $menu)
-                        <a class="welcome-nav-menu" href="/{{$menu->path}}">{{$menu->name}}</a>
+                        <a class="welcome-nav-menu" href="{{url("/".$menu->path)}}">{{$menu->name}}</a>
                     @endforeach
                 </div>
             @endisset

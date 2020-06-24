@@ -42,6 +42,7 @@ class AboutController extends BaseController
             $this->findAccessData(Event::$LOCATION_BLOG, "博客", $pv, $uv),
             $this->findAccessData(Event::$LOCATION_WIKI, "知识库", $pv, $uv),
             $this->findAccessData(Event::$LOCATION_NAVIGATE, "导航站", $pv, $uv),
+            $this->findAccessData(Event::$LOCATION_XMIND, "思维导图", $pv, $uv),
             $this->findAccessData(Event::$LOCATION_ABOUT, "关于", $pv, $uv)
         );
     }

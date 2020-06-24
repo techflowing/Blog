@@ -30,10 +30,16 @@
                 @endphp
             @endisset
 
-            <p class="xmind-name">{{$curName}}</p>
+            <p class="xmind-name" id="xmind-name"></p>
 
             <div class="xmind-content" id="xmind-content">
 
+            </div>
+
+            <div class="xmind-zoom-container">
+                <img class="xmind-zoom-img" onclick="zoomIn()" src="{{asset('static-xmind/img/zoom-in.png')}}">
+                <img class="xmind-zoom-img" onclick="zoomForce()" src="{{asset('static-xmind/img/focus.png')}}">
+                <img class="xmind-zoom-img" onclick="zoomOut()" src="{{asset('static-xmind/img/zoom-out.png')}}">
             </div>
 
             <div class="xmind-footer-container">

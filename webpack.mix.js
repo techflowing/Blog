@@ -89,6 +89,8 @@ mix.scripts([
     'resources/assets/xmind/js/app.js',
 ], 'public/static-xmind/js/app.js');
 
+mix.copyDirectory('resources/assets/xmind/img/', 'public/static-xmind/img');
+
 // 关于页面资源
 mix.styles([
     'resources/assets/about/css/app.css'
