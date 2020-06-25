@@ -129,7 +129,7 @@ Route::group([
     Route::resource('xmind', 'XMind\XMindAdminController');
     Route::group([
         'prefix' => 'xmind',
-        'namespace' => 'xmind'
+        'namespace' => 'XMind'
     ], function () {
         // Wiki 编辑页面
         Route::get('edit/{id}', 'XMindAdminController@editXMind')
