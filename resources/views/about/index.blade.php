@@ -55,6 +55,9 @@
                         <div class="access-statistic-detail">
                             <p class="about-item-title access-statistic-detail-title">访问统计</p>
                             @foreach($accessData as $item)
+                                @if(empty($item)|| empty($item->pv) || empty($item->uv))
+                                    @continue
+                                @endif
                                 <div class="access-statistic-item">
                                     <p class="access-statistic-item-name">{{$item->name}}</p>
                                     <div class="access-statistic-item-pv">

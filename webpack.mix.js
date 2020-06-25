@@ -96,6 +96,11 @@ mix.styles([
     'resources/assets/about/css/app.css'
 ], 'public/static-about/css/app.css');
 
+// 留言板资源
+mix.styles([
+    'resources/assets/guestbook/css/app.css'
+], 'public/static-guestbook/css/app.css');
+
 // 后台管理 - Wiki 资源
 mix.styles([
     'resources/assets/admin/wiki/css/custom.css'

@@ -51,6 +51,12 @@ Route::group(['prefix' => 'xmind'], function () {
     Route::get('/content/{name}', 'XMindController@getContent');
 });
 
+// 留言板
+Route::group(['prefix' => 'guestbook'], function () {
+    // 关于首页
+    Route::get('/', 'GuestBookController@index');
+});
+
 // 关于页面配置
 Route::group(['prefix' => 'about'], function () {
     // 关于首页

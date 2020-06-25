@@ -1,0 +1,78 @@
+.guest-book-container {
+    width: 100%;
+    min-height: 100%;
+    box-sizing: border-box;
+    position: relative;
+    padding-bottom: 40px;
+}
+
+.guest-book-footer-container {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.valine-container {
+    padding-top: 30px;
+}
+
+#vcomments .vcards .vcard {
+    padding: 15px 20px 0 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 4px 1px rgba(0, 0, 0, .12);
+    transition: all .3s
+}
+
+#vcomments .vcards .vcard:hover {
+    box-shadow: 0 0 8px 3px rgba(0, 0, 0, .12)
+}
+
+#vcomments .vcards .vcard .vh .vcard {
+    border: none;
+    box-shadow: none;
+}
+
+#vcomments .vcards .vcard .vh {
+    border-bottom: none;
+}
+
+#vcomments .vcards .vcard .vquote {
+    border-left: none;
+}
+
+#vcomments .vcards .vcard .vhead .vnick {
+    color: #C3C3C3;
+}
+
+#vcomments .vcards .vcard .vh .vmeta .vat {
+    color: #A0A0A0;
+}
+
+#vcomments .vcards .vcard .vh .vmeta .vat:hover {
+    color: #848484;
+}
+
+#vcomments .vwrap .vheader .vinput {
+    border-bottom: 1px dashed #676767;
+}
+
+#vcomments .vwrap .vheader .vinput:focus {
+    border-bottom: 1px dashed #9a9a9a;
+}
+
+#vcomments .vwrap {
+    border: 1px dashed #676767;
+}
+
+#vcomments .vpower {
+    visibility: hidden;
+}
+
+#vcomments a {
+    color: #2A6496;
+}
+
+#vcomments a:hover {
+    color: #264C7A;
+}
