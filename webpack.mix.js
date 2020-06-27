@@ -28,9 +28,9 @@ mix.scripts([
     'resources/assets/common/js/resizeable.js',
     'resources/assets/common/js/joinable.js',
     'resources/assets/common/js/bootstrap.min.js',
-    'resources/assets/common/js/xenon-api.js',
-    'resources/assets/common/js/xenon-toggles.js',
-    'resources/assets/common/js/xenon-custom.js',
+    // 'resources/assets/common/js/xenon-api.js',
+    // 'resources/assets/common/js/xenon-toggles.js',
+    // 'resources/assets/common/js/xenon-custom.js',
 ], 'public/static-common/js/common.js');
 
 // 公共资源-CSS
@@ -38,10 +38,10 @@ mix.styles([
     'resources/assets/common/css/font-awesome.min.css',
     'resources/assets/common/css/linecons.css',
     'resources/assets/common/css/bootstrap.css',
-    'resources/assets/common/css/xenon-components.css',
+    // 'resources/assets/common/css/xenon-components.css',
     'resources/assets/common/css/xenon-core.css',
-    'resources/assets/common/css/xenon-forms.css',
-    'resources/assets/common/css/xenon-skins.css',
+    // 'resources/assets/common/css/xenon-forms.css',
+    // 'resources/assets/common/css/xenon-skins.css',
     'resources/assets/common/css/common.css',
 ], 'public/static-common/css/common.css');
 
@@ -59,6 +59,10 @@ mix.styles([
 mix.styles([
     'resources/assets/navigation/css/app.css'
 ], 'public/static-navigation/css/app.css');
+
+mix.scripts([
+    'resources/assets/common/js/xenon-custom.js'
+], 'public/static-navigation/js/app.js');
 
 // 博客资源
 mix.styles([

@@ -30,6 +30,9 @@
 
 .xe-widget.xe-conversations {
     background: #2C2E2E;
+    position: relative;
+    margin-bottom: 0;
+    padding: 15px;
 }
 
 .xe-comment-entry img {
