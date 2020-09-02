@@ -1,3 +1,7 @@
+.page-content {
+    overflow: unset;
+}
+
 .editormd-container-mask {
     background-color: #2C2E2E;
 }

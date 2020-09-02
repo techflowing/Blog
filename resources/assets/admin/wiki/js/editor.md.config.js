@@ -21,7 +21,7 @@ $(document).ready(function () {
         fileUpload: true,
         fileUploadURL: '/admin/wiki/upload/file',
         htmlDecode: true,
-        emoji: true,
+        emoji: false,
         tocStartLevel: 1,
         tocm: true,
         theme: "dark",
@@ -33,7 +33,7 @@ $(document).ready(function () {
             "bold", "del", "italic", "quote", "|",
             "h1", "h2", "h3", "h4", "h5", "h6", "|",
             "list-ul", "list-ol", "hr", "|",
-            "link", "reference-link", "image", "file", "code", "preformatted-text", "code-block", "table", "datetime", "emoji", "html-entities", "pagebreak", "|",
+            "link", "reference-link", "image", "file", "code", "preformatted-text", "code-block", "table", "datetime", "html-entities", "pagebreak", "|",
             "goto-line", "watch", "preview", "fullscreen", "clear", "search", "|",
             "help", "info"
         ],

@@ -119,7 +119,7 @@ function showMarkdownContent(title, content) {
         htmlDecode: "style,script,iframe",
         tocm: true,
         tocContainer: "#editormd-toc-container",
-        emoji: true,
+        emoji: false,
         taskList: true,
         tex: true,
         flowChart: true,
