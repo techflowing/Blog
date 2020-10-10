@@ -74,7 +74,7 @@ $(document).ready(function () {
 
     // 绑定列表点击事件
     $(".xmind-item-name").click(function () {
-        loadXMindData($(this).text())
+        loadXMindData($(this).text().trim())
     });
 
     window.minder = new kityminder.Minder({

@@ -9,7 +9,9 @@
     height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
-    padding: 15px 0;
+    padding: 10px 0;
+    display: inline-block;
+    float: left;
 }
 
 .xmind-map-container {
@@ -26,19 +28,7 @@
 }
 
 .xmind-item-name {
-    line-height: 16px;
-    font-size: 15px;
     cursor: pointer;
-    color: #939494;
-    padding: 10px 20px;
-    margin-bottom: 0;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
-
-.xmind-item-name:hover {
-    background: #353839;
 }
 
 .xmind-name {
@@ -81,4 +71,33 @@ footer.main-footer {
     height: 20px;
     padding: 2px 0 0 0;
     margin-top: 0;
+}
+
+.sidebar-menu .main-menu li.has-sub > a:before {
+    content: none;
+}
+
+/*滚动条*/
+.xmind-list-container::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+/*滚动槽*/
+.xmind-list-container::-webkit-scrollbar-track {
+    border-radius: 2px;
+}
+
+/*滚动条滑块*/
+.xmind-list-container::-webkit-scrollbar-thumb {
+    background: #6d6e6f;
+    border-radius: 6px;
+}
+
+.xmind-list-container::-webkit-scrollbar-thumb:hover {
+    background: #9d9e9d;
+}
+
+.xmind-list-container::-webkit-scrollbar-track:hover {
+    background: #606262;
 }

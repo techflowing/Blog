@@ -6,15 +6,33 @@
 {{--页面Content--}}
 @section('content')
     <div class="xmind-container">
-        <div class="col-sm-2 col-lg-2 xmind-list-container">
-            @isset($projects)
-                @foreach($projects as $item)
-                    <p class="xmind-item-name">{{$item->name}}</p>
-                @endforeach
-            @endisset
+        <div class="xmind-list-container sidebar-menu">
+            <div class="sidebar-menu-inner">
+                @isset($projects)
+                    <ul id="main-menu" class="main-menu">
+                        @foreach($projects as $item)
+                            <li class="has-sub expanded">
+                                <a href="#" style="pointer-events: none">
+                                    <i class="fa fa-fw {{ $item->icon }}"></i>
+                                    <span class="title">{{ $item->title }}</span>
+                                </a>
+                                <ul style="display: block">
+                                    @foreach ($item->xminds as $xmind)
+                                        <li>
+                                            <a class="smooth xmind-item-name">
+                                                <span class="title">{{ $xmind->name }}</span>
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </li>
+                        @endforeach
+                    </ul>
+                @endisset
+            </div>
         </div>
 
-        <div class="col-sm-10 col-lg-10 xmind-map-container">
+        <div class="xmind-map-container">
 
             @php
                 $curName = '';

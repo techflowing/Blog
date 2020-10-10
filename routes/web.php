@@ -126,12 +126,13 @@ Route::group([
     // LeetCode题解生成
     Route::get('leetcode', 'LeetCodeCreateController@index');
     // 思维导图
-    Route::resource('xmind', 'XMind\XMindAdminController');
+    Route::resource('xmind/detail', 'XMind\XMindAdminController');
+    Route::resource('xmind/categories', 'XMind\XMindCategoryAdminController');
     Route::group([
-        'prefix' => 'xmind',
+        'prefix' => 'xmind/detail',
         'namespace' => 'XMind'
     ], function () {
-        // Wiki 编辑页面
+        // 思维导图 编辑页面
         Route::get('edit/{id}', 'XMindAdminController@editXMind')
             ->name('xmind.edit')
             ->where('id', '[0-9]+');

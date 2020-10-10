@@ -27,6 +27,31 @@
     overflow: auto;
 }
 
+/*滚动条*/
+.page-content::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+/*滚动槽*/
+.page-content::-webkit-scrollbar-track {
+    border-radius: 2px;
+}
+
+/*滚动条滑块*/
+.page-content::-webkit-scrollbar-thumb {
+    background: #6d6e6f;
+    border-radius: 6px;
+}
+
+.page-content::-webkit-scrollbar-thumb:hover {
+    background: #9d9e9d;
+}
+
+.page-content::-webkit-scrollbar-track:hover {
+    background: #606262;
+}
+
 .fill-and-overflow-auto {
     width: 100%;
     height: 100%;

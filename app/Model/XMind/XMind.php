@@ -15,4 +15,9 @@ class XMind extends Model
     public static $TYPE_PUBLIC = 1;
 
     protected $table = 'xmind_map';
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id');
+    }
 }

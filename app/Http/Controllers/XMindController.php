@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\ErrorDesc;
 use App\Model\Admin\HomeNavMenu;
 use App\Model\Event\Event;
+use App\Model\XMind\Category;
 use App\Model\XMind\XMind;
 use App\Util\StatisticUtil;
 use Encore\Admin\Facades\Admin;
@@ -29,16 +30,34 @@ class XMindController extends BaseController
 
         if (Admin::user() != null && Admin::user()->isAdministrator()) {
             // 登录账户显示所有文档，包含隐私文档
-            $project = XMind::orderBy('updated_at', 'DESC')->get();
+            $project = Category::with(
+                ['xminds' => function ($query) {
+                    $query->select('id', 'name', 'type', 'category_id', 'order')
+                        ->orderBy('order');
+                }])
+                ->orderBy('order')
+                ->get();
         } else {
-            $project = XMind::where('type', '=', XMind::$TYPE_PUBLIC)
-                ->orderBy('updated_at', 'DESC')
+            $project = Category::with(
+                ['xminds' => function ($query) {
+                    $query->select('id', 'name', 'type', 'category_id', 'order')
+                        ->where('type', '=', XMind::$TYPE_PUBLIC)
+                        ->orderBy('order');
+                }])
+                ->orderBy('order')
                 ->get();
         }
 
         $current = null;
         if (!empty($project)) {
-            $current = $project->first();
+            foreach ($project as $item) {
+                foreach ($item->xminds as $xmind) {
+                    if (!empty($xmind)) {
+                        $current = XMind::where('id', $xmind->id)->first();
+                        break 2;
+                    }
+                }
+            }
         }
 
         return view('xmind.index')

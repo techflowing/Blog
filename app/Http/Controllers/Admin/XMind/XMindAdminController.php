@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\XMind;
 
 use App\Http\Controllers\BaseController;
 use App\Http\ErrorDesc;
+use App\Model\XMind\Category;
 use App\Model\XMind\XMind;
 use Encore\Admin\Controllers\ModelForm;
 use Encore\Admin\Form;
@@ -115,6 +116,7 @@ class XMindAdminController extends BaseController
     {
         $grid = new Grid(new XMind());
         $grid->name('名称');
+        $grid->category()->title('分类');
         $grid->type('类型')->display(function ($type) {
             switch ($type) {
                 case XMind::$TYPE_PRIVATE:
@@ -125,12 +127,13 @@ class XMindAdminController extends BaseController
                     return "<span class='label label-default'>未知-非法</span>";
             }
         });
+        $grid->order('顺序');
         $grid->created_at('创建时间')->date('Y-m-d');
         $grid->updated_at('修改时间')->date('Y-m-d');
 
         $grid->actions(function ($actions) {
 
-            $href = "/admin/xmind/edit/" . $actions->row->id;
+            $href = "/admin/xmind/detail/edit/" . $actions->row->id;
             $actions->append("<a href=$href target='_blank'><i class='fa fa-paper-plane'></i></a>");
 
             // 去掉查看
@@ -157,6 +160,15 @@ class XMindAdminController extends BaseController
             ->options([XMind::$TYPE_PUBLIC => '公开', XMind::$TYPE_PRIVATE => '私密'])
             ->default(XMind::$TYPE_PUBLIC)
             ->required();
+
+        $form->text('order', '顺序')
+            ->default(10000)
+            ->attribute('min', 1)
+            ->attribute('max', 10000);
+
+        $form->select('category_id', '分类')
+            ->options(Category::selectOptions())
+            ->rules('required');
 
         $form->footer(function ($footer) {
             // 去掉`查看`checkbox

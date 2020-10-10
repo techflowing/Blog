@@ -28,7 +28,7 @@ function save() {
             type: 'POST',
             data: JSON.stringify(data),
             dataType: "json",
-            url: "/admin/xmind/save/" + window.project.id,
+            url: "/admin/xmind/detail/save/" + window.project.id,
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
             success: function (data) {
                 layer.close(loading);
