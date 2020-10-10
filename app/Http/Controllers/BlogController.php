@@ -99,14 +99,15 @@ class BlogController extends BaseController
     private function getBlogArticle($page, $size)
     {
         $document = WikiDocument::where('wiki_document.type', '=', WikiDocument::$TYPE_FILE)
-            ->whereIn('project_id', function ($query) {
+            ->whereIn('wiki_document.project_id', function ($query) {
                 $query->select('id')
                     ->from('wiki_project')
                     ->where('type', '=', WikiProject::$TYPE_PUBLIC)
                     ->where('sync_to_blog', '=', true);
             })
+            ->leftJoin('wiki_document as B', 'wiki_document.parent_id', '=', 'B.id')
             ->join('wiki_project', 'wiki_project.id', '=', 'wiki_document.project_id')
-            ->select('wiki_document.name as title', 'wiki_project.name as category', 'wiki_document.created_at')
+            ->select('wiki_document.name as title', 'B.name as p_title', 'wiki_project.name as category', 'wiki_document.created_at')
             ->orderBy('created_at', "DESC")
             ->offset(($page - 1) * $size)
             ->limit($size)

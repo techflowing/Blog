@@ -30,8 +30,9 @@ function getBlogListSuccess(data) {
     $('#blog-article-list-body').empty();
     // 添加子元素
     for (let item of data) {
+        let title = (item.p_title == null || item.p_title === "") ? item.title : item.p_title + " ➞ " + item.title;
         let dom = "<tr>\n" +
-            "<th class='col-sm-8'><a class='blog-article-name' target='_blank' href='" + item.link + "'>" + item.title + "</a></th>\n" +
+            "<th class='col-sm-8'><a class='blog-article-name' target='_blank' href='" + item.link + "'>" + title + "</a></th>\n" +
             "<th class='col-sm-2'>" + item.category + "</th>\n" +
             "<th class='col-sm-2'>" + item.date + "</th>\n" +
             "</tr>";

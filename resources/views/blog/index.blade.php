@@ -23,7 +23,8 @@
                             @foreach($blogArticle as $article)
                                 <tr>
                                     <th class='col-sm-8'>
-                                        <a class='blog-article-name' href='{{url($article->link)}}' target='_blank'>{{$article->title}}</a>
+                                        <a class='blog-article-name' href='{{url($article->link)}}'
+                                           target='_blank'>{{empty($article->p_title)? $article->title : $article->p_title." ➞ ".$article->title}}</a>
                                     </th>
                                     <th class='col-sm-2'>{{$article->category}}</th>
                                     <th class='col-sm-2'>{{$article->date}}</th>
