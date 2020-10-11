@@ -39,7 +39,7 @@ function getBlogListSuccess(data) {
         $('#blog-article-list-body').append(dom);
     }
     // 滚动到顶部
-    $('html,body').animate({scrollTop: 0}, 100);
+    $('.page-content').animate({scrollTop: 0}, 100);
 }
 
 $(document).ready(function () {

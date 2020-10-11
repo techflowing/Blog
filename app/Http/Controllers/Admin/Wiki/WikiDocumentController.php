@@ -43,7 +43,7 @@ class WikiDocumentController extends BaseController
     public function save($projectId)
     {
         if ($this->isPost()) {
-            $data = $this->request->getContent();
+            $data = $this->request->all();
             if (empty($data)) {
                 return $this->buildResponse(ErrorDesc::REQUEST_BODY_EMPTY);
             }
