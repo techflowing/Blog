@@ -28,72 +28,74 @@
 
 #### 欢迎页面
 
-![](http://techflowing.cn/media-store/wiki/img/202010/5f83017ed0f96_5f83017e.png)
+![](https://raw.githubusercontent.com/techflowing/Blog/master/screenshot/welcome.png)
 
 #### 博客站
 
-![](http://techflowing.cn/media-store/wiki/img/202010/5f8307efc0167_5f8307ef.png)
+![](https://raw.githubusercontent.com/techflowing/Blog/master/screenshot/blog.png)
 
 博客文章列表根据知识库单篇文章自动生成，非单独书写，功能包含：文章列表，文章分类列表，个人信息展示，文章数量统计，列表分页等
 
 #### 知识库
 
-![](http://techflowing.cn/media-store/wiki/img/202010/5f83094ecdf98_5f83094e.png)
+![](https://raw.githubusercontent.com/techflowing/Blog/master/screenshot/wiki.png)
 
 知识库模块为本网站的核心功能，也是完成此站点的最初目的，之前也曾尝试过一些类似 hexo 的静态博客站点，但苦于知识难成体系脉络，分布比较杂乱；笔记应用也曾经尝试过很多，也都有些不满意的地方，比如印象笔记不能无限分级之类的，所以才有了此站点，用于作者的知识学习、记录、积累、分享
 
 #### 思维导图
 
-![](http://techflowing.cn/media-store/wiki/img/202010/5f830468ca01d_5f830468.png)
+![](https://raw.githubusercontent.com/techflowing/Blog/master/screenshot/xmind.png)
 
 思维导图模块基于百度开源的 [KityMinder](https://github.com/fex-team/kityminder)，满足在线编辑、云端同步的功能
 
 #### 导航站
 
-![](http://techflowing.cn/media-store/wiki/img/202010/5f8306074b0c6_5f830607.png)
+![](https://raw.githubusercontent.com/techflowing/Blog/master/screenshot/navigation.png)
 
 导航站模块类似一个网络收藏夹，会记录一些自己常用的地址，以及非常酷的站点
 
 #### 留言板
 
-![](http://techflowing.cn/media-store/wiki/img/202010/5f830974e8c7c_5f830974.png)
+![](https://raw.githubusercontent.com/techflowing/Blog/master/screenshot/guestbook.png)
 
 留言板模块主要是提供一个可交流的窗口&平台，知识库和博客站单篇文章未开发评论系统，所以基于 [Valine](https://valine.js.org/) 最小成本的添加了此模块以便于提供可能需要的交流方式
 
 #### 关于
 
-![](http://techflowing.cn/media-store/wiki/img/202010/5f830999ed0f3_5f830999.png)
+![](https://raw.githubusercontent.com/techflowing/Blog/master/screenshot/about.png)
 
 关于模块用于设置一些网站信息，例如：关于我、关于本站、联系作者等，还包含了简单的页面访问统计
 
 #### 后台管理
 
 配置导航站地址分类
-![](http://techflowing.cn/media-store/wiki/img/202010/5f83157880731_5f831578.png)
+![](https://raw.githubusercontent.com/techflowing/Blog/master/screenshot/Lark20201011222114.png)
 
 配置导航站地址列表
-![](http://techflowing.cn/media-store/wiki/img/202010/5f8315a45929c_5f8315a4.png)
+![](https://raw.githubusercontent.com/techflowing/Blog/master/screenshot/Lark20201011222127.png)
 
 管理Wiki项目列表
-![](http://techflowing.cn/media-store/wiki/img/202010/5f8315d5326a6_5f8315d5.png)
+![](https://raw.githubusercontent.com/techflowing/Blog/master/screenshot/Lark20201011222140.png)
 
 具体 Wiki 项目内容编辑页面，支持拖动排序、文章组织位置变更等
-![](http://techflowing.cn/media-store/wiki/img/202010/5f831b5bad4cc_5f831b5b.png)
+![](https://raw.githubusercontent.com/techflowing/Blog/master/screenshot/Lark20201011224819.png)
 
 配置思维导图
-![](http://techflowing.cn/media-store/wiki/img/202010/5f8316045254e_5f831604.png)
+![](https://raw.githubusercontent.com/techflowing/Blog/master/screenshot/Lark20201011222202.png)
 
 生成LeetCode题解项目，需要基于一个 LeetCode 爬虫项目生成的 result.json 文件
-![](http://techflowing.cn/media-store/wiki/img/202010/5f8316407d6b5_5f831640.png)
+![](https://raw.githubusercontent.com/techflowing/Blog/master/screenshot/Lark20201011222213.png)
 
 媒体资源管理，文章的图片也会上传存储到这里
-![](http://techflowing.cn/media-store/wiki/img/202010/5f83166f21d6a_5f83166f.png)
+![](https://raw.githubusercontent.com/techflowing/Blog/master/screenshot/Lark20201011222226.png)
 
 站点顶部菜单配置，包含名称、顺序、打开方式等
-![](http://techflowing.cn/media-store/wiki/img/202010/5f83169f6b8d2_5f83169f.png)
+![](https://raw.githubusercontent.com/techflowing/Blog/master/screenshot/Lark20201011222239.png)
 
 网站其它配置，如个人信息、关于页面数据等
-![](http://techflowing.cn/media-store/wiki/img/202010/5f8319287b805_5f831928.png)
+![](https://raw.githubusercontent.com/techflowing/Blog/master/screenshot/Lark20201011222256.png)
+
+
 
 
 ## 致谢
