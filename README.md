@@ -1,79 +1,109 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+此项目为个人站源码项目，线上可以访问：[http://techflowing.cn/](http://techflowing.cn/) 查看效果，欢迎fork & star，不合理的地方也欢迎批评指正，求大佬轻喷 ......，
+更多详细介绍可参考 [个人站记录](http://techflowing.cn/wiki/detail/8)
 
-## About Laravel
+## 站点简介
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+##### 缘起
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+闲逛 GitHub 时发现一个网址导航网站项目 [WebStack-Laravel](https://github.com/hui-ho/WebStack-Laravel "WebStack-Laravel")，觉着这项目有意思，搞下试试，折腾尝试部署，成功；然后顺带看了眼 Laravel 官方文档，哎，这框架牛逼，好好看看。与此同时，我正在找一款能支持无限分级、目录和文件同时存在的，可云端同步的笔记应用，无果，对比多家后都不是很满意。算了，自己写一个吧，正好把之前的 Hexo 博客也一波给干掉，搞起！
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+理想很丰满，现实很骨感，PHP、大前端技能基本为零，项目写起来基本处于写一行查一行的状况，各种找示例参考，痛并快乐着！
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+##### 大事记
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+* 2020/10/11，开源
+* 2020/06/25，添加留言板模块
+* 2020/06/24，添加思维导图模块
+* 2020/06/19，完成关于模块
+* 2020/05/31，添加首页
+* 2020/05/30，完成博客模块
+* 2020/04/16，整体修改为黑色主题
+* 2020/04/13，完成 Wiki 模块
+* 2020/03/22，完成导航站模块
+* 2020/03/21，初始化项目
 
-## Laravel Sponsors
+## 功能模块
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+#### 欢迎页面
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
-- [云软科技](http://www.yunruan.ltd/)
+![](http://techflowing.cn/media-store/wiki/img/202010/5f83017ed0f96_5f83017e.png)
 
-## Contributing
+#### 博客站
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+![](http://techflowing.cn/media-store/wiki/img/202010/5f8307efc0167_5f8307ef.png)
 
-## Code of Conduct
+博客文章列表根据知识库单篇文章自动生成，非单独书写，功能包含：文章列表，文章分类列表，个人信息展示，文章数量统计，列表分页等
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+#### 知识库
 
-## Security Vulnerabilities
+![](http://techflowing.cn/media-store/wiki/img/202010/5f83094ecdf98_5f83094e.png)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+知识库模块为本网站的核心功能，也是完成此站点的最初目的，之前也曾尝试过一些类似 hexo 的静态博客站点，但苦于知识难成体系脉络，分布比较杂乱；笔记应用也曾经尝试过很多，也都有些不满意的地方，比如印象笔记不能无限分级之类的，所以才有了此站点，用于作者的知识学习、记录、积累、分享
 
-## License
+#### 思维导图
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+![](http://techflowing.cn/media-store/wiki/img/202010/5f830468ca01d_5f830468.png)
+
+思维导图模块基于百度开源的 [KityMinder](https://github.com/fex-team/kityminder)，满足在线编辑、云端同步的功能
+
+#### 导航站
+
+![](http://techflowing.cn/media-store/wiki/img/202010/5f8306074b0c6_5f830607.png)
+
+导航站模块类似一个网络收藏夹，会记录一些自己常用的地址，以及非常酷的站点
+
+#### 留言板
+
+![](http://techflowing.cn/media-store/wiki/img/202010/5f830974e8c7c_5f830974.png)
+
+留言板模块主要是提供一个可交流的窗口&平台，知识库和博客站单篇文章未开发评论系统，所以基于 [Valine](https://valine.js.org/) 最小成本的添加了此模块以便于提供可能需要的交流方式
+
+#### 关于
+
+![](http://techflowing.cn/media-store/wiki/img/202010/5f830999ed0f3_5f830999.png)
+
+关于模块用于设置一些网站信息，例如：关于我、关于本站、联系作者等，还包含了简单的页面访问统计
+
+#### 后台管理
+
+配置导航站地址分类
+![](http://techflowing.cn/media-store/wiki/img/202010/5f83157880731_5f831578.png)
+
+配置导航站地址列表
+![](http://techflowing.cn/media-store/wiki/img/202010/5f8315a45929c_5f8315a4.png)
+
+管理Wiki项目列表
+![](http://techflowing.cn/media-store/wiki/img/202010/5f8315d5326a6_5f8315d5.png)
+
+具体 Wiki 项目内容编辑页面，支持拖动排序、文章组织位置变更等
+![](http://techflowing.cn/media-store/wiki/img/202010/5f831b5bad4cc_5f831b5b.png)
+
+配置思维导图
+![](http://techflowing.cn/media-store/wiki/img/202010/5f8316045254e_5f831604.png)
+
+生成LeetCode题解项目，需要基于一个 LeetCode 爬虫项目生成的 result.json 文件
+![](http://techflowing.cn/media-store/wiki/img/202010/5f8316407d6b5_5f831640.png)
+
+媒体资源管理，文章的图片也会上传存储到这里
+![](http://techflowing.cn/media-store/wiki/img/202010/5f83166f21d6a_5f83166f.png)
+
+站点顶部菜单配置，包含名称、顺序、打开方式等
+![](http://techflowing.cn/media-store/wiki/img/202010/5f83169f6b8d2_5f83169f.png)
+
+网站其它配置，如个人信息、关于页面数据等
+![](http://techflowing.cn/media-store/wiki/img/202010/5f8319287b805_5f831928.png)
+
+
+## 致谢
+
+* [Laravel 7](https://learnku.com/docs/laravel/7.x "Laravel 7")
+* [WebStack-Laravel](https://github.com/hui-ho/WebStack-Laravel "WebStack-Laravel")
+* [Laravel-admin](https://laravel-admin.org/ "Laravel-admin")
+* [Editor.md](http://editor.md.ipandao.com/ "Editor.md")
+* [Layer ](https://layer.layui.com/ "Layer ")
+* [zTree](http://www.treejs.cn/v3/main.php#_zTreeInfo "zTree")
+* [SmartWiki](https://github.com/lifei6671/SmartWiki "SmartWiki")
+* [Valine](https://valine.js.org/)
+* [KityMinder](https://github.com/fex-team/kityminder)
