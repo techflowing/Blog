@@ -83,6 +83,9 @@
 配置思维导图
 ![](https://raw.githubusercontent.com/techflowing/Blog/master/screenshot/Lark20201011222202.png)
 
+思维导图后台编辑
+![](https://github.com/techflowing/Blog/blob/master/screenshot/Lark20201019105512.png)
+
 生成LeetCode题解项目，需要基于一个 LeetCode 爬虫项目生成的 result.json 文件
 ![](https://raw.githubusercontent.com/techflowing/Blog/master/screenshot/Lark20201011222213.png)
 
