@@ -122,6 +122,7 @@ clone 项目
 
 生成静态资源
 > npm install
+
 > npm run dev
 
 生成思维导图相关资源 [Kity Minder](https://github.com/fex-team/kityminder "Kity Minder")
