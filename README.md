@@ -98,7 +98,58 @@
 网站其它配置，如个人信息、关于页面数据等
 ![](https://raw.githubusercontent.com/techflowing/Blog/master/screenshot/Lark20201011222256.png)
 
+## 部署说明
+### 环境准备
+安装 PHP 7.3、MySQL、Nginx、Composer、npm、Bower
+> 需要PHP 7.3，7.4 版本 laraval-admin 验证码生成有点问题
 
+### 部署步骤
+
+clone 项目
+> git clone https://github.com/techflowing/Blog.git
+
+编辑配置（备份、阿里云OSS、备案等信息按需配置，非必须）
+> cp .env.example .env
+
+安装依赖
+> composer install
+
+生成Key
+> php artisan key:generate
+
+配置默认数据
+> php artisan migrate:refresh --seed
+
+生成静态资源
+> npm install
+> npm run dev
+
+生成思维导图相关资源 [Kity Minder](https://github.com/fex-team/kityminder "Kity Minder")
+> bower install
+
+测试
+> php artisan serve
+
+测试访问地址：http://127.0.0.1:8000  ，
+后台管理地址：http://127.0.0.1:8000/admin ，默认账户：admin，默认密码：admin
+
+测试没问题后，配置 Nginx，根目录指向 public 文件夹
+
+### 其它说明
+
+#### 定时备份
+[Laravel 数据库及项目文件自动备份指北](https://learnku.com/articles/16185/laravel-database-and-project-code-automatic-backup-north-spatielaravel-backup "Laravel 数据库及项目文件自动备份指北")
+
+[Laravel 定时任务](https://learnku.com/laravel/t/1402/laravel-timing-task "Laravel 定时任务")
+
+Laravel-backu 已经在项目集成，只需要配置阿里云 OSS 后基于 Linux Crontab 执行定时任务即可，每日凌晨会自动备份相关资源到阿里云OSS
+
+#### 留言板配置
+留言板基于 valine 实现，需要在后台配置自己的 APPID 和 APPKEY
+
+#### 常见问题
+
+[Mysql 8.0 认证方式问题](https://www.cnblogs.com/cndavidwang/p/9357684.html "Mysql 8.0 认证方式问题")
 
 
 ## 致谢

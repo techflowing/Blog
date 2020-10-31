@@ -12,217 +12,203 @@ class AdminMenuTableSeeder extends Seeder
      */
     public function run()
     {
-        
+
 
         \DB::table('admin_menu')->delete();
-        
+
         \DB::table('admin_menu')->insert(array (
-            0 => 
+            0 =>
             array (
-                'id' => 1,
-                'parent_id' => 0,
-                'order' => 1,
-                'title' => '仪表盘',
+                'created_at' => NULL,
                 'icon' => 'fa-bar-chart',
-                'uri' => '/',
+                'id' => 1,
+                'order' => 1,
+                'parent_id' => 0,
                 'permission' => NULL,
-                'created_at' => NULL,
+                'title' => '仪表盘',
                 'updated_at' => '2020-04-14 01:12:34',
+                'uri' => '/',
             ),
-            1 => 
+            1 =>
             array (
-                'id' => 2,
-                'parent_id' => 0,
-                'order' => 12,
-                'title' => '后台管理',
+                'created_at' => NULL,
                 'icon' => 'fa-cogs',
+                'id' => 2,
+                'order' => 12,
+                'parent_id' => 0,
+                'permission' => NULL,
+                'title' => '后台管理',
+                'updated_at' => '2020-10-09 00:21:04',
                 'uri' => NULL,
-                'permission' => NULL,
-                'created_at' => NULL,
-                'updated_at' => '2020-10-09 00:21:04',
             ),
-            2 => 
+            2 =>
             array (
-                'id' => 3,
-                'parent_id' => 2,
-                'order' => 13,
-                'title' => '用户',
+                'created_at' => NULL,
                 'icon' => 'fa-users',
+                'id' => 3,
+                'order' => 13,
+                'parent_id' => 2,
+                'permission' => NULL,
+                'title' => '用户',
+                'updated_at' => '2020-10-09 00:21:04',
                 'uri' => 'auth/users',
-                'permission' => NULL,
-                'created_at' => NULL,
-                'updated_at' => '2020-10-09 00:21:04',
             ),
-            3 => 
+            3 =>
             array (
-                'id' => 4,
-                'parent_id' => 2,
-                'order' => 14,
-                'title' => '角色',
+                'created_at' => NULL,
                 'icon' => 'fa-user',
+                'id' => 4,
+                'order' => 14,
+                'parent_id' => 2,
+                'permission' => NULL,
+                'title' => '角色',
+                'updated_at' => '2020-10-09 00:21:04',
                 'uri' => 'auth/roles',
-                'permission' => NULL,
-                'created_at' => NULL,
-                'updated_at' => '2020-10-09 00:21:04',
             ),
-            4 => 
+            4 =>
             array (
-                'id' => 5,
-                'parent_id' => 2,
-                'order' => 15,
-                'title' => '权限',
+                'created_at' => NULL,
                 'icon' => 'fa-ban',
+                'id' => 5,
+                'order' => 15,
+                'parent_id' => 2,
+                'permission' => NULL,
+                'title' => '权限',
+                'updated_at' => '2020-10-09 00:21:04',
                 'uri' => 'auth/permissions',
-                'permission' => NULL,
-                'created_at' => NULL,
-                'updated_at' => '2020-10-09 00:21:04',
             ),
-            5 => 
+            5 =>
             array (
-                'id' => 6,
-                'parent_id' => 2,
-                'order' => 16,
-                'title' => '菜单',
+                'created_at' => NULL,
                 'icon' => 'fa-bars',
-                'uri' => 'auth/menu',
-                'permission' => NULL,
-                'created_at' => NULL,
-                'updated_at' => '2020-10-09 00:21:04',
-            ),
-            6 => 
-            array (
-                'id' => 7,
+                'id' => 6,
+                'order' => 16,
                 'parent_id' => 2,
-                'order' => 17,
-                'title' => '操作日志',
-                'icon' => 'fa-history',
-                'uri' => 'auth/logs',
                 'permission' => NULL,
+                'title' => '菜单',
+                'updated_at' => '2020-10-09 00:21:04',
+                'uri' => 'auth/menu',
+            ),
+            6 =>
+            array (
                 'created_at' => NULL,
-                'updated_at' => '2020-10-09 00:21:04',
-            ),
-            7 => 
-            array (
-                'id' => 8,
-                'parent_id' => 0,
-                'order' => 2,
-                'title' => '导航-分类',
-                'icon' => 'fa-archive',
-                'uri' => 'navigation/categories',
+                'icon' => 'fa-history',
+                'id' => 7,
+                'order' => 17,
+                'parent_id' => 2,
                 'permission' => NULL,
+                'title' => '操作日志',
+                'updated_at' => '2020-10-09 00:21:04',
+                'uri' => 'auth/logs',
+            ),
+            7 =>
+            array (
                 'created_at' => '2019-01-21 12:07:46',
-                'updated_at' => '2020-04-14 01:14:58',
-            ),
-            8 => 
-            array (
-                'id' => 9,
+                'icon' => 'fa-archive',
+                'id' => 8,
+                'order' => 2,
                 'parent_id' => 0,
-                'order' => 3,
-                'title' => '导航-网站',
-                'icon' => 'fa-edge',
-                'uri' => 'navigation/sites',
                 'permission' => NULL,
+                'title' => '导航-分类',
+                'updated_at' => '2020-04-14 01:14:58',
+                'uri' => 'navigation/categories',
+            ),
+            8 =>
+            array (
                 'created_at' => '2019-01-21 14:39:27',
-                'updated_at' => '2020-04-14 01:14:58',
-            ),
-            9 => 
-            array (
-                'id' => 12,
+                'icon' => 'fa-edge',
+                'id' => 9,
+                'order' => 3,
                 'parent_id' => 0,
-                'order' => 5,
-                'title' => 'Wiki 管理',
-                'icon' => 'fa-wikipedia-w',
-                'uri' => 'wiki',
                 'permission' => NULL,
+                'title' => '导航-网站',
+                'updated_at' => '2020-04-14 01:14:58',
+                'uri' => 'navigation/sites',
+            ),
+            9 =>
+            array (
                 'created_at' => '2020-03-31 00:17:45',
-                'updated_at' => '2020-04-14 01:14:58',
-            ),
-            10 => 
-            array (
-                'id' => 14,
+                'icon' => 'fa-wikipedia-w',
+                'id' => 12,
+                'order' => 5,
                 'parent_id' => 0,
-                'order' => 4,
-                'title' => '文章管理',
-                'icon' => 'fa-file-text',
-                'uri' => 'article',
                 'permission' => NULL,
-                'created_at' => '2020-04-04 23:30:44',
+                'title' => 'Wiki 管理',
                 'updated_at' => '2020-04-14 01:14:58',
+                'uri' => 'wiki',
             ),
-            11 => 
+            10 =>
             array (
-                'id' => 16,
-                'parent_id' => 0,
-                'order' => 9,
-                'title' => '媒体库',
-                'icon' => 'fa-medium',
-                'uri' => 'media',
-                'permission' => NULL,
                 'created_at' => '2020-04-13 23:16:14',
-                'updated_at' => '2020-10-09 00:21:04',
-            ),
-            12 => 
-            array (
-                'id' => 25,
+                'icon' => 'fa-medium',
+                'id' => 16,
+                'order' => 9,
                 'parent_id' => 0,
-                'order' => 11,
-                'title' => '配置管理',
-                'icon' => 'fa-toggle-on',
-                'uri' => 'config',
                 'permission' => NULL,
+                'title' => '媒体库',
+                'updated_at' => '2020-10-09 00:21:04',
+                'uri' => 'media',
+            ),
+            11 =>
+            array (
                 'created_at' => '2020-04-14 01:10:44',
-                'updated_at' => '2020-10-09 00:21:04',
-            ),
-            13 => 
-            array (
-                'id' => 26,
+                'icon' => 'fa-toggle-on',
+                'id' => 25,
+                'order' => 11,
                 'parent_id' => 0,
-                'order' => 10,
-                'title' => '首页菜单',
-                'icon' => 'fa-navicon',
-                'uri' => 'nav',
                 'permission' => NULL,
+                'title' => '配置管理',
+                'updated_at' => '2020-10-09 00:21:04',
+                'uri' => 'config',
+            ),
+            12 =>
+            array (
                 'created_at' => '2020-04-14 01:11:52',
-                'updated_at' => '2020-10-09 00:21:04',
-            ),
-            14 => 
-            array (
-                'id' => 27,
+                'icon' => 'fa-navicon',
+                'id' => 26,
+                'order' => 10,
                 'parent_id' => 0,
-                'order' => 8,
-                'title' => 'LeetCode',
-                'icon' => 'fa-sort-numeric-asc',
-                'uri' => 'leetcode',
                 'permission' => NULL,
+                'title' => '首页菜单',
+                'updated_at' => '2020-10-09 00:21:04',
+                'uri' => 'nav',
+            ),
+            13 =>
+            array (
                 'created_at' => '2020-04-21 02:14:45',
+                'icon' => 'fa-sort-numeric-asc',
+                'id' => 27,
+                'order' => 8,
+                'parent_id' => 0,
+                'permission' => NULL,
+                'title' => 'LeetCode',
                 'updated_at' => '2020-10-09 00:21:04',
+                'uri' => 'leetcode',
             ),
-            15 => 
+            14 =>
             array (
-                'id' => 28,
-                'parent_id' => 0,
-                'order' => 7,
-                'title' => '思维导图',
-                'icon' => 'fa-sitemap',
-                'uri' => 'xmind/detail',
-                'permission' => NULL,
                 'created_at' => '2020-06-20 15:20:02',
-                'updated_at' => '2020-10-09 00:31:53',
-            ),
-            16 => 
-            array (
-                'id' => 29,
+                'icon' => 'fa-sitemap',
+                'id' => 28,
+                'order' => 7,
                 'parent_id' => 0,
-                'order' => 6,
-                'title' => '导图分类',
-                'icon' => 'fa-certificate',
-                'uri' => 'xmind/categories',
                 'permission' => NULL,
+                'title' => '思维导图',
+                'updated_at' => '2020-10-09 00:31:53',
+                'uri' => 'xmind/detail',
+            ),
+            15 =>
+            array (
                 'created_at' => '2020-10-09 00:20:53',
+                'icon' => 'fa-certificate',
+                'id' => 29,
+                'order' => 6,
+                'parent_id' => 0,
+                'permission' => NULL,
+                'title' => '导图分类',
                 'updated_at' => '2020-10-09 00:21:27',
+                'uri' => 'xmind/categories',
             ),
         ));
-        
-        
     }
 }

@@ -22,5 +22,6 @@ class DatabaseSeeder extends Seeder
         $this->call(NavigationCategoriesTableSeeder::class);
         $this->call(NavigationSitesTableSeeder::class);
         $this->call(AdminNavMenuConfigTableSeeder::class);
+        $this->call(AdminConfigTableSeeder::class);
     }
 }

@@ -168,7 +168,9 @@ class XMindAdminController extends BaseController
 
         $form->select('category_id', '分类')
             ->options(Category::selectOptions())
-            ->rules('required');
+            ->rules('required|regex:/^[1-9][0-9]*$/', [
+                'regex' => '请选择导图分类，如果没有请先新建'
+            ]);
 
         $form->footer(function ($footer) {
             // 去掉`查看`checkbox
