@@ -56,8 +56,9 @@
 
                 public_vars.$mainMenu.add(public_vars.$sidebarProfile).toggleClass('mobile-is-visible');
                 ps_destroy();
-                $("html, body").animate({
-                    scrollTop: $($(this).attr("href")).offset().top - 80
+
+                $(".page-content").animate({
+                    scrollTop: $($(this).attr("href")).offset().top - $(".main-content").offset().top - 10
                 }, {
                     duration: 500,
                     easing: "swing"
