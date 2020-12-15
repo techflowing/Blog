@@ -10,6 +10,23 @@
     width: 30px;
 }
 
+.editormd-preview-container table thead tr, .editormd-html-preview table thead tr {
+    background-color: #272727;
+}
+
+.markdown-body table tr {
+    background-color: #323232;
+    border-top: 1px solid #323232;
+}
+
+.markdown-body table th, .markdown-body table td {
+    border: 1px solid #353535;
+}
+
+.markdown-body table tr:nth-child(2n) {
+    background-color: #292929;
+}
+
 .wiki-editor-md {
     display: table-cell;
     position: relative;
@@ -493,3 +510,24 @@ ul.ztree.zTreeDragUL {
 	padding:0;
 	background:none;
 }*/
+
+/*自定义鼠标选中颜色*/
+::selection {
+    background: #C8C8C8;
+    color: #ffffff;
+}
+
+::-moz-selection {
+    background: #C8C8C8;
+    color: #ffffff;
+}
+
+::selection {
+    background: #C8C8C8;
+    color: #ffffff;
+}
+
+::-moz-selection {
+    background: #C8C8C8;
+    color: #ffffff;
+}

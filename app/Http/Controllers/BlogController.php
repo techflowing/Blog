@@ -73,12 +73,15 @@ class BlogController extends BaseController
 
     /**
      * 获取指定文章的详情页
+     * @param $doc_id
      * @param String $title 文章标题
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function getArticleDetail($title)
+    public function getArticleDetail($doc_id, $title)
     {
-        $doc = WikiDocument::where('name', '=', $title)->first();
+        $doc = WikiDocument::where('name', '=', $title)
+            ->where('id', '=', $doc_id)
+            ->first();
         if (empty($doc)) {
             abort(404);
         }
@@ -107,7 +110,7 @@ class BlogController extends BaseController
             })
             ->leftJoin('wiki_document as B', 'wiki_document.parent_id', '=', 'B.id')
             ->join('wiki_project', 'wiki_project.id', '=', 'wiki_document.project_id')
-            ->select('wiki_document.name as title', 'B.name as p_title', 'wiki_project.name as category', 'wiki_document.created_at')
+            ->select('wiki_document.id as id', 'wiki_document.name as title', 'B.name as p_title', 'wiki_project.name as category', 'wiki_document.created_at')
             ->orderBy('created_at', "DESC")
             ->offset(($page - 1) * $size)
             ->limit($size)
@@ -117,7 +120,7 @@ class BlogController extends BaseController
                 // 直接截取
                 $item->date = substr($item->created_at, 0, 10);
                 // 访问文章链接
-                $item->link = "/blog/detail/$item->title";
+                $item->link = "/blog/detail/$item->id/$item->title";
             }
             unset($item);
         }
