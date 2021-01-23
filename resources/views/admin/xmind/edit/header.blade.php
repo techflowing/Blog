@@ -3,8 +3,8 @@
     <link rel="stylesheet" href="{{asset('static-bower/bootstrap/dist/css/bootstrap.css')}}"/>
     <link rel="stylesheet" href="{{asset('static-bower/codemirror/lib/codemirror.css')}}"/>
     <link rel="stylesheet" href="{{asset('static-bower/hotbox/hotbox.css')}}"/>
-    <link rel="stylesheet" href="{{asset('static-bower/kityminder-core/dist/kityminder.core.css')}}"/>
-    <link rel="stylesheet" href="{{asset('static-bower/kityminder-editor/dist/kityminder.editor.css')}}"/>
+    <link rel="stylesheet" href="{{asset('static-xmind/css/kityminder.core.css')}}"/>
+    <link rel="stylesheet" href="{{asset('static-xmind/css/kityminder.editor.css')}}"/>
     <link rel="stylesheet" href="{{asset('static-bower/color-picker/dist/color-picker.min.css')}}"/>
 
     <link rel="stylesheet" href="{{asset('static-admin/xmind/css/app.css')}}"/>
@@ -27,8 +27,9 @@
     <script src="{{asset('static-bower/hotbox/hotbox.js')}}"></script>
     <script src="{{asset('static-bower/json-diff/json-diff.js')}}"></script>
     <script src="{{asset('static-bower/color-picker/dist/color-picker.min.js')}}"></script>
-    <script src="{{asset('static-bower/kityminder-core/dist/kityminder.core.min.js')}}"></script>
-    <script src="{{asset('static-bower/kityminder-editor/dist/kityminder.editor.min.js')}}"></script>
+    <script src="{{asset('static-xmind/js/kityminder.core.js')}}"></script>
+    <script src="{{asset('static-xmind/js/kityminder.editor.js')}}"></script>
+    <script src="{{asset('static-xmind/js/jquery.xml2json.js')}}"></script>
 
     <script src="{{asset('static-admin/xmind/js/app.js')}}"></script>
     <script src="{{ asset('static-third/layer/layer.js') }}"></script>

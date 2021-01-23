@@ -85,14 +85,8 @@ mix.scripts([
 mix.copyDirectory('resources/assets/admin/wiki/img/', 'public/static-wiki/img');
 
 // 思维导图
-mix.styles([
-    'resources/assets/xmind/css/app.css'
-], 'public/static-xmind/css/app.css');
-
-mix.scripts([
-    'resources/assets/xmind/js/app.js',
-], 'public/static-xmind/js/app.js');
-
+mix.copyDirectory('resources/assets/xmind/css/', 'public/static-xmind/css');
+mix.copyDirectory('resources/assets/xmind/js/', 'public/static-xmind/js');
 mix.copyDirectory('resources/assets/xmind/img/', 'public/static-xmind/img');
 
 // 关于页面资源

@@ -97,3 +97,20 @@ function dataURLtoBlob(dataurl) {
 $(document).ready(function () {
     window.editor.minder.importJson(JSON.parse(window.project.content));
 });
+
+/**
+ * 导入xmind
+ */
+window.onload = function () {
+    let fileInput = document.getElementById('xmind-input');
+    fileInput.addEventListener('change', function (e) {
+        let file = fileInput.files[0];
+        let reader = new FileReader();
+        reader.onload = function (e) {
+            window.editor.minder.importData('xmind', fileInput.files[0]).then(function (data) {
+                $(fileInput).val('');
+            });
+        };
+        reader.readAsText(file);
+    });
+};

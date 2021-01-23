@@ -29,6 +29,10 @@
     background: #3C3E3E;
 }
 
+#xmind-input {
+    display: none;
+}
+
 div.minder-editor-container {
     position: absolute;
     top: 40px;
