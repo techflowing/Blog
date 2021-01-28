@@ -10876,7 +10876,6 @@ _p[70] = {
                     var sheet = json.sheet;
                     var topic = sheet instanceof Array ? sheet[0].topic : sheet.topic;
                     processTopic(topic, result);
-                    console.log(result);
                     return result;
                 }
                 function getEntries(file, onend) {
@@ -10901,6 +10900,7 @@ _p[70] = {
                                     json = xml2km(parseXML(text));
                                     resolve(json);
                                 } catch (e) {
+                                    console.log(e);
                                     reject(e);
                                 }
                             });
@@ -10928,7 +10928,7 @@ _p[70] = {
                 return getEntries(local).then(readDocument);
             },
             encode: function(json, km, options) {
-                var url = "native-support/export.php";
+                var url = "xmind-export";
                 var data = JSON.stringify(json);
                 function fetch() {
                     return new Promise(function(resolve, reject) {

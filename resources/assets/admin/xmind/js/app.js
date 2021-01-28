@@ -73,6 +73,23 @@ function exportImage() {
 }
 
 /**
+ * 导出为Xmind文件
+ */
+function exportXMind() {
+    window.editor.minder.exportData('xmind').then(function (content) {
+        const reader = new FileReader();
+        reader.addEventListener("loadend", function () {
+            let res = JSON.parse(reader.result);
+            let a = document.createElement("a"); // 建立标签，模拟点击下载
+            // a.download = window.project.name + '.xmind';
+            a.href = res.data;
+            a.click();
+        });
+        reader.readAsText(content, 'utf-8');
+    })
+}
+
+/**
  * base64转换为图片blob
  */
 function dataURLtoBlob(dataurl) {

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1a82b24b6c893d39fbb193d6189583c3",
+    "content-hash": "8cbde0be635d16c61d8a0ecaac77eb11",
     "packages": [
         {
             "name": "aliyuncs/oss-sdk-php",
@@ -116,12 +116,12 @@
             "version": "6.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/caouecs/Laravel-lang.git",
+                "url": "https://github.com/caouecs/lang.git",
                 "reference": "1f21bad146c6a042f13f34b8db64966584699c57"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/caouecs/Laravel-lang/zipball/1f21bad146c6a042f13f34b8db64966584699c57",
+                "url": "https://api.github.com/repos/caouecs/lang/zipball/1f21bad146c6a042f13f34b8db64966584699c57",
                 "reference": "1f21bad146c6a042f13f34b8db64966584699c57",
                 "shasum": "",
                 "mirrors": [
@@ -158,6 +158,7 @@
                 "laravel",
                 "lpm"
             ],
+            "abandoned": "https://github.com/Laravel-Lang/lang",
             "time": "2020-03-17T15:39:13+00:00"
         },
         {
@@ -3413,6 +3414,49 @@
                 "laravel-admin"
             ],
             "time": "2019-02-06T14:24:39+00:00"
+        },
+        {
+            "name": "sinri/xmind-writer",
+            "version": "0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sinri/XMindWriter.git",
+                "reference": "4012739d5c2d6c63b2f35bbf9523978767346c1e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sinri/XMindWriter/zipball/4012739d5c2d6c63b2f35bbf9523978767346c1e",
+                "reference": "4012739d5c2d6c63b2f35bbf9523978767346c1e",
+                "shasum": "",
+                "mirrors": [
+                    {
+                        "url": "https://mirrors.aliyun.com/composer/dists/%package%/%reference%.%type%",
+                        "preferred": true
+                    }
+                ]
+            },
+            "require": {
+                "ext-xmlwriter": "*",
+                "ext-zip": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "sinri\\XMindWriter\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sinri Edogawa",
+                    "email": "e.joshua.s.e@gmail.com"
+                }
+            ],
+            "description": "XMind File Writer",
+            "time": "2020-01-03T07:17:29+00:00"
         },
         {
             "name": "spatie/db-dumper",

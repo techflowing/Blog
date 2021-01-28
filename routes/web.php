@@ -140,6 +140,8 @@ Route::group([
         Route::post('save/{id}', 'XMindAdminController@save')
             ->name('xmind.save')
             ->where('id', '[0-9]+');
+        Route::post('edit/xmind-export', 'XMindExportController@exportXMind')
+            ->name('xmind.export');
     });
 });
 

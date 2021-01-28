@@ -14,6 +14,7 @@ class VerifyCsrfToken extends Middleware
      */
     protected $except = [
         'admin/wiki/upload/img',
-        'admin/wiki/upload/file'
+        'admin/wiki/upload/file',
+        'admin/xmind/detail/edit/xmind-export'
     ];
 }
