@@ -1,3 +1,5 @@
+> 此项目已停止维护，站点已经基于 Spring Boot + React 重构 
+
 
 此项目为个人站源码项目，线上可以访问：[http://techflowing.cn/](http://techflowing.cn/) 查看效果，欢迎fork & star，不合理的地方也欢迎批评指正，求大佬轻喷 ......，
 更多详细介绍可参考 [个人站记录](http://techflowing.cn/wiki/detail/8)
